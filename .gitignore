@@ -210,7 +210,9 @@ Logs/
 sh.exe.stackdump
 
 # Web
-HRM.WebUI/wwwroot/
+/HRM.WebUI/wwwroot/
+/HRM.WebUI/wwwroot/*.js
+/HRM.WebUI/wwwroot/*.js.map
 
 # Custom Developer Connection Strings
 customconnectionstring.json
@@ -218,5 +220,6 @@ customconnectionstring.Development.json
 customconnectionstring.Production.json
 customconnectionstring.QC.json
 customconnectionstring.Staging.json
-HRM.WebUI/wwwroot/lib/
+HRM.WebUI/wwwroot/assets/
 .licenseheader
+/HRM.WebUI/wwwroot/main.js

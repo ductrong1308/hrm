@@ -18,6 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\helpers\url-serializer.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="6.0.1" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.1" />
@@ -39,6 +43,10 @@
     <ProjectReference Include="..\HRM.Application\HRM.Application.csproj" />
     <ProjectReference Include="..\HRM.Infrastructure\HRM.Infrastructure.csproj" />
     <ProjectReference Include="..\HRM.Persistence\HRM.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\helpers\url-serializer.ts" />
   </ItemGroup>
 
 </Project>

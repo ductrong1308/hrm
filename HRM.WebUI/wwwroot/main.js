@@ -118,26 +118,32 @@ var adminLteConf = {
     sidebarLeftMenu: [
         { label: 'MAIN NAVIGATION', separator: true },
         { label: 'Get Started', route: '/', iconClasses: 'fa fa-road', pullRights: [{ text: 'New', classes: 'label pull-right bg-green' }] },
-        { label: 'Layout', iconClasses: 'fa fa-th-list', children: [
+        {
+            label: 'Layout', iconClasses: 'fa fa-th-list', children: [
                 { label: 'Configuration', route: 'layout/configuration' },
                 { label: 'Custom', route: 'layout/custom' },
                 { label: 'Header', route: 'layout/header' },
                 { label: 'Sidebar Left', route: 'layout/sidebar-left' },
                 { label: 'Sidebar Right', route: 'layout/sidebar-right' },
                 { label: 'Content', route: 'layout/content' }
-            ] },
+            ]
+        },
         { label: 'COMPONENTS', separator: true },
         { label: 'Accordion', route: 'accordion', iconClasses: 'fa fa-tasks' },
         { label: 'Alert', route: 'alert', iconClasses: 'fa fa-exclamation-triangle' },
-        { label: 'Boxs', iconClasses: 'fa fa-files-o', children: [
+        {
+            label: 'Boxs', iconClasses: 'fa fa-files-o', children: [
                 { label: 'Default Box', route: 'boxs/box' },
                 { label: 'Info Box', route: 'boxs/info-box' },
                 { label: 'Small Box', route: 'boxs/small-box' }
-            ] },
+            ]
+        },
         { label: 'Dropdown', route: 'dropdown', iconClasses: 'fa fa-arrows-v' },
-        { label: 'Form', iconClasses: 'fa fa-files-o', children: [
+        {
+            label: 'Form', iconClasses: 'fa fa-files-o', children: [
                 { label: 'Input Text', route: 'form/input-text' }
-            ] },
+            ]
+        },
         { label: 'Tabs', route: 'tabs', iconClasses: 'fa fa-th' }
     ]
 };
@@ -159,144 +165,55 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home/home.component */ "./app/home/home.component.ts");
+/* harmony import */ var _helpers_url_serializer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/url-serializer */ "./app/helpers/url-serializer.ts");
+
 
 
 
 
 var routes = [
     {
-        path: '',
-        data: {
-            title: 'Get Started - Test'
-        },
+        path: '', data: { title: 'Home' },
         children: [
+            { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
+            { path: 'accordion', loadChildren: './+accordion/accordion.module#AccordionModule', data: { title: 'Accordion' } },
+            { path: 'alert', loadChildren: './+alert/alert.module#AlertModule', data: { title: 'Alert' } },
             {
-                path: '',
-                component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"]
-            }, {
-                path: 'accordion',
-                loadChildren: './+accordion/accordion.module#AccordionModule',
-                data: {
-                    title: 'Accordion'
-                }
-            }, {
-                path: 'alert',
-                loadChildren: './+alert/alert.module#AlertModule',
-                data: {
-                    title: 'Alert',
-                }
-            }, {
-                path: 'layout',
-                data: {
-                    title: 'Layout',
-                },
+                path: 'layout', data: { title: 'Layout' },
                 children: [
-                    {
-                        path: 'configuration',
-                        loadChildren: './+layout/configuration/configuration.module#ConfigurationModule',
-                        data: {
-                            title: 'Configuration'
-                        }
-                    }, {
-                        path: 'custom',
-                        loadChildren: './+layout/custom/custom.module#CustomModule',
-                        data: {
-                            title: 'Disable Layout'
-                            // disableLayout: true
-                        }
-                    }, {
-                        path: 'content',
-                        loadChildren: './+layout/content/content.module#ContentModule',
-                        data: {
-                            title: 'Content'
-                        }
-                    }, {
-                        path: 'header',
-                        loadChildren: './+layout/header/header.module#HeaderModule',
-                        data: {
-                            title: 'Header'
-                        }
-                    }, {
-                        path: 'sidebar-left',
-                        loadChildren: './+layout/sidebar-left/sidebar-left.module#SidebarLeftModule',
-                        data: {
-                            title: 'Sidebar Left'
-                        }
-                    }, {
-                        path: 'sidebar-right',
-                        loadChildren: './+layout/sidebar-right/sidebar-right.module#SidebarRightModule',
-                        data: {
-                            title: 'Sidebar Right'
-                        }
-                    },
+                    { path: 'configuration', loadChildren: './+layout/configuration/configuration.module#ConfigurationModule', data: { title: 'Configuration' } },
+                    { path: 'custom', loadChildren: './+layout/custom/custom.module#CustomModule', data: { title: 'Disable Layout' } },
+                    { path: 'content', loadChildren: './+layout/content/content.module#ContentModule', data: { title: 'Content' } },
+                    { path: 'header', loadChildren: './+layout/header/header.module#HeaderModule', data: { title: 'Header' } },
+                    { path: 'sidebar-left', loadChildren: './+layout/sidebar-left/sidebar-left.module#SidebarLeftModule', data: { title: 'Sidebar Left' } },
+                    { path: 'sidebar-right', loadChildren: './+layout/sidebar-right/sidebar-right.module#SidebarRightModule', data: { title: 'Sidebar Right' } },
                 ]
-            }, {
-                path: 'boxs',
-                data: {
-                    title: 'Boxs',
-                },
-                children: [
-                    {
-                        path: 'box',
-                        loadChildren: './+boxs/box-default/box-default.module#BoxDefaultModule',
-                        data: {
-                            title: 'Box'
-                        }
-                    }, {
-                        path: 'info-box',
-                        loadChildren: './+boxs/box-info/box-info.module#BoxInfoModule',
-                        data: {
-                            title: 'Info Box'
-                        }
-                    }, {
-                        path: 'small-box',
-                        loadChildren: './+boxs/box-small/box-small.module#BoxSmallModule',
-                        data: {
-                            title: 'Small Box'
-                        }
-                    }
-                ]
-            }, {
-                path: 'dropdown',
-                loadChildren: './+dropdown/dropdown.module#DropdownModule',
-                data: {
-                    title: 'Dropdown',
-                }
-            }, {
-                path: 'tabs',
-                loadChildren: './+tabs/tabs.module#TabsModule',
-                data: {
-                    title: 'Tabs',
-                }
-            }
-        ]
-    }, {
-        path: 'form',
-        data: {
-            title: 'Form',
-        },
-        children: [
+            },
             {
-                path: 'input-text',
-                loadChildren: './+form/input-text/input-text.module#InputTextModule',
-                data: {
-                    title: 'Input Text',
-                }
-            }
+                path: 'boxs', data: { title: 'Boxs' },
+                children: [
+                    { path: 'box', loadChildren: './+boxs/box-default/box-default.module#BoxDefaultModule', data: { title: 'Box' } },
+                    { path: 'info-box', loadChildren: './+boxs/box-info/box-info.module#BoxInfoModule', data: { title: 'Info Box' } },
+                    { path: 'small-box', loadChildren: './+boxs/box-small/box-small.module#BoxSmallModule', data: { title: 'Small Box' } }
+                ]
+            },
+            { path: 'dropdown', loadChildren: './+dropdown/dropdown.module#DropdownModule', data: { title: 'Dropdown' } },
+            { path: 'tabs', loadChildren: './+tabs/tabs.module#TabsModule', data: { title: 'Tabs' } },
+            {
+                path: 'form', data: { title: 'Form' },
+                children: [
+                    { path: 'input-text', loadChildren: './+form/input-text/input-text.module#InputTextModule', data: { title: 'Input Text' } }
+                ]
+            },
+            {
+                path: 'login', loadChildren: './+login/login.module#LoginModule', data: { customLayout: true }
+            },
+            {
+                path: 'register', loadChildren: './+register/register.module#RegisterModule',
+                data: { customLayout: true }
+            },
         ]
-    }, {
-        path: 'login',
-        loadChildren: './+login/login.module#LoginModule',
-        data: {
-            customLayout: true
-        }
-    }, {
-        path: 'register',
-        loadChildren: './+register/register.module#RegisterModule',
-        data: {
-            customLayout: true
-        }
-    },
+    }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -304,7 +221,13 @@ var AppRoutingModule = /** @class */ (function () {
     AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes)],
-            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+            exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+            providers: [
+                {
+                    provide: _angular_router__WEBPACK_IMPORTED_MODULE_2__["UrlSerializer"],
+                    useClass: _helpers_url_serializer__WEBPACK_IMPORTED_MODULE_4__["LowerCaseUrlSerializer"]
+                }
+            ],
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -6466,6 +6389,44 @@ var SidebarRightInnerComponent = /** @class */ (function () {
     ], SidebarRightInnerComponent);
     return SidebarRightInnerComponent;
 }());
+
+
+
+/***/ }),
+
+/***/ "./app/helpers/url-serializer.ts":
+/*!***************************************!*\
+  !*** ./app/helpers/url-serializer.ts ***!
+  \***************************************/
+/*! exports provided: LowerCaseUrlSerializer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LowerCaseUrlSerializer", function() { return LowerCaseUrlSerializer; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+
+
+
+var LowerCaseUrlSerializer = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](LowerCaseUrlSerializer, _super);
+    function LowerCaseUrlSerializer() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    LowerCaseUrlSerializer.prototype.parse = function (url) {
+        // Optional Step: Do some stuff with the url if needed.
+        // If you lower it in the optional step 
+        // you don't need to use "toLowerCase" 
+        // when you pass it down to the next function
+        return _super.prototype.parse.call(this, url.toLowerCase());
+    };
+    LowerCaseUrlSerializer = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])()
+    ], LowerCaseUrlSerializer);
+    return LowerCaseUrlSerializer;
+}(_angular_router__WEBPACK_IMPORTED_MODULE_1__["DefaultUrlSerializer"]));
 
 
 
