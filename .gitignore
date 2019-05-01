@@ -210,7 +210,7 @@ Logs/
 sh.exe.stackdump
 
 # Web
-Groove.LTL.Presentation.Web/wwwroot/
+HRM.WebUI/wwwroot/
 
 # Custom Developer Connection Strings
 customconnectionstring.json
@@ -218,5 +218,5 @@ customconnectionstring.Development.json
 customconnectionstring.Production.json
 customconnectionstring.QC.json
 customconnectionstring.Staging.json
-Groove.LTL.IdentityServer/wwwroot/lib/
+HRM.WebUI/wwwroot/lib/
 .licenseheader

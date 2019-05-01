@@ -1,24 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ButtonsModule } from '@progress/kendo-angular-buttons';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { adminLteConf } from './admin-lte.conf';
 
+import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core/core.module';
+
+import { LayoutModule } from './components/index';
+
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+
+import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ButtonsModule,
-    BrowserAnimationsModule
+    CoreModule,
+    LayoutModule.forRoot(adminLteConf),
+    LoadingPageModule, MaterialBarModule
   ],
-  providers: [],
+  declarations: [
+    AppComponent,
+    HomeComponent
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
