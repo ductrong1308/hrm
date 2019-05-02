@@ -23,7 +23,7 @@ import {
 
 import { TabToggleDirective } from './tabs.directive';
 
-import { removeListeners, removeSubscriptions } from '../helpers';
+import { removeListeners, removeSubscriptions } from '../../../helpers/helpers';
 
 // @TODO Vertical tabs
 

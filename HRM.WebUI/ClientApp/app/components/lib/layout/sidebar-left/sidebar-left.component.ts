@@ -21,8 +21,8 @@ import {HeaderService} from '../header/header.service';
 
 import {LayoutStore} from '../layout.store';
 
-import {AnimationEvent} from '../../animations/animations.interface';
-import {removeListeners, removeSubscriptions} from '../../helpers';
+import { AnimationEvent } from '../../animations/animations.interface';
+import { removeListeners, removeSubscriptions } from '../../../../helpers/helpers';
 
 import {SidebarLeftToggleDirective} from './sidebar-left.directive';
 

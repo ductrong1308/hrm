@@ -17,7 +17,7 @@ import {AnimationEvent} from '../animations/animations.interface';
 
 import {BoxContentDirective, BoxFooterDirective, BoxHeaderDirective, BoxToolsDirective} from './box.directive';
 
-import {removeListeners} from '../helpers';
+import { removeListeners } from '../../../helpers/helpers';
 
 /*
  *

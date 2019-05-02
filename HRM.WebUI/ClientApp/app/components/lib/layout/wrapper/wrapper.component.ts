@@ -1,6 +1,6 @@
 import { Component, OnInit, Renderer2, ElementRef, NgZone, OnDestroy } from '@angular/core';
 
-import { throttle, removeSubscriptions, removeListeners } from '../../helpers';
+import { throttle, removeSubscriptions, removeListeners } from '../../../../helpers/helpers';
 import { LayoutStore } from '../layout.store';
 import { WrapperService } from './wrapper.service';
 

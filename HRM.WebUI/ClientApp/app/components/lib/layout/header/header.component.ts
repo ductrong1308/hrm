@@ -15,7 +15,7 @@ import {LayoutStore} from '../layout.store';
 
 import {HeaderService} from './header.service';
 
-import {removeListeners, removeSubscriptions} from '../../helpers';
+import { removeListeners, removeSubscriptions } from '../../../../helpers/helpers';
 
 /**
  * Header Logo

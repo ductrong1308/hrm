@@ -36,10 +36,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\app\pages\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\HRM.Application\HRM.Application.csproj" />
     <ProjectReference Include="..\HRM.Infrastructure\HRM.Infrastructure.csproj" />
     <ProjectReference Include="..\HRM.Persistence\HRM.Persistence.csproj" />

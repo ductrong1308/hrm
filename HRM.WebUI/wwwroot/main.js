@@ -8,69 +8,25 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./+accordion/accordion.module": [
-		"./app/+accordion/accordion.module.ts",
-		"accordion-accordion-module"
+	"./pages/alert/alert.module": [
+		"./app/pages/alert/alert.module.ts",
+		"pages-alert-alert-module"
 	],
-	"./+alert/alert.module": [
-		"./app/+alert/alert.module.ts",
-		"alert-alert-module"
+	"./pages/layout/configuration/configuration.module": [
+		"./app/pages/layout/configuration/configuration.module.ts",
+		"pages-layout-configuration-configuration-module"
 	],
-	"./+boxs/box-default/box-default.module": [
-		"./app/+boxs/box-default/box-default.module.ts",
-		"boxs-box-default-box-default-module"
+	"./pages/layout/custom/custom.module": [
+		"./app/pages/layout/custom/custom.module.ts",
+		"pages-layout-custom-custom-module"
 	],
-	"./+boxs/box-info/box-info.module": [
-		"./app/+boxs/box-info/box-info.module.ts",
-		"boxs-box-info-box-info-module"
+	"./pages/login/login.module": [
+		"./app/pages/login/login.module.ts",
+		"pages-login-login-module"
 	],
-	"./+boxs/box-small/box-small.module": [
-		"./app/+boxs/box-small/box-small.module.ts",
-		"boxs-box-small-box-small-module"
-	],
-	"./+dropdown/dropdown.module": [
-		"./app/+dropdown/dropdown.module.ts",
-		"dropdown-dropdown-module"
-	],
-	"./+form/input-text/input-text.module": [
-		"./app/+form/input-text/input-text.module.ts",
-		"form-input-text-input-text-module"
-	],
-	"./+layout/configuration/configuration.module": [
-		"./app/+layout/configuration/configuration.module.ts",
-		"layout-configuration-configuration-module"
-	],
-	"./+layout/content/content.module": [
-		"./app/+layout/content/content.module.ts",
-		"layout-content-content-module"
-	],
-	"./+layout/custom/custom.module": [
-		"./app/+layout/custom/custom.module.ts",
-		"layout-custom-custom-module"
-	],
-	"./+layout/header/header.module": [
-		"./app/+layout/header/header.module.ts",
-		"layout-header-header-module"
-	],
-	"./+layout/sidebar-left/sidebar-left.module": [
-		"./app/+layout/sidebar-left/sidebar-left.module.ts",
-		"layout-sidebar-left-sidebar-left-module"
-	],
-	"./+layout/sidebar-right/sidebar-right.module": [
-		"./app/+layout/sidebar-right/sidebar-right.module.ts",
-		"layout-sidebar-right-sidebar-right-module"
-	],
-	"./+login/login.module": [
-		"./app/+login/login.module.ts",
-		"login-login-module"
-	],
-	"./+register/register.module": [
-		"./app/+register/register.module.ts",
-		"register-register-module"
-	],
-	"./+tabs/tabs.module": [
-		"./app/+tabs/tabs.module.ts",
-		"tabs-tabs-module"
+	"./pages/register/register.module": [
+		"./app/pages/register/register.module.ts",
+		"pages-register-register-module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -116,37 +72,23 @@ var adminLteConf = {
     // isSidebarRightOverContent: true,
     // layout: 'normal',
     sidebarLeftMenu: [
-        { label: 'MAIN NAVIGATION', separator: true },
-        { label: 'Get Started', route: '/', iconClasses: 'fa fa-road', pullRights: [{ text: 'New', classes: 'label pull-right bg-green' }] },
+        { label: 'PERSONAL', separator: true },
+        { label: 'My Dashboard', route: '/', iconClasses: 'fa fa-road' },
         {
-            label: 'Layout', iconClasses: 'fa fa-th-list', children: [
-                { label: 'Configuration', route: 'layout/configuration' },
-                { label: 'Custom', route: 'layout/custom' },
-                { label: 'Header', route: 'layout/header' },
-                { label: 'Sidebar Left', route: 'layout/sidebar-left' },
-                { label: 'Sidebar Right', route: 'layout/sidebar-right' },
-                { label: 'Content', route: 'layout/content' }
+            label: 'My Requests', iconClasses: 'fa fa-th-list', children: [
+                { label: 'Late-in / Early-out', route: 'layout/configuration' },
+                { label: 'Leave', route: 'layout/custom' }
             ]
         },
-        { label: 'COMPONENTS', separator: true },
-        { label: 'Accordion', route: 'accordion', iconClasses: 'fa fa-tasks' },
-        { label: 'Alert', route: 'alert', iconClasses: 'fa fa-exclamation-triangle' },
+        { label: 'COMPANY', separator: true },
+        { label: 'Employees', route: 'alert', iconClasses: 'fa fa-exclamation-triangle' },
         {
-            label: 'Boxs', iconClasses: 'fa fa-files-o', children: [
-                { label: 'Default Box', route: 'boxs/box' },
-                { label: 'Info Box', route: 'boxs/info-box' },
-                { label: 'Small Box', route: 'boxs/small-box' }
+            label: 'Requests', iconClasses: 'fa fa-files-o', children: [
+                { label: 'Late-in / Early-out', route: 'boxs/box' },
             ]
         },
-        { label: 'Dropdown', route: 'dropdown', iconClasses: 'fa fa-arrows-v' },
-        {
-            label: 'Form', iconClasses: 'fa fa-files-o', children: [
-                { label: 'Input Text', route: 'form/input-text' }
-            ]
-        },
-        { label: 'Tabs', route: 'tabs', iconClasses: 'fa fa-th' }
     ]
-};
+}; // font awesome
 
 
 /***/ }),
@@ -164,7 +106,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home/home.component */ "./app/home/home.component.ts");
+/* harmony import */ var _pages_home_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/home/home.component */ "./app/pages/home/home.component.ts");
 /* harmony import */ var _helpers_url_serializer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/url-serializer */ "./app/helpers/url-serializer.ts");
 
 
@@ -175,41 +117,26 @@ var routes = [
     {
         path: '', data: { title: 'Home' },
         children: [
-            { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
-            { path: 'accordion', loadChildren: './+accordion/accordion.module#AccordionModule', data: { title: 'Accordion' } },
-            { path: 'alert', loadChildren: './+alert/alert.module#AlertModule', data: { title: 'Alert' } },
+            { path: '', component: _pages_home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
+            { path: 'alert', loadChildren: './pages/alert/alert.module#AlertModule', data: { title: 'Alert' } },
             {
                 path: 'layout', data: { title: 'Layout' },
                 children: [
-                    { path: 'configuration', loadChildren: './+layout/configuration/configuration.module#ConfigurationModule', data: { title: 'Configuration' } },
-                    { path: 'custom', loadChildren: './+layout/custom/custom.module#CustomModule', data: { title: 'Disable Layout' } },
-                    { path: 'content', loadChildren: './+layout/content/content.module#ContentModule', data: { title: 'Content' } },
-                    { path: 'header', loadChildren: './+layout/header/header.module#HeaderModule', data: { title: 'Header' } },
-                    { path: 'sidebar-left', loadChildren: './+layout/sidebar-left/sidebar-left.module#SidebarLeftModule', data: { title: 'Sidebar Left' } },
-                    { path: 'sidebar-right', loadChildren: './+layout/sidebar-right/sidebar-right.module#SidebarRightModule', data: { title: 'Sidebar Right' } },
+                    { path: 'configuration', loadChildren: './pages/layout/configuration/configuration.module#ConfigurationModule', data: { title: 'Configuration' } },
+                    { path: 'custom', loadChildren: './pages/layout/custom/custom.module#CustomModule', data: { title: 'Disable Layout' } },
                 ]
             },
             {
                 path: 'boxs', data: { title: 'Boxs' },
                 children: [
-                    { path: 'box', loadChildren: './+boxs/box-default/box-default.module#BoxDefaultModule', data: { title: 'Box' } },
-                    { path: 'info-box', loadChildren: './+boxs/box-info/box-info.module#BoxInfoModule', data: { title: 'Info Box' } },
-                    { path: 'small-box', loadChildren: './+boxs/box-small/box-small.module#BoxSmallModule', data: { title: 'Small Box' } }
-                ]
-            },
-            { path: 'dropdown', loadChildren: './+dropdown/dropdown.module#DropdownModule', data: { title: 'Dropdown' } },
-            { path: 'tabs', loadChildren: './+tabs/tabs.module#TabsModule', data: { title: 'Tabs' } },
-            {
-                path: 'form', data: { title: 'Form' },
-                children: [
-                    { path: 'input-text', loadChildren: './+form/input-text/input-text.module#InputTextModule', data: { title: 'Input Text' } }
+                    { path: 'box', loadChildren: './pages/layout/configuration/configuration.module#ConfigurationModule', data: { title: 'Configuration' } },
                 ]
             },
             {
-                path: 'login', loadChildren: './+login/login.module#LoginModule', data: { customLayout: true }
+                path: 'login', loadChildren: './pages/login/login.module#LoginModule', data: { customLayout: true }
             },
             {
-                path: 'register', loadChildren: './+register/register.module#RegisterModule',
+                path: 'register', loadChildren: './pages/register/register.module#RegisterModule',
                 data: { customLayout: true }
             },
         ]
@@ -303,10 +230,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _admin_lte_conf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./admin-lte.conf */ "./app/admin-lte.conf.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app-routing.module */ "./app/app-routing.module.ts");
-/* harmony import */ var _core_core_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./core/core.module */ "./app/core/core.module.ts");
+/* harmony import */ var _pages_core_core_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/core/core.module */ "./app/pages/core/core.module.ts");
 /* harmony import */ var _components_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/index */ "./app/components/index.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./app/app.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./home/home.component */ "./app/home/home.component.ts");
+/* harmony import */ var _pages_home_home_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/home/home.component */ "./app/pages/home/home.component.ts");
 /* harmony import */ var angular_loading_page__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! angular-loading-page */ "../node_modules/angular-loading-page/esm5/angular-loading-page.js");
 
 
@@ -326,13 +253,13 @@ var AppModule = /** @class */ (function () {
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
-                _core_core_module__WEBPACK_IMPORTED_MODULE_5__["CoreModule"],
+                _pages_core_core_module__WEBPACK_IMPORTED_MODULE_5__["CoreModule"],
                 _components_index__WEBPACK_IMPORTED_MODULE_6__["LayoutModule"].forRoot(_admin_lte_conf__WEBPACK_IMPORTED_MODULE_3__["adminLteConf"]),
                 angular_loading_page__WEBPACK_IMPORTED_MODULE_9__["LoadingPageModule"], angular_loading_page__WEBPACK_IMPORTED_MODULE_9__["MaterialBarModule"]
             ],
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_8__["HomeComponent"]
+                _pages_home_home_component__WEBPACK_IMPORTED_MODULE_8__["HomeComponent"]
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
@@ -348,7 +275,7 @@ var AppModule = /** @class */ (function () {
 /*!*********************************!*\
   !*** ./app/components/index.ts ***!
   \*********************************/
-/*! exports provided: AccordionModule, AlertModule, BoxModule, BoxInfoModule, BoxSmallModule, BreadcrumbsModule, DropdownModule, InputGroupModule, InputTextModule, TabsModule, LayoutModule, LayoutService, LayoutStore */
+/*! exports provided: AlertModule, BreadcrumbsModule, DropdownModule, TabsModule, BoxModule, LayoutModule, LayoutService, LayoutStore */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -360,35 +287,20 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LayoutStore", function() { return _lib_layout_layout_module__WEBPACK_IMPORTED_MODULE_0__["LayoutStore"]; });
 
-/* harmony import */ var _lib_accordion_accordion_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/accordion/accordion.module */ "./app/components/lib/accordion/accordion.module.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AccordionModule", function() { return _lib_accordion_accordion_module__WEBPACK_IMPORTED_MODULE_1__["AccordionModule"]; });
+/* harmony import */ var _lib_alert_alert_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib/alert/alert.module */ "./app/components/lib/alert/alert.module.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AlertModule", function() { return _lib_alert_alert_module__WEBPACK_IMPORTED_MODULE_1__["AlertModule"]; });
 
-/* harmony import */ var _lib_alert_alert_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/alert/alert.module */ "./app/components/lib/alert/alert.module.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AlertModule", function() { return _lib_alert_alert_module__WEBPACK_IMPORTED_MODULE_2__["AlertModule"]; });
+/* harmony import */ var _lib_breadcrumbs_breadcrumbs_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lib/breadcrumbs/breadcrumbs.module */ "./app/components/lib/breadcrumbs/breadcrumbs.module.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BreadcrumbsModule", function() { return _lib_breadcrumbs_breadcrumbs_module__WEBPACK_IMPORTED_MODULE_2__["BreadcrumbsModule"]; });
 
-/* harmony import */ var _lib_box_box_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/box/box.module */ "./app/components/lib/box/box.module.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BoxModule", function() { return _lib_box_box_module__WEBPACK_IMPORTED_MODULE_3__["BoxModule"]; });
+/* harmony import */ var _lib_dropdown_dropdown_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lib/dropdown/dropdown.module */ "./app/components/lib/dropdown/dropdown.module.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DropdownModule", function() { return _lib_dropdown_dropdown_module__WEBPACK_IMPORTED_MODULE_3__["DropdownModule"]; });
 
-/* harmony import */ var _lib_box_info_box_info_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/box-info/box-info.module */ "./app/components/lib/box-info/box-info.module.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BoxInfoModule", function() { return _lib_box_info_box_info_module__WEBPACK_IMPORTED_MODULE_4__["BoxInfoModule"]; });
+/* harmony import */ var _lib_tabs_tabs_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./lib/tabs/tabs.module */ "./app/components/lib/tabs/tabs.module.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TabsModule", function() { return _lib_tabs_tabs_module__WEBPACK_IMPORTED_MODULE_4__["TabsModule"]; });
 
-/* harmony import */ var _lib_box_small_box_small_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./lib/box-small/box-small.module */ "./app/components/lib/box-small/box-small.module.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BoxSmallModule", function() { return _lib_box_small_box_small_module__WEBPACK_IMPORTED_MODULE_5__["BoxSmallModule"]; });
-
-/* harmony import */ var _lib_breadcrumbs_breadcrumbs_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lib/breadcrumbs/breadcrumbs.module */ "./app/components/lib/breadcrumbs/breadcrumbs.module.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BreadcrumbsModule", function() { return _lib_breadcrumbs_breadcrumbs_module__WEBPACK_IMPORTED_MODULE_6__["BreadcrumbsModule"]; });
-
-/* harmony import */ var _lib_dropdown_dropdown_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./lib/dropdown/dropdown.module */ "./app/components/lib/dropdown/dropdown.module.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DropdownModule", function() { return _lib_dropdown_dropdown_module__WEBPACK_IMPORTED_MODULE_7__["DropdownModule"]; });
-
-/* harmony import */ var _lib_form_input_group_input_group_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./lib/form/input-group/input-group.module */ "./app/components/lib/form/input-group/input-group.module.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InputGroupModule", function() { return _lib_form_input_group_input_group_module__WEBPACK_IMPORTED_MODULE_8__["InputGroupModule"]; });
-
-/* harmony import */ var _lib_form_input_text_input_text_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./lib/form/input-text/input-text.module */ "./app/components/lib/form/input-text/input-text.module.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "InputTextModule", function() { return _lib_form_input_text_input_text_module__WEBPACK_IMPORTED_MODULE_9__["InputTextModule"]; });
-
-/* harmony import */ var _lib_tabs_tabs_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./lib/tabs/tabs.module */ "./app/components/lib/tabs/tabs.module.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TabsModule", function() { return _lib_tabs_tabs_module__WEBPACK_IMPORTED_MODULE_10__["TabsModule"]; });
+/* harmony import */ var _lib_box_box_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./lib/box/box.module */ "./app/components/lib/box/box.module.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "BoxModule", function() { return _lib_box_box_module__WEBPACK_IMPORTED_MODULE_5__["BoxModule"]; });
 
 /*
  * Public API Surface of angular-admin-lte
@@ -398,461 +310,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
-
-
-
-/***/ }),
-
-/***/ "./app/components/lib/accordion/accordion.component.html":
-/*!***************************************************************!*\
-  !*** ./app/components/lib/accordion/accordion.component.html ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div [ngClass]=\"styleClass\">\n  <div *ngFor=\"let accordion of accordionComponents\" class=\"panel box\" [mkColor]=\"accordion.borderColor\" mkColorProperty=\"border-top-color\" mkColorPrefix=\"box\">\n    <div [ngClass]=\"accordion.headerStyleClass\" [class.no-border]=\"accordion.isCollapsed && !accordion.isCollapsing\">\n      <h4 class=\"box-title\">\n        <a [mkAccordionToggle]=\"accordion\" href=\"#\" [mkFontColor]=\"accordion.headerStyleColor\" [class.collapsed]=\"accordion.isCollapsed\">\n          {{accordion.header}}\n          <ng-template *ngIf=\"!accordion.header\" [ngTemplateOutlet]=\"accordion.accordionHeaderComponent?.templateRef\"></ng-template>\n        </a>\n      </h4>\n    </div>\n    <div class=\"panel-collapse\" [mkCollapseAnimation]=\"accordion.isCollapsed\" (mkCollapseAnimation.start)=\"collapseStart($event, accordion)\" (mkCollapseAnimation.done)=\"collapseDone($event, accordion)\">\n      <div [ngClass]=\"accordion.contentStyleClass\" [mkFontColor]=\"accordion.contentColor\">\n        <ng-template [ngTemplateOutlet]=\"accordion.contentTemplateRef\"></ng-template>\n      </div>\n    </div>\n  </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "./app/components/lib/accordion/accordion.component.ts":
-/*!*************************************************************!*\
-  !*** ./app/components/lib/accordion/accordion.component.ts ***!
-  \*************************************************************/
-/*! exports provided: AccordionHeaderComponent, AccordionContentComponent, AccordionComponent, AccordionGroupComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccordionHeaderComponent", function() { return AccordionHeaderComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccordionContentComponent", function() { return AccordionContentComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccordionComponent", function() { return AccordionComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccordionGroupComponent", function() { return AccordionGroupComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _accordion_directive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./accordion.directive */ "./app/components/lib/accordion/accordion.directive.ts");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers */ "./app/components/lib/helpers.ts");
-
-
-
-
-/*
- *
- */
-var AccordionHeaderComponent = /** @class */ (function () {
-    function AccordionHeaderComponent() {
-    }
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('templateRef'),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
-    ], AccordionHeaderComponent.prototype, "templateRef", void 0);
-    AccordionHeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'mk-accordion-header',
-            template: '<ng-template #templateRef><ng-content></ng-content></ng-template>'
-        })
-    ], AccordionHeaderComponent);
-    return AccordionHeaderComponent;
-}());
-
-/*
- *
- */
-var AccordionContentComponent = /** @class */ (function () {
-    function AccordionContentComponent() {
-    }
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('templateRef'),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
-    ], AccordionContentComponent.prototype, "templateRef", void 0);
-    AccordionContentComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'mk-accordion-content',
-            template: '<ng-template #templateRef><ng-content></ng-content></ng-template>'
-        })
-    ], AccordionContentComponent);
-    return AccordionContentComponent;
-}());
-
-/*
- *
- */
-var AccordionComponent = /** @class */ (function () {
-    function AccordionComponent() {
-        this.contentStyleClass = 'box-body';
-        this.headerStyleClass = 'box-header with-border';
-    }
-    /**
-     * @method ngOnInit
-     */
-    AccordionComponent.prototype.ngOnInit = function () {
-        this.headerStyleColor = this.headerColor;
-        if (!this.header && !this.accordionHeaderComponent) {
-            throw new Error('Attribute "header" OR Component "mk-+accordion-header" is required for component "mk-+accordion"');
-        }
-        if (this.accordionContentComponent) {
-            this.contentTemplateRef = this.accordionContentComponent.templateRef;
-        }
-        else {
-            this.contentTemplateRef = this.templateRef;
-        }
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], AccordionComponent.prototype, "borderColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], AccordionComponent.prototype, "contentColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], AccordionComponent.prototype, "contentStyleClass", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], AccordionComponent.prototype, "header", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], AccordionComponent.prototype, "headerColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], AccordionComponent.prototype, "headerColorHover", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], AccordionComponent.prototype, "headerStyleClass", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"])(AccordionHeaderComponent),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", AccordionHeaderComponent)
-    ], AccordionComponent.prototype, "accordionHeaderComponent", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"])(AccordionContentComponent),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", AccordionContentComponent)
-    ], AccordionComponent.prototype, "accordionContentComponent", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('templateRef'),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"])
-    ], AccordionComponent.prototype, "templateRef", void 0);
-    AccordionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'mk-accordion',
-            template: '<ng-template #templateRef><ng-content></ng-content></ng-template>'
-        })
-    ], AccordionComponent);
-    return AccordionComponent;
-}());
-
-/*
- *
- */
-var AccordionGroupComponent = /** @class */ (function () {
-    /**
-     * @method constructor
-     * @param changeDetectorRef [description]
-     * @param ngZone            [description]
-     * @param renderer2         [description]
-     */
-    function AccordionGroupComponent(changeDetectorRef, ngZone, renderer2) {
-        this.changeDetectorRef = changeDetectorRef;
-        this.ngZone = ngZone;
-        this.renderer2 = renderer2;
-        this.activeIndex = [0];
-        // @TODO change types for listeners to all files
-        this.listeners = [];
-        // @TODO change types for subscriptions to all files
-        this.subscriptions = [];
-        this.styleClass = 'box-group';
-        this.onCollapseStart = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        this.onCollapseDone = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-    }
-    AccordionGroupComponent_1 = AccordionGroupComponent;
-    Object.defineProperty(AccordionGroupComponent.prototype, "_activeIndex", {
-        set: function (value) {
-            this.activeIndex = value instanceof Array ? value : [value];
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * [headerMouseLeave description]
-     * @method headerMouseLeave
-     * @param accordion [description]
-     */
-    AccordionGroupComponent.headerMouseLeave = function (accordion) {
-        accordion.headerStyleColor = accordion.headerColor;
-    };
-    /**
-     * [headerMouseEnter description]
-     * @method headerMouseEnter
-     * @param accordion [description]
-     */
-    AccordionGroupComponent.headerMouseEnter = function (accordion) {
-        if (accordion.headerColorHover) {
-            accordion.headerStyleColor = accordion.headerColorHover;
-        }
-    };
-    /**
-     * @method ngAfterViewInit
-     */
-    AccordionGroupComponent.prototype.ngAfterContentInit = function () {
-        var _this = this;
-        this.setAccordionsIndex();
-        this.updateAccordionIsCollapsed();
-        this.subscriptions.push(this.accordionComponents.changes.subscribe(function () {
-            _this.setAccordionsIndex();
-        }));
-    };
-    /**
-     * @method ngAfterViewInit
-     */
-    AccordionGroupComponent.prototype.ngAfterViewInit = function () {
-        var _this = this;
-        this.setAccordionsToggle();
-        this.subscriptions.push(this.accordionToggleDirectives.changes.subscribe(function () {
-            _this.setAccordionsToggle();
-        }));
-    };
-    /**
-     * [ngOnChanges description]
-     * @method ngOnChanges
-     * @param changes [description]
-     * @return [description]
-     */
-    AccordionGroupComponent.prototype.ngOnChanges = function (changes) {
-        if (changes._activeIndex.firstChange === false) {
-            this.updateAccordionIsCollapsed();
-        }
-    };
-    /**
-     * @method ngOnDestroy
-     */
-    AccordionGroupComponent.prototype.ngOnDestroy = function () {
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["removeListeners"])(this.listeners);
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["removeSubscriptions"])(this.subscriptions);
-    };
-    /**
-     * [toggleAccordion description]
-     * @method toggleAccordion
-     * @param event       [description]
-     * @param toggleIndex [description]
-     */
-    AccordionGroupComponent.prototype.toggleAccordion = function (event, toggleIndex) {
-        event.preventDefault();
-        var indexOf = this.activeIndex['indexOf'](toggleIndex);
-        if (indexOf === -1) {
-            if (this.isMultiple) {
-                this.activeIndex.push(toggleIndex);
-            }
-            else {
-                this.activeIndex = [toggleIndex];
-            }
-        }
-        else {
-            if (this.isMultiple) {
-                this.activeIndex.splice(indexOf, 1);
-            }
-            else {
-                this.activeIndex = [];
-            }
-        }
-        this.updateAccordionIsCollapsed();
-    };
-    /**
-     * [collapseStart description]
-     * @method collapseStart
-     * @param event [description]
-     * @param accordion [description]
-     */
-    AccordionGroupComponent.prototype.collapseStart = function (event, accordion) {
-        accordion.isCollapsing = true;
-        this.onCollapseStart.emit({ animationEvent: event, index: accordion.index });
-    };
-    /**
-     * [collapseDone description]
-     * @method collapseDone
-     * @param event [description]
-     * @param accordion [description]
-     */
-    AccordionGroupComponent.prototype.collapseDone = function (event, accordion) {
-        accordion.isCollapsing = false;
-        this.onCollapseDone.emit({ animationEvent: event, index: accordion.index });
-    };
-    /**
-     * [setAccordionsIndex description]
-     * @method setAccordionsIndex
-     */
-    AccordionGroupComponent.prototype.setAccordionsIndex = function () {
-        this.accordionComponents.forEach(function (accordion, index) {
-            accordion.index = index;
-        });
-    };
-    /**
-     * [setAccordionsToggle description]
-     * @method setAccordionsToggle
-     */
-    AccordionGroupComponent.prototype.setAccordionsToggle = function () {
-        var _this = this;
-        this.listeners = Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["removeListeners"])(this.listeners);
-        this.ngZone.runOutsideAngular(function () {
-            _this.accordionToggleDirectives.forEach(function (accordionToggle) {
-                _this.listeners.push(_this.renderer2.listen(accordionToggle.elementRef.nativeElement, 'click', function (event) {
-                    _this.toggleAccordion(event, accordionToggle.accordionComponent.index);
-                    _this.changeDetectorRef.detectChanges();
-                }));
-                _this.listeners.push(_this.renderer2.listen(accordionToggle.elementRef.nativeElement, 'mouseenter', function () {
-                    AccordionGroupComponent_1.headerMouseEnter(accordionToggle.accordionComponent);
-                    _this.changeDetectorRef.detectChanges();
-                }));
-                _this.listeners.push(_this.renderer2.listen(accordionToggle.elementRef.nativeElement, 'mouseleave', function () {
-                    AccordionGroupComponent_1.headerMouseLeave(accordionToggle.accordionComponent);
-                    _this.changeDetectorRef.detectChanges();
-                }));
-            });
-        });
-    };
-    /**
-     * [updateAccordionIsCollapsed description]
-     * @method updateAccordionIsCollapsed
-     */
-    AccordionGroupComponent.prototype.updateAccordionIsCollapsed = function () {
-        var _this = this;
-        this.accordionComponents.forEach(function (accordion, index) {
-            accordion.isCollapsed = _this.activeIndex.indexOf(index) === -1;
-        });
-    };
-    var AccordionGroupComponent_1;
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('activeIndex'),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [Object])
-    ], AccordionGroupComponent.prototype, "_activeIndex", null);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Boolean)
-    ], AccordionGroupComponent.prototype, "isMultiple", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], AccordionGroupComponent.prototype, "styleClass", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], AccordionGroupComponent.prototype, "onCollapseStart", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], AccordionGroupComponent.prototype, "onCollapseDone", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChildren"])(AccordionComponent),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["QueryList"])
-    ], AccordionGroupComponent.prototype, "accordionComponents", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChildren"])(_accordion_directive__WEBPACK_IMPORTED_MODULE_2__["AccordionToggleDirective"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["QueryList"])
-    ], AccordionGroupComponent.prototype, "accordionToggleDirectives", void 0);
-    AccordionGroupComponent = AccordionGroupComponent_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'mk-accordion-group',
-            template: __webpack_require__(/*! ./accordion.component.html */ "./app/components/lib/accordion/accordion.component.html")
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"],
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"],
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]])
-    ], AccordionGroupComponent);
-    return AccordionGroupComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/components/lib/accordion/accordion.directive.ts":
-/*!*************************************************************!*\
-  !*** ./app/components/lib/accordion/accordion.directive.ts ***!
-  \*************************************************************/
-/*! exports provided: AccordionToggleDirective */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccordionToggleDirective", function() { return AccordionToggleDirective; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-
-
-/*
- *
- */
-var AccordionToggleDirective = /** @class */ (function () {
-    /**
-     * @method constructor
-     * @param elementRef [description]
-     */
-    function AccordionToggleDirective(elementRef) {
-        this.elementRef = elementRef;
-    }
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('mkAccordionToggle'),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], AccordionToggleDirective.prototype, "accordionComponent", void 0);
-    AccordionToggleDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-            selector: '[mkAccordionToggle]'
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
-    ], AccordionToggleDirective);
-    return AccordionToggleDirective;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/components/lib/accordion/accordion.module.ts":
-/*!**********************************************************!*\
-  !*** ./app/components/lib/accordion/accordion.module.ts ***!
-  \**********************************************************/
-/*! exports provided: AccordionModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccordionModule", function() { return AccordionModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _animations_animations_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../animations/animations.module */ "./app/components/lib/animations/animations.module.ts");
-/* harmony import */ var _color_color_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../color/color.module */ "./app/components/lib/color/color.module.ts");
-/* harmony import */ var _accordion_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./accordion.component */ "./app/components/lib/accordion/accordion.component.ts");
-/* harmony import */ var _accordion_directive__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./accordion.directive */ "./app/components/lib/accordion/accordion.directive.ts");
-
-
-
-
-
-
-
-var AccordionModule = /** @class */ (function () {
-    function AccordionModule() {
-    }
-    AccordionModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _animations_animations_module__WEBPACK_IMPORTED_MODULE_3__["AnimationsModule"], _color_color_module__WEBPACK_IMPORTED_MODULE_4__["ColorModule"]],
-            exports: [_accordion_component__WEBPACK_IMPORTED_MODULE_5__["AccordionHeaderComponent"], _accordion_component__WEBPACK_IMPORTED_MODULE_5__["AccordionContentComponent"], _accordion_component__WEBPACK_IMPORTED_MODULE_5__["AccordionComponent"], _accordion_component__WEBPACK_IMPORTED_MODULE_5__["AccordionGroupComponent"]],
-            declarations: [_accordion_directive__WEBPACK_IMPORTED_MODULE_6__["AccordionToggleDirective"], _accordion_component__WEBPACK_IMPORTED_MODULE_5__["AccordionHeaderComponent"],
-                _accordion_component__WEBPACK_IMPORTED_MODULE_5__["AccordionContentComponent"], _accordion_component__WEBPACK_IMPORTED_MODULE_5__["AccordionComponent"], _accordion_component__WEBPACK_IMPORTED_MODULE_5__["AccordionGroupComponent"]]
-        })
-    ], AccordionModule);
-    return AccordionModule;
-}());
 
 
 
@@ -892,7 +349,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlertComponent", function() { return AlertComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers */ "./app/components/lib/helpers.ts");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../helpers/helpers */ "./app/helpers/helpers.ts");
 
 
 
@@ -968,7 +425,7 @@ var AlertComponent = /** @class */ (function () {
      * @method ngOnDesroy
      */
     AlertComponent.prototype.ngOnDestroy = function () {
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["removeListeners"])(this.listeners);
+        Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__["removeListeners"])(this.listeners);
     };
     /**
      * [collapseStart description]
@@ -985,7 +442,7 @@ var AlertComponent = /** @class */ (function () {
      */
     AlertComponent.prototype.collapseDone = function (event) {
         if (event.toState === '1') {
-            this.listeners = Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["removeListeners"])(this.listeners);
+            this.listeners = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__["removeListeners"])(this.listeners);
             this.removed = true;
             this.viewContainerRef.clear();
             this.changeDetectorRef.detectChanges();
@@ -1310,477 +767,6 @@ var AnimationsModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./app/components/lib/box-info/box-info.component.css":
-/*!************************************************************!*\
-  !*** ./app/components/lib/box-info/box-info.component.css ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ".info-box.bg-color > .info-box-content {\n  color: #fff;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNsaWVudEFwcC9hcHAvY29tcG9uZW50cy9saWIvYm94LWluZm8vYm94LWluZm8uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7QUFDYiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL2NvbXBvbmVudHMvbGliL2JveC1pbmZvL2JveC1pbmZvLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW5mby1ib3guYmctY29sb3IgPiAuaW5mby1ib3gtY29udGVudCB7XG4gIGNvbG9yOiAjZmZmO1xufVxuIl19 */"
-
-/***/ }),
-
-/***/ "./app/components/lib/box-info/box-info.component.html":
-/*!*************************************************************!*\
-  !*** ./app/components/lib/box-info/box-info.component.html ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div [ngClass]=\"styleClass\" [mkColor]=\"backgroundColor\" mkColorProperty=\"background-color\">\n  <span class=\"info-box-icon\" [mkColor]=\"iconBackgroundColor\" mkColorProperty=\"background-color\">\n    <i [ngClass]=\"iconStyleClass\" [mkFontColor]=\"iconColor\"></i>\n  </span>\n  <div class=\"info-box-content\">\n    <span *ngIf=\"header || boxInfoHeaderDirective\" [ngClass]=\"headerStyleClass\" [mkFontColor]=\"headerColor\">\n      {{header}}\n      <ng-content select=\"mk-box-header\"></ng-content>\n    </span>\n    <span [ngClass]=\"contentStyleClass\" [mkFontColor]=\"contentColor\">\n      <ng-container *ngIf=\"boxInfoHeaderDirective || boxInfoContentDirective || boxInfoFooterDirective; else noDirective\">\n        <ng-content select=\"mk-box-content\"></ng-content>\n      </ng-container>\n      <ng-template #noDirective>\n        <ng-content></ng-content>\n      </ng-template>\n    </span>\n    <div *ngIf=\"progressWidth\" class=\"progress\">\n      <div class=\"progress-bar\" [mkColor]=\"progressBarBg\" mkColorProperty=\"background-color\" [style.width.%]=\"progressWidth\"></div>\n    </div>\n    <span *ngIf=\"footer || boxInfoFooterDirective\" [ngClass]=\"footerStyleClass\" [mkFontColor]=\"footerColor\">\n      {{footer}}\n      <ng-content select=\"mk-box-footer\"></ng-content>\n    </span>\n  </div>\n</div>\n"
-
-/***/ }),
-
-/***/ "./app/components/lib/box-info/box-info.component.ts":
-/*!***********************************************************!*\
-  !*** ./app/components/lib/box-info/box-info.component.ts ***!
-  \***********************************************************/
-/*! exports provided: BoxInfoComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoxInfoComponent", function() { return BoxInfoComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _box_info_directive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./box-info.directive */ "./app/components/lib/box-info/box-info.directive.ts");
-
-
-
-/*
- *
- */
-var BoxInfoComponent = /** @class */ (function () {
-    function BoxInfoComponent() {
-        this.contentStyleClass = 'info-box-number';
-        this.footerStyleClass = 'progress-description';
-        this.headerStyleClass = 'info-box-text';
-        this.iconColor = '#fff';
-        this.iconStyleClass = 'ion ion-bag';
-        this.styleClass = 'info-box';
-    }
-    /**
-     * @method ngOnInit
-     */
-    BoxInfoComponent.prototype.ngOnInit = function () {
-        if (!this.backgroundColor) {
-            this.progressBarBg = this.iconBackgroundColor;
-        }
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BoxInfoComponent.prototype, "backgroundColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], BoxInfoComponent.prototype, "contentStyleClass", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BoxInfoComponent.prototype, "contentColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BoxInfoComponent.prototype, "footer", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BoxInfoComponent.prototype, "footerColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], BoxInfoComponent.prototype, "footerStyleClass", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BoxInfoComponent.prototype, "header", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BoxInfoComponent.prototype, "headerColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], BoxInfoComponent.prototype, "headerStyleClass", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BoxInfoComponent.prototype, "iconBackgroundColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], BoxInfoComponent.prototype, "iconColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], BoxInfoComponent.prototype, "iconStyleClass", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Number)
-    ], BoxInfoComponent.prototype, "progressWidth", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], BoxInfoComponent.prototype, "styleClass", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"])(_box_info_directive__WEBPACK_IMPORTED_MODULE_2__["BoxInfoHeaderDirective"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _box_info_directive__WEBPACK_IMPORTED_MODULE_2__["BoxInfoHeaderDirective"])
-    ], BoxInfoComponent.prototype, "boxInfoHeaderDirective", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"])(_box_info_directive__WEBPACK_IMPORTED_MODULE_2__["BoxInfoFooterDirective"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _box_info_directive__WEBPACK_IMPORTED_MODULE_2__["BoxInfoFooterDirective"])
-    ], BoxInfoComponent.prototype, "boxInfoFooterDirective", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"])(_box_info_directive__WEBPACK_IMPORTED_MODULE_2__["BoxInfoContentDirective"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _box_info_directive__WEBPACK_IMPORTED_MODULE_2__["BoxInfoContentDirective"])
-    ], BoxInfoComponent.prototype, "boxInfoContentDirective", void 0);
-    BoxInfoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'mk-box-info',
-            template: __webpack_require__(/*! ./box-info.component.html */ "./app/components/lib/box-info/box-info.component.html"),
-            styles: [__webpack_require__(/*! ./box-info.component.css */ "./app/components/lib/box-info/box-info.component.css")]
-        })
-    ], BoxInfoComponent);
-    return BoxInfoComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/components/lib/box-info/box-info.directive.ts":
-/*!***********************************************************!*\
-  !*** ./app/components/lib/box-info/box-info.directive.ts ***!
-  \***********************************************************/
-/*! exports provided: BoxInfoContentDirective, BoxInfoFooterDirective, BoxInfoHeaderDirective */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoxInfoContentDirective", function() { return BoxInfoContentDirective; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoxInfoFooterDirective", function() { return BoxInfoFooterDirective; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoxInfoHeaderDirective", function() { return BoxInfoHeaderDirective; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-
-
-/*
- *
- */
-var BoxInfoContentDirective = /** @class */ (function () {
-    function BoxInfoContentDirective() {
-    }
-    BoxInfoContentDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-            /* tslint:disable-next-line:directive-selector */
-            selector: 'mk-box-info-content'
-        })
-    ], BoxInfoContentDirective);
-    return BoxInfoContentDirective;
-}());
-
-/*
- *
- */
-var BoxInfoFooterDirective = /** @class */ (function () {
-    function BoxInfoFooterDirective() {
-    }
-    BoxInfoFooterDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-            /* tslint:disable-next-line:directive-selector */
-            selector: 'mk-box-info-footer'
-        })
-    ], BoxInfoFooterDirective);
-    return BoxInfoFooterDirective;
-}());
-
-/*
- *
- */
-var BoxInfoHeaderDirective = /** @class */ (function () {
-    function BoxInfoHeaderDirective() {
-    }
-    BoxInfoHeaderDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-            /* tslint:disable-next-line:directive-selector */
-            selector: 'mk-box-info-header'
-        })
-    ], BoxInfoHeaderDirective);
-    return BoxInfoHeaderDirective;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/components/lib/box-info/box-info.module.ts":
-/*!********************************************************!*\
-  !*** ./app/components/lib/box-info/box-info.module.ts ***!
-  \********************************************************/
-/*! exports provided: BoxInfoModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoxInfoModule", function() { return BoxInfoModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _color_color_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../color/color.module */ "./app/components/lib/color/color.module.ts");
-/* harmony import */ var _box_info_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./box-info.directive */ "./app/components/lib/box-info/box-info.directive.ts");
-/* harmony import */ var _box_info_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./box-info.component */ "./app/components/lib/box-info/box-info.component.ts");
-
-
-
-
-
-
-var BoxInfoModule = /** @class */ (function () {
-    function BoxInfoModule() {
-    }
-    BoxInfoModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _color_color_module__WEBPACK_IMPORTED_MODULE_3__["ColorModule"]],
-            exports: [_box_info_component__WEBPACK_IMPORTED_MODULE_5__["BoxInfoComponent"], _box_info_directive__WEBPACK_IMPORTED_MODULE_4__["BoxInfoHeaderDirective"], _box_info_directive__WEBPACK_IMPORTED_MODULE_4__["BoxInfoContentDirective"], _box_info_directive__WEBPACK_IMPORTED_MODULE_4__["BoxInfoFooterDirective"]],
-            declarations: [_box_info_component__WEBPACK_IMPORTED_MODULE_5__["BoxInfoComponent"], _box_info_directive__WEBPACK_IMPORTED_MODULE_4__["BoxInfoHeaderDirective"], _box_info_directive__WEBPACK_IMPORTED_MODULE_4__["BoxInfoContentDirective"], _box_info_directive__WEBPACK_IMPORTED_MODULE_4__["BoxInfoFooterDirective"]]
-        })
-    ], BoxInfoModule);
-    return BoxInfoModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/components/lib/box-small/box-small.component.css":
-/*!**************************************************************!*\
-  !*** ./app/components/lib/box-small/box-small.component.css ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ".small-box.bg-color {\n  color: #fff;\n}\n\n/deep/ .small-box-footer:hover {\n  cursor: pointer;\n}\n\n/deep/ .small-box-footer a {\n  color: rgba(255,255,255,0.8);\n}\n\n/deep/ .small-box-footer:hover a{\n  color: rgb(255,255,255);\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNsaWVudEFwcC9hcHAvY29tcG9uZW50cy9saWIvYm94LXNtYWxsL2JveC1zbWFsbC5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsV0FBVztBQUNiOztBQUVBO0VBQ0UsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLDRCQUE0QjtBQUM5Qjs7QUFFQTtFQUNFLHVCQUF1QjtBQUN6QiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL2NvbXBvbmVudHMvbGliL2JveC1zbWFsbC9ib3gtc21hbGwuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zbWFsbC1ib3guYmctY29sb3Ige1xuICBjb2xvcjogI2ZmZjtcbn1cblxuL2RlZXAvIC5zbWFsbC1ib3gtZm9vdGVyOmhvdmVyIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuXG4vZGVlcC8gLnNtYWxsLWJveC1mb290ZXIgYSB7XG4gIGNvbG9yOiByZ2JhKDI1NSwyNTUsMjU1LDAuOCk7XG59XG5cbi9kZWVwLyAuc21hbGwtYm94LWZvb3Rlcjpob3ZlciBhe1xuICBjb2xvcjogcmdiKDI1NSwyNTUsMjU1KTtcbn1cbiJdfQ== */"
-
-/***/ }),
-
-/***/ "./app/components/lib/box-small/box-small.component.html":
-/*!***************************************************************!*\
-  !*** ./app/components/lib/box-small/box-small.component.html ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div [ngClass]=\"styleClass\" [mkColor]=\"backgroundColor\" mkColorProperty=\"background-color\">\n  <div class=\"inner\">\n    <h3 *ngIf=\"header || boxSmallHeaderDirective\" [ngClass]=\"headerStyleClass\" [mkFontColor]=\"headerColor\">\n      {{header}}\n      <ng-content select=\"mk-box-small-header\"></ng-content>\n    </h3>\n    <p [ngClass]=\"contentStyleClass\" [mkFontColor]=\"contentColor\">\n      <ng-container *ngIf=\"boxSmallHeaderDirective || boxSmallContentDirective || boxSmallFooterDirective; else noDirective\">\n        <ng-content select=\"mk-box-small-content\"></ng-content>\n      </ng-container>\n      <ng-template #noDirective>\n        <ng-content></ng-content>\n      </ng-template>\n    </p>\n  </div>\n  <div *ngIf=\"iconStyleClass\" class=\"icon\">\n    <i [ngClass]=\"iconStyleClass\" [mkFontColor]=\"iconColor\"></i>\n  </div>\n  <span *ngIf=\"footer || boxSmallFooterDirective\" [ngClass]=\"footerStyleClass\" [mkFontColor]=\"footerColor\">\n    {{footer}}\n    <ng-content select=\"mk-box-small-footer\"></ng-content>\n  </span>\n</div>\n"
-
-/***/ }),
-
-/***/ "./app/components/lib/box-small/box-small.component.ts":
-/*!*************************************************************!*\
-  !*** ./app/components/lib/box-small/box-small.component.ts ***!
-  \*************************************************************/
-/*! exports provided: BoxSmallComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoxSmallComponent", function() { return BoxSmallComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _box_small_directive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./box-small.directive */ "./app/components/lib/box-small/box-small.directive.ts");
-
-
-
-/*
- *
- */
-var BoxSmallComponent = /** @class */ (function () {
-    function BoxSmallComponent() {
-        this.contentStyleClass = 'small-box-content';
-        this.footerStyleClass = 'small-box-footer';
-        this.headerStyleClass = 'small-box-header';
-        this.iconStyleClass = 'ion ion-bag';
-        this.styleClass = 'small-box';
-    }
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BoxSmallComponent.prototype, "backgroundColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BoxSmallComponent.prototype, "contentColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], BoxSmallComponent.prototype, "contentStyleClass", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BoxSmallComponent.prototype, "footer", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BoxSmallComponent.prototype, "footerColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], BoxSmallComponent.prototype, "footerStyleClass", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BoxSmallComponent.prototype, "header", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BoxSmallComponent.prototype, "headerColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], BoxSmallComponent.prototype, "headerStyleClass", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], BoxSmallComponent.prototype, "iconColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], BoxSmallComponent.prototype, "iconStyleClass", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], BoxSmallComponent.prototype, "styleClass", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"])(_box_small_directive__WEBPACK_IMPORTED_MODULE_2__["BoxSmallHeaderDirective"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _box_small_directive__WEBPACK_IMPORTED_MODULE_2__["BoxSmallHeaderDirective"])
-    ], BoxSmallComponent.prototype, "boxSmallHeaderDirective", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"])(_box_small_directive__WEBPACK_IMPORTED_MODULE_2__["BoxSmallFooterDirective"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _box_small_directive__WEBPACK_IMPORTED_MODULE_2__["BoxSmallFooterDirective"])
-    ], BoxSmallComponent.prototype, "boxSmallFooterDirective", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"])(_box_small_directive__WEBPACK_IMPORTED_MODULE_2__["BoxSmallContentDirective"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _box_small_directive__WEBPACK_IMPORTED_MODULE_2__["BoxSmallContentDirective"])
-    ], BoxSmallComponent.prototype, "boxSmallContentDirective", void 0);
-    BoxSmallComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'mk-box-small',
-            template: __webpack_require__(/*! ./box-small.component.html */ "./app/components/lib/box-small/box-small.component.html"),
-            styles: [__webpack_require__(/*! ./box-small.component.css */ "./app/components/lib/box-small/box-small.component.css")]
-        })
-    ], BoxSmallComponent);
-    return BoxSmallComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/components/lib/box-small/box-small.directive.ts":
-/*!*************************************************************!*\
-  !*** ./app/components/lib/box-small/box-small.directive.ts ***!
-  \*************************************************************/
-/*! exports provided: BoxSmallFooterDirective, BoxSmallHeaderDirective, BoxSmallContentDirective */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoxSmallFooterDirective", function() { return BoxSmallFooterDirective; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoxSmallHeaderDirective", function() { return BoxSmallHeaderDirective; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoxSmallContentDirective", function() { return BoxSmallContentDirective; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-
-
-/*
- *
- */
-var BoxSmallFooterDirective = /** @class */ (function () {
-    function BoxSmallFooterDirective() {
-    }
-    BoxSmallFooterDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-            /* tslint:disable-next-line:directive-selector */
-            selector: 'mk-box-small-footer'
-        })
-    ], BoxSmallFooterDirective);
-    return BoxSmallFooterDirective;
-}());
-
-/*
- *
- */
-var BoxSmallHeaderDirective = /** @class */ (function () {
-    function BoxSmallHeaderDirective() {
-    }
-    BoxSmallHeaderDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-            /* tslint:disable-next-line:directive-selector */
-            selector: 'mk-box-small-header'
-        })
-    ], BoxSmallHeaderDirective);
-    return BoxSmallHeaderDirective;
-}());
-
-/*
- *
- */
-var BoxSmallContentDirective = /** @class */ (function () {
-    function BoxSmallContentDirective() {
-    }
-    BoxSmallContentDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-            /* tslint:disable-next-line:directive-selector */
-            selector: 'mk-box-small-content'
-        })
-    ], BoxSmallContentDirective);
-    return BoxSmallContentDirective;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/components/lib/box-small/box-small.module.ts":
-/*!**********************************************************!*\
-  !*** ./app/components/lib/box-small/box-small.module.ts ***!
-  \**********************************************************/
-/*! exports provided: BoxSmallModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BoxSmallModule", function() { return BoxSmallModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _color_color_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../color/color.module */ "./app/components/lib/color/color.module.ts");
-/* harmony import */ var _box_small_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./box-small.directive */ "./app/components/lib/box-small/box-small.directive.ts");
-/* harmony import */ var _box_small_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./box-small.component */ "./app/components/lib/box-small/box-small.component.ts");
-
-
-
-
-
-
-var BoxSmallModule = /** @class */ (function () {
-    function BoxSmallModule() {
-    }
-    BoxSmallModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _color_color_module__WEBPACK_IMPORTED_MODULE_3__["ColorModule"]],
-            exports: [_box_small_component__WEBPACK_IMPORTED_MODULE_5__["BoxSmallComponent"], _box_small_directive__WEBPACK_IMPORTED_MODULE_4__["BoxSmallHeaderDirective"], _box_small_directive__WEBPACK_IMPORTED_MODULE_4__["BoxSmallContentDirective"], _box_small_directive__WEBPACK_IMPORTED_MODULE_4__["BoxSmallFooterDirective"]],
-            declarations: [_box_small_component__WEBPACK_IMPORTED_MODULE_5__["BoxSmallComponent"], _box_small_directive__WEBPACK_IMPORTED_MODULE_4__["BoxSmallHeaderDirective"], _box_small_directive__WEBPACK_IMPORTED_MODULE_4__["BoxSmallContentDirective"], _box_small_directive__WEBPACK_IMPORTED_MODULE_4__["BoxSmallFooterDirective"]]
-        })
-    ], BoxSmallModule);
-    return BoxSmallModule;
-}());
-
-
-
-/***/ }),
-
 /***/ "./app/components/lib/box/box.component.css":
 /*!**************************************************!*\
   !*** ./app/components/lib/box/box.component.css ***!
@@ -1816,7 +802,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _box_directive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./box.directive */ "./app/components/lib/box/box.directive.ts");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers */ "./app/components/lib/helpers.ts");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../helpers/helpers */ "./app/helpers/helpers.ts");
 
 
 
@@ -1876,7 +862,7 @@ var BoxComponent = /** @class */ (function () {
      * @method ngOnDestroy
      */
     BoxComponent.prototype.ngOnDestroy = function () {
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["removeListeners"])(this.listeners);
+        Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_3__["removeListeners"])(this.listeners);
     };
     /**
      * [removedDone description]
@@ -2629,7 +1615,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DropdownComponent", function() { return DropdownComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../helpers */ "./app/components/lib/helpers.ts");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../helpers/helpers */ "./app/helpers/helpers.ts");
 
 
 
@@ -2726,7 +1712,7 @@ var DropdownComponent = /** @class */ (function () {
      */
     DropdownComponent.prototype.ngOnDestroy = function () {
         this.unBindDocumentClickListener();
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["removeListeners"])(this.listeners);
+        Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__["removeListeners"])(this.listeners);
     };
     /**
      * [toggle description]
@@ -2899,489 +1885,6 @@ var DropdownModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./app/components/lib/form/input-group/input-group.component.html":
-/*!************************************************************************!*\
-  !*** ./app/components/lib/form/input-group/input-group.component.html ***!
-  \************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div [ngClass]=\"wrapperClasses\" [mkColor]=\"currentColor || inputColor\" mkColorPrefix=\"has\">\n  <label *ngIf=\"label || inputGroupLabelDirective\">\n    {{label}}\n    <ng-content select=\"mk-input-group-label\"></ng-content>\n  </label>\n  <div *ngIf=\"addonLeft || inputGroupAddonLeftDirective || addonRight || inputGroupAddonRightDirective; else noAddon\" class=\"input-group\">\n    <span *ngIf=\"addonLeft || inputGroupAddonLeftDirective\" class=\"input-group-addon\">\n      {{addonLeft}}\n      <ng-content select=\"mk-input-group-addon-left\"></ng-content>\n    </span>\n    <ng-content select=\"mk-input-group-content\"></ng-content>\n    <span *ngIf=\"addonRight || inputGroupAddonRightDirective\" class=\"input-group-addon\">\n      {{addonRight}}\n      <ng-content select=\"mk-input-group-addon-right\"></ng-content>\n    </span>\n  </div>\n  <ng-template #noAddon><ng-content select=\"mk-input-group-content\"></ng-content></ng-template>\n</div>\n"
-
-/***/ }),
-
-/***/ "./app/components/lib/form/input-group/input-group.component.ts":
-/*!**********************************************************************!*\
-  !*** ./app/components/lib/form/input-group/input-group.component.ts ***!
-  \**********************************************************************/
-/*! exports provided: InputGroupComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputGroupComponent", function() { return InputGroupComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../helpers */ "./app/components/lib/helpers.ts");
-/* harmony import */ var _input_group_directive__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./input-group.directive */ "./app/components/lib/form/input-group/input-group.directive.ts");
-/* harmony import */ var _input_text_input_text_directive__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../input-text/input-text.directive */ "./app/components/lib/form/input-text/input-text.directive.ts");
-
-
-
-
-
-/*
- *
- */
-var InputGroupComponent = /** @class */ (function () {
-    function InputGroupComponent() {
-        this.subscriptions = [];
-        this.inputColor = 'default';
-        this.inputErrorColor = 'danger';
-        this.inputValidColor = 'success';
-        this.wrapperClasses = 'form-group';
-    }
-    InputGroupComponent.prototype.ngAfterContentInit = function () {
-        var _this = this;
-        this.subscriptions.push(this.inputTextDirective.onKeyup.subscribe(function (value) {
-            if (value.invalid) {
-                _this.currentColor = _this.inputErrorColor;
-                _this.currentFontColor = _this.inputErrorFontColor;
-            }
-            else if (!value.invalid) {
-                _this.currentColor = _this.inputValidColor;
-                _this.currentFontColor = _this.inputValidFontColor;
-            }
-            else {
-                _this.currentColor = _this.inputColor;
-                _this.currentFontColor = _this.inputFontColor;
-            }
-        }));
-    };
-    InputGroupComponent.prototype.ngOnDestroy = function () {
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["removeSubscriptions"])(this.subscriptions);
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], InputGroupComponent.prototype, "addonLeft", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], InputGroupComponent.prototype, "addonRight", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], InputGroupComponent.prototype, "inputColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], InputGroupComponent.prototype, "inputFontColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], InputGroupComponent.prototype, "inputErrorColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], InputGroupComponent.prototype, "inputErrorFontColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], InputGroupComponent.prototype, "inputValidColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], InputGroupComponent.prototype, "inputValidFontColor", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String)
-    ], InputGroupComponent.prototype, "label", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], InputGroupComponent.prototype, "wrapperClasses", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"])(_input_group_directive__WEBPACK_IMPORTED_MODULE_3__["InputGroupLabelDirective"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _input_group_directive__WEBPACK_IMPORTED_MODULE_3__["InputGroupLabelDirective"])
-    ], InputGroupComponent.prototype, "inputGroupLabelDirective", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"])(_input_group_directive__WEBPACK_IMPORTED_MODULE_3__["InputGroupAddonLeftDirective"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _input_group_directive__WEBPACK_IMPORTED_MODULE_3__["InputGroupAddonLeftDirective"])
-    ], InputGroupComponent.prototype, "inputGroupAddonLeftDirective", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"])(_input_group_directive__WEBPACK_IMPORTED_MODULE_3__["InputGroupAddonRightDirective"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _input_group_directive__WEBPACK_IMPORTED_MODULE_3__["InputGroupAddonRightDirective"])
-    ], InputGroupComponent.prototype, "inputGroupAddonRightDirective", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"])(_input_group_directive__WEBPACK_IMPORTED_MODULE_3__["InputGroupContentDirective"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _input_group_directive__WEBPACK_IMPORTED_MODULE_3__["InputGroupContentDirective"])
-    ], InputGroupComponent.prototype, "inputGroupContentDirective", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChild"])(_input_text_input_text_directive__WEBPACK_IMPORTED_MODULE_4__["InputTextDirective"]),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _input_text_input_text_directive__WEBPACK_IMPORTED_MODULE_4__["InputTextDirective"])
-    ], InputGroupComponent.prototype, "inputTextDirective", void 0);
-    InputGroupComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'mk-input-group',
-            template: __webpack_require__(/*! ./input-group.component.html */ "./app/components/lib/form/input-group/input-group.component.html")
-        })
-    ], InputGroupComponent);
-    return InputGroupComponent;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/components/lib/form/input-group/input-group.directive.ts":
-/*!**********************************************************************!*\
-  !*** ./app/components/lib/form/input-group/input-group.directive.ts ***!
-  \**********************************************************************/
-/*! exports provided: InputGroupLabelDirective, InputGroupAddonLeftDirective, InputGroupAddonRightDirective, InputGroupContentDirective */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputGroupLabelDirective", function() { return InputGroupLabelDirective; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputGroupAddonLeftDirective", function() { return InputGroupAddonLeftDirective; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputGroupAddonRightDirective", function() { return InputGroupAddonRightDirective; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputGroupContentDirective", function() { return InputGroupContentDirective; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-
-
-/*
- *
- */
-var InputGroupLabelDirective = /** @class */ (function () {
-    function InputGroupLabelDirective() {
-    }
-    InputGroupLabelDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-            /* tslint:disable-next-line:directive-selector */
-            selector: 'mk-input-group-label'
-        })
-    ], InputGroupLabelDirective);
-    return InputGroupLabelDirective;
-}());
-
-/*
- *
- */
-var InputGroupAddonLeftDirective = /** @class */ (function () {
-    function InputGroupAddonLeftDirective() {
-    }
-    InputGroupAddonLeftDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-            /* tslint:disable-next-line:directive-selector */
-            selector: 'mk-input-group-addon-left'
-        })
-    ], InputGroupAddonLeftDirective);
-    return InputGroupAddonLeftDirective;
-}());
-
-/*
- *
- */
-var InputGroupAddonRightDirective = /** @class */ (function () {
-    function InputGroupAddonRightDirective() {
-    }
-    InputGroupAddonRightDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-            /* tslint:disable-next-line:directive-selector */
-            selector: 'mk-input-group-addon-right'
-        })
-    ], InputGroupAddonRightDirective);
-    return InputGroupAddonRightDirective;
-}());
-
-/*
- *
- */
-var InputGroupContentDirective = /** @class */ (function () {
-    function InputGroupContentDirective() {
-    }
-    InputGroupContentDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-            /* tslint:disable-next-line:directive-selector */
-            selector: 'mk-input-group-content'
-        })
-    ], InputGroupContentDirective);
-    return InputGroupContentDirective;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/components/lib/form/input-group/input-group.module.ts":
-/*!*******************************************************************!*\
-  !*** ./app/components/lib/form/input-group/input-group.module.ts ***!
-  \*******************************************************************/
-/*! exports provided: InputGroupModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputGroupModule", function() { return InputGroupModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "../node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _color_color_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../color/color.module */ "./app/components/lib/color/color.module.ts");
-/* harmony import */ var _input_group_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./input-group.component */ "./app/components/lib/form/input-group/input-group.component.ts");
-/* harmony import */ var _input_group_directive__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./input-group.directive */ "./app/components/lib/form/input-group/input-group.directive.ts");
-
-
-
-
-
-
-
-var InputGroupModule = /** @class */ (function () {
-    function InputGroupModule() {
-    }
-    InputGroupModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
-                _color_color_module__WEBPACK_IMPORTED_MODULE_4__["ColorModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]
-            ],
-            exports: [_input_group_component__WEBPACK_IMPORTED_MODULE_5__["InputGroupComponent"], _input_group_directive__WEBPACK_IMPORTED_MODULE_6__["InputGroupLabelDirective"], _input_group_directive__WEBPACK_IMPORTED_MODULE_6__["InputGroupAddonLeftDirective"],
-                _input_group_directive__WEBPACK_IMPORTED_MODULE_6__["InputGroupAddonRightDirective"], _input_group_directive__WEBPACK_IMPORTED_MODULE_6__["InputGroupContentDirective"]],
-            declarations: [_input_group_component__WEBPACK_IMPORTED_MODULE_5__["InputGroupComponent"], _input_group_directive__WEBPACK_IMPORTED_MODULE_6__["InputGroupLabelDirective"], _input_group_directive__WEBPACK_IMPORTED_MODULE_6__["InputGroupAddonLeftDirective"],
-                _input_group_directive__WEBPACK_IMPORTED_MODULE_6__["InputGroupAddonRightDirective"], _input_group_directive__WEBPACK_IMPORTED_MODULE_6__["InputGroupContentDirective"]]
-        })
-    ], InputGroupModule);
-    return InputGroupModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/components/lib/form/input-text/input-text.directive.ts":
-/*!********************************************************************!*\
-  !*** ./app/components/lib/form/input-text/input-text.directive.ts ***!
-  \********************************************************************/
-/*! exports provided: InputTextDirective */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputTextDirective", function() { return InputTextDirective; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "../node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "../node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _color_color_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../color/color.service */ "./app/components/lib/color/color.service.ts");
-/* harmony import */ var _services_class_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../services/class.service */ "./app/components/lib/services/class.service.ts");
-
-
-
-
-
-
-// @TODO onFocus Color
-var InputTextDirective = /** @class */ (function () {
-    /**
-     * @method constructor
-     * @param  elementRef   [description]
-     * @param  renderer2    [description]
-     * @param  ngControl    [description]
-     * @param  colorService [description]
-     * @param  classService [description]
-     */
-    function InputTextDirective(elementRef, renderer2, ngControl, colorService, classService) {
-        this.elementRef = elementRef;
-        this.renderer2 = renderer2;
-        this.ngControl = ngControl;
-        this.colorService = colorService;
-        this.classService = classService;
-        this.defaultClass = 'form-control';
-        this._onKeyUp = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-        this.onKeyup = this._onKeyUp.asObservable();
-    }
-    Object.defineProperty(InputTextDirective.prototype, "borderColor", {
-        set: function (color) {
-            this.colorService.setBackgroundColor(color, true, 'border-color', null);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(InputTextDirective.prototype, "class", {
-        set: function (className) {
-            this.isSetClass = true;
-            this.classService.applyClasses(className);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(InputTextDirective.prototype, "color", {
-        set: function (color) {
-            this.colorService.setFontColor(color);
-        },
-        enumerable: true,
-        configurable: true
-    });
-    /**
-     * @method ngOnInit
-     */
-    InputTextDirective.prototype.ngOnInit = function () {
-        if (!this.isSetClass) {
-            this.classService.applyClasses(this.defaultClass);
-        }
-    };
-    InputTextDirective.prototype.keyUpListener = function () {
-        this._onKeyUp.next(this.ngControl);
-    };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [String])
-    ], InputTextDirective.prototype, "borderColor", null);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [String])
-    ], InputTextDirective.prototype, "class", null);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", String),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [String])
-    ], InputTextDirective.prototype, "color", null);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["HostListener"])('keyup'),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Function),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", []),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:returntype", void 0)
-    ], InputTextDirective.prototype, "keyUpListener", null);
-    InputTextDirective = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
-            selector: '[mkInputText]',
-            providers: [_color_color_service__WEBPACK_IMPORTED_MODULE_4__["ColorService"], _services_class_service__WEBPACK_IMPORTED_MODULE_5__["ClassService"]]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"],
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["NgControl"],
-            _color_color_service__WEBPACK_IMPORTED_MODULE_4__["ColorService"],
-            _services_class_service__WEBPACK_IMPORTED_MODULE_5__["ClassService"]])
-    ], InputTextDirective);
-    return InputTextDirective;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/components/lib/form/input-text/input-text.module.ts":
-/*!*****************************************************************!*\
-  !*** ./app/components/lib/form/input-text/input-text.module.ts ***!
-  \*****************************************************************/
-/*! exports provided: InputTextModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InputTextModule", function() { return InputTextModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "../node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _color_color_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../color/color.module */ "./app/components/lib/color/color.module.ts");
-/* harmony import */ var _input_text_directive__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./input-text.directive */ "./app/components/lib/form/input-text/input-text.directive.ts");
-
-
-
-
-
-
-var InputTextModule = /** @class */ (function () {
-    function InputTextModule() {
-    }
-    InputTextModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
-                _color_color_module__WEBPACK_IMPORTED_MODULE_4__["ColorModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormsModule"]
-            ],
-            exports: [_input_text_directive__WEBPACK_IMPORTED_MODULE_5__["InputTextDirective"]],
-            declarations: [_input_text_directive__WEBPACK_IMPORTED_MODULE_5__["InputTextDirective"]]
-        })
-    ], InputTextModule);
-    return InputTextModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/components/lib/helpers.ts":
-/*!***************************************!*\
-  !*** ./app/components/lib/helpers.ts ***!
-  \***************************************/
-/*! exports provided: throttle, removeSubscriptions, removeListeners */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "throttle", function() { return throttle; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeSubscriptions", function() { return removeSubscriptions; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeListeners", function() { return removeListeners; });
-/**
- * [throttle description]
- * @method throttle
- * @param callback [description]
- * @param delay    [description]
- * @return [description]
- */
-function throttle(callback, delay) {
-    var _this = this;
-    var timeout = null;
-    return function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        if (!timeout) {
-            timeout = setTimeout(function () {
-                callback.call.apply(callback, [_this].concat(args));
-                timeout = null;
-            }, delay);
-        }
-    };
-}
-/**
- * [removeSubscriptions description]
- * @method removeSubscriptions
- */
-function removeSubscriptions(subscriptions) {
-    if (subscriptions) {
-        subscriptions.forEach(function (subscription) {
-            subscription.unsubscribe();
-        });
-    }
-    return [];
-}
-/**
- * [removeListeners description]
- * @method removeListeners
- */
-function removeListeners(listeners) {
-    if (listeners) {
-        listeners.forEach(function (listener) {
-            listener();
-        });
-    }
-    return [];
-}
-
-
-/***/ }),
-
 /***/ "./app/components/lib/layout/content/content.component.css":
 /*!*****************************************************************!*\
   !*** ./app/components/lib/layout/content/content.component.css ***!
@@ -3423,7 +1926,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sidebar_right_sidebar_right_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../sidebar-right/sidebar-right.service */ "./app/components/lib/layout/sidebar-right/sidebar-right.service.ts");
 /* harmony import */ var _header_header_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../header/header.service */ "./app/components/lib/layout/header/header.service.ts");
 /* harmony import */ var _footer_footer_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../footer/footer.service */ "./app/components/lib/layout/footer/footer.service.ts");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../helpers */ "./app/components/lib/helpers.ts");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../../../helpers/helpers */ "./app/helpers/helpers.ts");
 
 
 
@@ -3500,7 +2003,7 @@ var ContentComponent = /** @class */ (function () {
      * @method ngOnDestroy
      */
     ContentComponent.prototype.ngOnDestroy = function () {
-        this.subscriptions = Object(_helpers__WEBPACK_IMPORTED_MODULE_9__["removeSubscriptions"])(this.subscriptions);
+        this.subscriptions = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_9__["removeSubscriptions"])(this.subscriptions);
     };
     Object.defineProperty(ContentComponent.prototype, "scrollHeight", {
         /**
@@ -3837,7 +2340,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _layout_store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layout.store */ "./app/components/lib/layout/layout.store.ts");
 /* harmony import */ var _header_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./header.service */ "./app/components/lib/layout/header/header.service.ts");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../helpers */ "./app/components/lib/helpers.ts");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../helpers/helpers */ "./app/helpers/helpers.ts");
 
 
 
@@ -3938,8 +2441,8 @@ var HeaderComponent = /** @class */ (function () {
      * @method ngOnDestroy
      */
     HeaderComponent.prototype.ngOnDestroy = function () {
-        this.listeners = Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["removeListeners"])(this.listeners);
-        this.subscriptions = Object(_helpers__WEBPACK_IMPORTED_MODULE_4__["removeSubscriptions"])(this.subscriptions);
+        this.listeners = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["removeListeners"])(this.listeners);
+        this.subscriptions = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_4__["removeSubscriptions"])(this.subscriptions);
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -4644,7 +3147,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wrapper_wrapper_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../wrapper/wrapper.service */ "./app/components/lib/layout/wrapper/wrapper.service.ts");
 /* harmony import */ var _header_header_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../header/header.service */ "./app/components/lib/layout/header/header.service.ts");
 /* harmony import */ var _layout_store__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../layout.store */ "./app/components/lib/layout/layout.store.ts");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../helpers */ "./app/components/lib/helpers.ts");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../helpers/helpers */ "./app/helpers/helpers.ts");
 /* harmony import */ var _sidebar_left_directive__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./sidebar-left.directive */ "./app/components/lib/layout/sidebar-left/sidebar-left.directive.ts");
 
 
@@ -4722,9 +3225,9 @@ var SidebarLeftComponent = /** @class */ (function () {
      * @method ngOnDestroy
      */
     SidebarLeftComponent.prototype.ngOnDestroy = function () {
-        this.subscriptions = Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["removeSubscriptions"])(this.subscriptions);
-        this.listeners = Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["removeListeners"])(this.listeners);
-        this.toggleListeners = Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["removeListeners"])(this.toggleListeners);
+        this.subscriptions = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_7__["removeSubscriptions"])(this.subscriptions);
+        this.listeners = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_7__["removeListeners"])(this.listeners);
+        this.toggleListeners = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_7__["removeListeners"])(this.toggleListeners);
     };
     /**
      * [setSidebarListeners description]
@@ -4953,7 +3456,7 @@ var SidebarLeftComponent = /** @class */ (function () {
      */
     SidebarLeftComponent.prototype.setMenuTogglesListeners = function () {
         var _this = this;
-        this.toggleListeners = Object(_helpers__WEBPACK_IMPORTED_MODULE_7__["removeListeners"])(this.toggleListeners);
+        this.toggleListeners = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_7__["removeListeners"])(this.toggleListeners);
         this.ngZone.runOutsideAngular(function () {
             _this.sidebarLeftToggleDirectives.forEach(function (menuToggle) {
                 _this.toggleListeners.push(_this.renderer2.listen(menuToggle.elementRef.nativeElement, 'click', function (event) {
@@ -5164,7 +3667,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wrapper_wrapper_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../wrapper/wrapper.service */ "./app/components/lib/layout/wrapper/wrapper.service.ts");
 /* harmony import */ var _layout_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layout.store */ "./app/components/lib/layout/layout.store.ts");
 /* harmony import */ var _sidebar_right_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sidebar-right.service */ "./app/components/lib/layout/sidebar-right/sidebar-right.service.ts");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../helpers */ "./app/components/lib/helpers.ts");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../helpers/helpers */ "./app/helpers/helpers.ts");
 
 
 
@@ -5231,8 +3734,8 @@ var SidebarRightComponent = /** @class */ (function () {
      * @method ngOnDestroy
      */
     SidebarRightComponent.prototype.ngOnDestroy = function () {
-        this.listeners = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["removeListeners"])(this.listeners);
-        this.subscriptions = Object(_helpers__WEBPACK_IMPORTED_MODULE_5__["removeSubscriptions"])(this.subscriptions);
+        this.listeners = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_5__["removeListeners"])(this.listeners);
+        this.subscriptions = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_5__["removeSubscriptions"])(this.subscriptions);
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('sidebarContentElement'),
@@ -5366,7 +3869,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WrapperComponent", function() { return WrapperComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../helpers */ "./app/components/lib/helpers.ts");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../helpers/helpers */ "./app/helpers/helpers.ts");
 /* harmony import */ var _layout_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layout.store */ "./app/components/lib/layout/layout.store.ts");
 /* harmony import */ var _wrapper_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./wrapper.service */ "./app/components/lib/layout/wrapper/wrapper.service.ts");
 
@@ -5397,7 +3900,7 @@ var WrapperComponent = /** @class */ (function () {
             _this.classes = value ? value : null;
         }));
         this.ngZone.runOutsideAngular(function () {
-            _this.listeners.push(_this.renderer2.listen('window', 'resize', Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["throttle"])(function () {
+            _this.listeners.push(_this.renderer2.listen('window', 'resize', Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__["throttle"])(function () {
                 _this.layoutStore.setWindowInnerHeight(window.innerHeight);
                 _this.layoutStore.setWindowInnerWidth(window.innerWidth);
             }, 250)));
@@ -5422,8 +3925,8 @@ var WrapperComponent = /** @class */ (function () {
      * @method ngOnDestroy
      */
     WrapperComponent.prototype.ngOnDestroy = function () {
-        this.subscriptions = Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["removeSubscriptions"])(this.subscriptions);
-        this.listeners = Object(_helpers__WEBPACK_IMPORTED_MODULE_2__["removeListeners"])(this.listeners);
+        this.subscriptions = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__["removeSubscriptions"])(this.subscriptions);
+        this.listeners = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_2__["removeListeners"])(this.listeners);
     };
     WrapperComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -5500,63 +4003,6 @@ var WrapperService = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
     ], WrapperService);
     return WrapperService;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/components/lib/services/class.service.ts":
-/*!******************************************************!*\
-  !*** ./app/components/lib/services/class.service.ts ***!
-  \******************************************************/
-/*! exports provided: ClassService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ClassService", function() { return ClassService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-
-
-/*
- *
- */
-var ClassService = /** @class */ (function () {
-    function ClassService(elementRef, renderer2) {
-        this.elementRef = elementRef;
-        this.renderer2 = renderer2;
-        this.currentClasses = [];
-    }
-    ClassService.prototype.applyClasses = function (cssClasses) {
-        var _this = this;
-        if (typeof cssClasses === 'string') {
-            cssClasses = cssClasses.split(' ');
-        }
-        // Remove only classes that are not in cssClasses
-        var classesToRemove = this.currentClasses.filter(function (x) { return cssClasses.indexOf(x) === -1; });
-        classesToRemove.forEach(function (cssClasse) {
-            if (cssClasse) {
-                _this.renderer2.removeClass(_this.elementRef.nativeElement, cssClasse);
-            }
-        });
-        // Add only classes that are not in currentClasses
-        var classesToAdd = cssClasses.filter(function (x) { return _this.currentClasses.indexOf(x) === -1; });
-        classesToAdd.forEach(function (cssClasse) {
-            if (cssClasse) {
-                _this.renderer2.addClass(_this.elementRef.nativeElement, cssClasse);
-            }
-        });
-        // Update current classes for futur updates
-        this.currentClasses = cssClasses.slice();
-    };
-    ClassService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"],
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"]])
-    ], ClassService);
-    return ClassService;
 }());
 
 
@@ -5739,7 +4185,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _tabs_directive__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tabs.directive */ "./app/components/lib/tabs/tabs.directive.ts");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../helpers */ "./app/components/lib/helpers.ts");
+/* harmony import */ var _helpers_helpers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../helpers/helpers */ "./app/helpers/helpers.ts");
 
 
 
@@ -5927,8 +4373,8 @@ var TabsComponent = /** @class */ (function () {
      * @method ngOnDestroy
      */
     TabsComponent.prototype.ngOnDestroy = function () {
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["removeListeners"])(this.listeners);
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["removeSubscriptions"])(this.subscriptions);
+        Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_3__["removeListeners"])(this.listeners);
+        Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_3__["removeSubscriptions"])(this.subscriptions);
     };
     /**
      * [toggleTab description]
@@ -5985,7 +4431,7 @@ var TabsComponent = /** @class */ (function () {
      */
     TabsComponent.prototype.setTabsToggle = function () {
         var _this = this;
-        this.listeners = Object(_helpers__WEBPACK_IMPORTED_MODULE_3__["removeListeners"])(this.listeners);
+        this.listeners = Object(_helpers_helpers__WEBPACK_IMPORTED_MODULE_3__["removeListeners"])(this.listeners);
         this.ngZone.runOutsideAngular(function () {
             _this.tabToggleDirectives.forEach(function (tabToggle) {
                 _this.listeners.push(_this.renderer2.listen(tabToggle.elementRef.nativeElement, 'click', function (event) {
@@ -6143,10 +4589,111 @@ var TabsModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./app/core/core.module.ts":
-/*!*********************************!*\
-  !*** ./app/core/core.module.ts ***!
-  \*********************************/
+/***/ "./app/helpers/helpers.ts":
+/*!********************************!*\
+  !*** ./app/helpers/helpers.ts ***!
+  \********************************/
+/*! exports provided: throttle, removeSubscriptions, removeListeners */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "throttle", function() { return throttle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeSubscriptions", function() { return removeSubscriptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeListeners", function() { return removeListeners; });
+/**
+ * [throttle description]
+ * @method throttle
+ * @param callback [description]
+ * @param delay    [description]
+ * @return [description]
+ */
+function throttle(callback, delay) {
+    var _this = this;
+    var timeout = null;
+    return function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        if (!timeout) {
+            timeout = setTimeout(function () {
+                callback.call.apply(callback, [_this].concat(args));
+                timeout = null;
+            }, delay);
+        }
+    };
+}
+/**
+ * [removeSubscriptions description]
+ * @method removeSubscriptions
+ */
+function removeSubscriptions(subscriptions) {
+    if (subscriptions) {
+        subscriptions.forEach(function (subscription) {
+            subscription.unsubscribe();
+        });
+    }
+    return [];
+}
+/**
+ * [removeListeners description]
+ * @method removeListeners
+ */
+function removeListeners(listeners) {
+    if (listeners) {
+        listeners.forEach(function (listener) {
+            listener();
+        });
+    }
+    return [];
+}
+
+
+/***/ }),
+
+/***/ "./app/helpers/url-serializer.ts":
+/*!***************************************!*\
+  !*** ./app/helpers/url-serializer.ts ***!
+  \***************************************/
+/*! exports provided: LowerCaseUrlSerializer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LowerCaseUrlSerializer", function() { return LowerCaseUrlSerializer; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+
+
+
+var LowerCaseUrlSerializer = /** @class */ (function (_super) {
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](LowerCaseUrlSerializer, _super);
+    function LowerCaseUrlSerializer() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    LowerCaseUrlSerializer.prototype.parse = function (url) {
+        // Optional Step: Do some stuff with the url if needed.
+        // If you lower it in the optional step 
+        // you don't need to use "toLowerCase" 
+        // when you pass it down to the next function
+        return _super.prototype.parse.call(this, url.toLowerCase());
+    };
+    LowerCaseUrlSerializer = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])()
+    ], LowerCaseUrlSerializer);
+    return LowerCaseUrlSerializer;
+}(_angular_router__WEBPACK_IMPORTED_MODULE_1__["DefaultUrlSerializer"]));
+
+
+
+/***/ }),
+
+/***/ "./app/pages/core/core.module.ts":
+/*!***************************************!*\
+  !*** ./app/pages/core/core.module.ts ***!
+  \***************************************/
 /*! exports provided: CoreModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -6158,10 +4705,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "../node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _components_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/index */ "./app/components/index.ts");
-/* harmony import */ var _header_inner_header_inner_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./header-inner/header-inner.component */ "./app/core/header-inner/header-inner.component.ts");
-/* harmony import */ var _sidebar_left_inner_sidebar_left_inner_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./sidebar-left-inner/sidebar-left-inner.component */ "./app/core/sidebar-left-inner/sidebar-left-inner.component.ts");
-/* harmony import */ var _sidebar_right_inner_sidebar_right_inner_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./sidebar-right-inner/sidebar-right-inner.component */ "./app/core/sidebar-right-inner/sidebar-right-inner.component.ts");
+/* harmony import */ var _components_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/index */ "./app/components/index.ts");
+/* harmony import */ var _header_inner_header_inner_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./header-inner/header-inner.component */ "./app/pages/core/header-inner/header-inner.component.ts");
+/* harmony import */ var _sidebar_left_inner_sidebar_left_inner_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./sidebar-left-inner/sidebar-left-inner.component */ "./app/pages/core/sidebar-left-inner/sidebar-left-inner.component.ts");
+/* harmony import */ var _sidebar_right_inner_sidebar_right_inner_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./sidebar-right-inner/sidebar-right-inner.component */ "./app/pages/core/sidebar-right-inner/sidebar-right-inner.component.ts");
 
 
 
@@ -6195,21 +4742,21 @@ var CoreModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./app/core/header-inner/header-inner.component.html":
-/*!***********************************************************!*\
-  !*** ./app/core/header-inner/header-inner.component.html ***!
-  \***********************************************************/
+/***/ "./app/pages/core/header-inner/header-inner.component.html":
+/*!*****************************************************************!*\
+  !*** ./app/pages/core/header-inner/header-inner.component.html ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"navbar-custom-menu\">\n  <ul class=\"nav navbar-nav\">\n    <!-- Messages: style can be found in dropdown.less -->\n    <li mk-dropdown type=\"list\" [isWrapper]=\"false\" class=\"messages-menu\">\n      <mk-dropdown-toggle>\n        <a #toggleElement>\n          <i class=\"fa fa-envelope-o\"></i>\n          <span class=\"label label-success\">4</span>\n        </a>\n      </mk-dropdown-toggle>\n      <mk-dropdown-menu>\n        <li class=\"header\">You have 4 messages</li>\n        <li>\n          <div class=\"slimScrollDiv\" style=\"position: relative; overflow: hidden; width: auto; height: 200px;\"><ul class=\"menu\" style=\"overflow: hidden; width: 100%; height: 200px;\">\n            <li>\n              <a href=\"#\">\n                <div class=\"pull-left\">\n                  <img src=\"assets/img/user2-160x160.jpg\" class=\"img-circle\" alt=\"User Image\">\n                </div>\n                <h4>\n                  Support Team\n                  <small><i class=\"fa fa-clock-o\"></i> 5 mins</small>\n                </h4>\n                <p>Why not buy a new awesome theme?</p>\n              </a>\n            </li>\n            <li>\n              <a href=\"#\">\n                <div class=\"pull-left\">\n                  <img src=\"assets/img/user3-128x128.jpg\" class=\"img-circle\" alt=\"User Image\">\n                </div>\n                <h4>\n                  AdminLTE Design Team\n                  <small><i class=\"fa fa-clock-o\"></i> 2 hours</small>\n                </h4>\n                <p>Why not buy a new awesome theme?</p>\n              </a>\n            </li>\n            <li>\n              <a href=\"#\">\n                <div class=\"pull-left\">\n                  <img src=\"assets/img/user4-128x128.jpg\" class=\"img-circle\" alt=\"User Image\">\n                </div>\n                <h4>\n                  Developers\n                  <small><i class=\"fa fa-clock-o\"></i> Today</small>\n                </h4>\n                <p>Why not buy a new awesome theme?</p>\n              </a>\n            </li>\n            <li>\n              <a href=\"#\">\n                <div class=\"pull-left\">\n                  <img src=\"assets/img/user3-128x128.jpg\" class=\"img-circle\" alt=\"User Image\">\n                </div>\n                <h4>\n                  Sales Department\n                  <small><i class=\"fa fa-clock-o\"></i> Yesterday</small>\n                </h4>\n                <p>Why not buy a new awesome theme?</p>\n              </a>\n            </li>\n            <li>\n              <a href=\"#\">\n                <div class=\"pull-left\">\n                  <img src=\"assets/img/user4-128x128.jpg\" class=\"img-circle\" alt=\"User Image\">\n                </div>\n                <h4>\n                  Reviewers\n                  <small><i class=\"fa fa-clock-o\"></i> 2 days</small>\n                </h4>\n                <p>Why not buy a new awesome theme?</p>\n              </a>\n            </li>\n          </ul><div class=\"slimScrollBar\" style=\"width: 3px; position: absolute; top: 0; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; background: rgb(0, 0, 0);\"></div><div class=\"slimScrollRail\" style=\"width: 3px; height: 100%; position: absolute; top: 0; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);\"></div></div>\n        </li>\n        <li class=\"footer\"><a href=\"#\">See All Messages</a></li>\n      </mk-dropdown-menu>\n    </li>\n\n    <li mk-dropdown type=\"list\" [isWrapper]=\"false\" class=\"notifications-menu\">\n      <mk-dropdown-toggle>\n        <a #toggleElement>\n          <i class=\"fa fa-bell-o\"></i>\n          <span class=\"label label-warning\">10</span>\n        </a>\n      </mk-dropdown-toggle>\n      <mk-dropdown-menu>\n        <li class=\"header\">You have 10 notifications</li>\n        <li>\n          <div class=\"slimScrollDiv\" style=\"position: relative; overflow: hidden; width: auto; height: 200px;\"><ul class=\"menu\" style=\"overflow: hidden; width: 100%; height: 200px;\">\n            <li>\n              <a href=\"#\">\n                <i class=\"fa fa-users text-aqua\"></i> 5 new members joined today\n              </a>\n            </li>\n            <li>\n              <a href=\"#\">\n                <i class=\"fa fa-warning text-yellow\"></i> Very long description here that may not fit into the\n                page and may cause design problems\n              </a>\n            </li>\n            <li>\n              <a href=\"#\">\n                <i class=\"fa fa-users text-red\"></i> 5 new members joined\n              </a>\n            </li>\n            <li>\n              <a href=\"#\">\n                <i class=\"fa fa-shopping-cart text-green\"></i> 25 sales made\n              </a>\n            </li>\n            <li>\n              <a href=\"#\">\n                <i class=\"fa fa-user text-light-blue\"></i> You changed your username\n              </a>\n            </li>\n          </ul><div class=\"slimScrollBar\" style=\"width: 3px; position: absolute; top: 0; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; background: rgb(0, 0, 0);\"></div><div class=\"slimScrollRail\" style=\"width: 3px; height: 100%; position: absolute; top: 0; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);\"></div></div>\n        </li>\n        <li class=\"footer\"><a href=\"#\">View all</a></li>\n      </mk-dropdown-menu>\n    </li>\n\n    <li mk-dropdown type=\"list\" [isWrapper]=\"false\" class=\"tasks-menu\">\n      <mk-dropdown-toggle>\n        <a #toggleElement>\n          <i class=\"fa fa-flag-o\"></i>\n          <span class=\"label label-danger\">9</span>\n        </a>\n      </mk-dropdown-toggle>\n      <mk-dropdown-menu>\n        <li class=\"header\">You have 9 tasks</li>\n        <li>\n          <div class=\"slimScrollDiv\" style=\"position: relative; overflow: hidden; width: auto; height: 200px;\"><ul class=\"menu\" style=\"overflow: hidden; width: 100%; height: 200px;\">\n            <li>\n              <a href=\"#\">\n                <h3>\n                  Design some buttons\n                  <small class=\"pull-right\">20%</small>\n                </h3>\n                <div class=\"progress xs\">\n                  <div class=\"progress-bar progress-bar-aqua\" style=\"width: 20%\" role=\"progressbar\" aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\">\n                    <span class=\"sr-only\">20% Complete</span>\n                  </div>\n                </div>\n              </a>\n            </li>\n\n            <li>\n              <a href=\"#\">\n                <h3>\n                  Create a nice theme\n                  <small class=\"pull-right\">40%</small>\n                </h3>\n                <div class=\"progress xs\">\n                  <div class=\"progress-bar progress-bar-green\" style=\"width: 40%\" role=\"progressbar\" aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\">\n                    <span class=\"sr-only\">40% Complete</span>\n                  </div>\n                </div>\n              </a>\n            </li>\n            <li>\n              <a href=\"#\">\n                <h3>\n                  Some task I need to do\n                  <small class=\"pull-right\">60%</small>\n                </h3>\n                <div class=\"progress xs\">\n                  <div class=\"progress-bar progress-bar-red\" style=\"width: 60%\" role=\"progressbar\" aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\">\n                    <span class=\"sr-only\">60% Complete</span>\n                  </div>\n                </div>\n              </a>\n            </li>\n            <li>\n              <a href=\"#\">\n                <h3>\n                  Make beautiful transitions\n                  <small class=\"pull-right\">80%</small>\n                </h3>\n                <div class=\"progress xs\">\n                  <div class=\"progress-bar progress-bar-yellow\" style=\"width: 80%\" role=\"progressbar\" aria-valuenow=\"20\" aria-valuemin=\"0\" aria-valuemax=\"100\">\n                    <span class=\"sr-only\">80% Complete</span>\n                  </div>\n                </div>\n              </a>\n            </li>\n          </ul><div class=\"slimScrollBar\" style=\"width: 3px; position: absolute; top: 0; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; background: rgb(0, 0, 0);\"></div><div class=\"slimScrollRail\" style=\"width: 3px; height: 100%; position: absolute; top: 0; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);\"></div></div>\n        </li>\n        <li class=\"footer\">\n          <a href=\"#\">View all tasks</a>\n        </li>\n      </mk-dropdown-menu>\n    </li>\n    <li mk-dropdown type=\"list\" [isWrapper]=\"false\" class=\"user user-menu\">\n      <mk-dropdown-toggle>\n        <a #toggleElement>\n          <img src=\"assets/img/user2-160x160.jpg\" class=\"user-image\" alt=\"User Image\">\n          <span class=\"hidden-xs\">Alexander Pierce</span>\n        </a>\n      </mk-dropdown-toggle>\n      <mk-dropdown-menu>\n        <li class=\"user-header\">\n          <img src=\"assets/img/user2-160x160.jpg\" class=\"img-circle\" alt=\"User Image\">\n\n          <p>\n            Alexander Pierce - Web Developer\n            <small>Member since Nov. 2012</small>\n          </p>\n        </li>\n        <li class=\"user-body\">\n          <div class=\"row\">\n            <div class=\"col-xs-4 text-center\">\n              <a href=\"#\">Followers</a>\n            </div>\n            <div class=\"col-xs-4 text-center\">\n              <a href=\"#\">Sales</a>\n            </div>\n            <div class=\"col-xs-4 text-center\">\n              <a href=\"#\">Friends</a>\n            </div>\n          </div>\n        </li>\n        <li class=\"user-footer\">\n          <div class=\"pull-left\">\n            <a href=\"#\" class=\"btn btn-default btn-flat\">Profile</a>\n          </div>\n          <div class=\"pull-right\">\n            <a href=\"#\" class=\"btn btn-default btn-flat\">Sign out</a>\n          </div>\n        </li>\n      </mk-dropdown-menu>\n    </li>\n  </ul>\n</div>\n"
+module.exports = "test"
 
 /***/ }),
 
-/***/ "./app/core/header-inner/header-inner.component.ts":
-/*!*********************************************************!*\
-  !*** ./app/core/header-inner/header-inner.component.ts ***!
-  \*********************************************************/
+/***/ "./app/pages/core/header-inner/header-inner.component.ts":
+/*!***************************************************************!*\
+  !*** ./app/pages/core/header-inner/header-inner.component.ts ***!
+  \***************************************************************/
 /*! exports provided: HeaderInnerComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -6226,7 +4773,7 @@ var HeaderInnerComponent = /** @class */ (function () {
     HeaderInnerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-header-inner',
-            template: __webpack_require__(/*! ./header-inner.component.html */ "./app/core/header-inner/header-inner.component.html")
+            template: __webpack_require__(/*! ./header-inner.component.html */ "./app/pages/core/header-inner/header-inner.component.html")
         })
     ], HeaderInnerComponent);
     return HeaderInnerComponent;
@@ -6236,10 +4783,10 @@ var HeaderInnerComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./app/core/sidebar-left-inner/sidebar-left-inner.component.html":
-/*!***********************************************************************!*\
-  !*** ./app/core/sidebar-left-inner/sidebar-left-inner.component.html ***!
-  \***********************************************************************/
+/***/ "./app/pages/core/sidebar-left-inner/sidebar-left-inner.component.html":
+/*!*****************************************************************************!*\
+  !*** ./app/pages/core/sidebar-left-inner/sidebar-left-inner.component.html ***!
+  \*****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -6247,10 +4794,10 @@ module.exports = "<div class=\"user-panel\">\n  <div class=\"pull-left image\">\
 
 /***/ }),
 
-/***/ "./app/core/sidebar-left-inner/sidebar-left-inner.component.ts":
-/*!*********************************************************************!*\
-  !*** ./app/core/sidebar-left-inner/sidebar-left-inner.component.ts ***!
-  \*********************************************************************/
+/***/ "./app/pages/core/sidebar-left-inner/sidebar-left-inner.component.ts":
+/*!***************************************************************************!*\
+  !*** ./app/pages/core/sidebar-left-inner/sidebar-left-inner.component.ts ***!
+  \***************************************************************************/
 /*! exports provided: SidebarLeftInnerComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -6267,7 +4814,7 @@ var SidebarLeftInnerComponent = /** @class */ (function () {
     SidebarLeftInnerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-sidebar-left-inner',
-            template: __webpack_require__(/*! ./sidebar-left-inner.component.html */ "./app/core/sidebar-left-inner/sidebar-left-inner.component.html")
+            template: __webpack_require__(/*! ./sidebar-left-inner.component.html */ "./app/pages/core/sidebar-left-inner/sidebar-left-inner.component.html")
         })
     ], SidebarLeftInnerComponent);
     return SidebarLeftInnerComponent;
@@ -6277,10 +4824,10 @@ var SidebarLeftInnerComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./app/core/sidebar-right-inner/sidebar-right-inner.component.html":
-/*!*************************************************************************!*\
-  !*** ./app/core/sidebar-right-inner/sidebar-right-inner.component.html ***!
-  \*************************************************************************/
+/***/ "./app/pages/core/sidebar-right-inner/sidebar-right-inner.component.html":
+/*!*******************************************************************************!*\
+  !*** ./app/pages/core/sidebar-right-inner/sidebar-right-inner.component.html ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -6288,10 +4835,10 @@ module.exports = "<mk-tabs styleClass=\"sidebar-right-tabs-wrapper\" navStyleCla
 
 /***/ }),
 
-/***/ "./app/core/sidebar-right-inner/sidebar-right-inner.component.ts":
-/*!***********************************************************************!*\
-  !*** ./app/core/sidebar-right-inner/sidebar-right-inner.component.ts ***!
-  \***********************************************************************/
+/***/ "./app/pages/core/sidebar-right-inner/sidebar-right-inner.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./app/pages/core/sidebar-right-inner/sidebar-right-inner.component.ts ***!
+  \*****************************************************************************/
 /*! exports provided: SidebarRightInnerComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -6300,7 +4847,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidebarRightInnerComponent", function() { return SidebarRightInnerComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _components_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/index */ "./app/components/index.ts");
+/* harmony import */ var _components_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/index */ "./app/components/index.ts");
 
 
 
@@ -6382,7 +4929,7 @@ var SidebarRightInnerComponent = /** @class */ (function () {
     SidebarRightInnerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-sidebar-right-inner',
-            template: __webpack_require__(/*! ./sidebar-right-inner.component.html */ "./app/core/sidebar-right-inner/sidebar-right-inner.component.html")
+            template: __webpack_require__(/*! ./sidebar-right-inner.component.html */ "./app/pages/core/sidebar-right-inner/sidebar-right-inner.component.html")
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_components_index__WEBPACK_IMPORTED_MODULE_2__["LayoutStore"],
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
@@ -6394,59 +4941,21 @@ var SidebarRightInnerComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./app/helpers/url-serializer.ts":
-/*!***************************************!*\
-  !*** ./app/helpers/url-serializer.ts ***!
-  \***************************************/
-/*! exports provided: LowerCaseUrlSerializer */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LowerCaseUrlSerializer", function() { return LowerCaseUrlSerializer; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-
-
-
-var LowerCaseUrlSerializer = /** @class */ (function (_super) {
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](LowerCaseUrlSerializer, _super);
-    function LowerCaseUrlSerializer() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    LowerCaseUrlSerializer.prototype.parse = function (url) {
-        // Optional Step: Do some stuff with the url if needed.
-        // If you lower it in the optional step 
-        // you don't need to use "toLowerCase" 
-        // when you pass it down to the next function
-        return _super.prototype.parse.call(this, url.toLowerCase());
-    };
-    LowerCaseUrlSerializer = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])()
-    ], LowerCaseUrlSerializer);
-    return LowerCaseUrlSerializer;
-}(_angular_router__WEBPACK_IMPORTED_MODULE_1__["DefaultUrlSerializer"]));
-
-
-
-/***/ }),
-
-/***/ "./app/home/home.component.css":
-/*!*************************************!*\
-  !*** ./app/home/home.component.css ***!
-  \*************************************/
+/***/ "./app/pages/home/home.component.css":
+/*!*******************************************!*\
+  !*** ./app/pages/home/home.component.css ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuY3NzIn0= */"
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL3BhZ2VzL2hvbWUvaG9tZS5jb21wb25lbnQuY3NzIn0= */"
 
 /***/ }),
 
-/***/ "./app/home/home.component.html":
-/*!**************************************!*\
-  !*** ./app/home/home.component.html ***!
-  \**************************************/
+/***/ "./app/pages/home/home.component.html":
+/*!********************************************!*\
+  !*** ./app/pages/home/home.component.html ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -6454,10 +4963,10 @@ module.exports = "<mk-box header=\"About Angular Admin LTE\" [isCollapsable]=\"f
 
 /***/ }),
 
-/***/ "./app/home/home.component.ts":
-/*!************************************!*\
-  !*** ./app/home/home.component.ts ***!
-  \************************************/
+/***/ "./app/pages/home/home.component.ts":
+/*!******************************************!*\
+  !*** ./app/pages/home/home.component.ts ***!
+  \******************************************/
 /*! exports provided: HomeComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -6483,8 +4992,8 @@ var HomeComponent = /** @class */ (function () {
     HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-home',
-            template: __webpack_require__(/*! ./home.component.html */ "./app/home/home.component.html"),
-            styles: [__webpack_require__(/*! ./home.component.css */ "./app/home/home.component.css")]
+            template: __webpack_require__(/*! ./home.component.html */ "./app/pages/home/home.component.html"),
+            styles: [__webpack_require__(/*! ./home.component.css */ "./app/pages/home/home.component.css")]
         })
     ], HomeComponent);
     return HomeComponent;

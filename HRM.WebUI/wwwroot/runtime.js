@@ -63,7 +63,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"accordion-accordion-module":"accordion-accordion-module","alert-alert-module":"alert-alert-module","boxs-box-default-box-default-module":"boxs-box-default-box-default-module","boxs-box-info-box-info-module":"boxs-box-info-box-info-module","boxs-box-small-box-small-module":"boxs-box-small-box-small-module","dropdown-dropdown-module":"dropdown-dropdown-module","form-input-text-input-text-module":"form-input-text-input-text-module","layout-configuration-configuration-module":"layout-configuration-configuration-module","layout-content-content-module":"layout-content-content-module","layout-custom-custom-module":"layout-custom-custom-module","layout-header-header-module":"layout-header-header-module","layout-sidebar-left-sidebar-left-module":"layout-sidebar-left-sidebar-left-module","layout-sidebar-right-sidebar-right-module":"layout-sidebar-right-sidebar-right-module","login-login-module":"login-login-module","register-register-module":"register-register-module","tabs-tabs-module":"tabs-tabs-module"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"pages-alert-alert-module":"pages-alert-alert-module","pages-layout-configuration-configuration-module":"pages-layout-configuration-configuration-module","pages-layout-custom-custom-module":"pages-layout-custom-custom-module","pages-login-login-module":"pages-login-login-module","pages-register-register-module":"pages-register-register-module"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function

@@ -17,7 +17,7 @@ import {
 
 import {AnimationEvent} from '../animations/animations.interface';
 
-import {removeListeners} from '../helpers';
+import { removeListeners } from '../../../helpers/helpers';
 
 /*
  *

@@ -3,7 +3,7 @@ import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, OnDestroy
 import {WrapperService} from '../wrapper/wrapper.service';
 import {LayoutStore} from '../layout.store';
 import {SidebarRightService} from './sidebar-right.service';
-import {removeListeners, removeSubscriptions} from '../../helpers';
+import { removeListeners, removeSubscriptions } from '../../../../helpers/helpers';
 
 @Component({
   selector: 'mk-layout-sidebar-right',
