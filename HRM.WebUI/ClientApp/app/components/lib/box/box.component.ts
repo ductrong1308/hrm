@@ -23,7 +23,7 @@ import { removeListeners } from '../../../helpers/helpers';
  *
  */
 @Component({
-  selector: 'mk-box',
+  selector: 'hrm-box',
   templateUrl: './box.component.html',
   styleUrls: ['./box.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

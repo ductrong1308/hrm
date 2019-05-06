@@ -23,7 +23,7 @@ import { removeListeners } from '../../../helpers/helpers';
  *
  */
 @Component({
-  selector: 'mk-dropdown-toggle',
+  selector: 'hrm-dropdown-toggle',
   template: '<ng-template #templateRef><ng-content></ng-content></ng-template>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -37,7 +37,7 @@ export class DropdownToggleComponent {
  *
  */
 @Component({
-  selector: 'mk-dropdown-menu',
+  selector: 'hrm-dropdown-menu',
   template: '<ng-template #templateRef><ng-content></ng-content></ng-template>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -45,12 +45,11 @@ export class DropdownMenuComponent {
   @ViewChild('templateRef') public templateRef: TemplateRef<any>;
 }
 
-
 /*
  *
  */
 @Component({
-  selector: 'mk-dropdown, [mk-dropdown]',
+  selector: 'hrm-dropdown, [hrm-dropdown]',
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

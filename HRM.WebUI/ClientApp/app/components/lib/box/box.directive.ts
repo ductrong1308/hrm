@@ -5,7 +5,7 @@ import { Directive } from '@angular/core';
  */
 @Directive({
   /* tslint:disable-next-line:directive-selector */
-  selector: 'mk-box-content'
+  selector: 'hrm-box-content'
 })
 export class BoxContentDirective {}
 
@@ -15,7 +15,7 @@ export class BoxContentDirective {}
  */
 @Directive({
   /* tslint:disable-next-line:directive-selector */
-  selector: 'mk-box-footer'
+  selector: 'hrm-box-footer'
 })
 export class BoxFooterDirective {}
 
@@ -25,7 +25,7 @@ export class BoxFooterDirective {}
  */
 @Directive({
   /* tslint:disable-next-line:directive-selector */
-  selector: 'mk-box-tools'
+  selector: 'hrm-box-tools'
 })
 export class BoxToolsDirective {}
 
@@ -35,6 +35,6 @@ export class BoxToolsDirective {}
  */
 @Directive({
   /* tslint:disable-next-line:directive-selector */
-  selector: 'mk-box-header'
+  selector: 'hrm-box-header'
 })
 export class BoxHeaderDirective {}

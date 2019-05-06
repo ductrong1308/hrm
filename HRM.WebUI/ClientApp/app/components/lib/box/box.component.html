@@ -1,6 +1,6 @@
-<div *ngIf="!removed" [mkColor]="boxColor" mkColorProperty="border-color" mkColorPrefix="box" [ngClass]="styleClass" [class.collapsed-box]="isCollapsed && !isCollaping" [class.box-solid]="isSolid" [mkCollapseAnimation]="remove" (mkCollapseAnimation.done)="removedDone($event)">
-  <div *ngIf="header || boxHeaderDirective" [ngClass]="headerStyleClass" [mkColor]="boxColor" [mkColorCondition]="isSolid" mkColorProperty="background-color" [class.with-border]="headerBorder">
-    <h3 class="box-title" [mkFontColor]="headerColor">
+<div *ngIf="!removed" [hrmColor]="boxColor" mkColorProperty="border-color" mkColorPrefix="box" [ngClass]="styleClass" [class.collapsed-box]="isCollapsed && !isCollaping" [class.box-solid]="isSolid" [hrmCollapseAnimation]="remove" (mkCollapseAnimation.done)="removedDone($event)">
+  <div *ngIf="header || boxHeaderDirective" [ngClass]="headerStyleClass" [hrmColor]="boxColor" [hrmColorCondition]="isSolid" mkColorProperty="background-color" [class.with-border]="headerBorder">
+    <h3 class="box-title" [hrmFontColor]="headerColor">
       {{header}}
       <ng-content select="mk-box-header"></ng-content>
     </h3>
@@ -14,7 +14,7 @@
       </button>
     </div>
   </div>
-  <div [ngClass]="contentStyleClass" [mkFontColor]="contentColor" [mkCollapseAnimation]="isCollapsed" (mkCollapseAnimation.start)="collapseStart($event)" (mkCollapseAnimation.done)="collapseDone($event)">
+  <div [ngClass]="contentStyleClass" [hrmFontColor]="contentColor" [hrmCollapseAnimation]="isCollapsed" (mkCollapseAnimation.start)="collapseStart($event)" (mkCollapseAnimation.done)="collapseDone($event)">
     <div class="box-body">
       <ng-container *ngIf="boxHeaderDirective || boxContentDirective || boxFooterDirective || boxToolsDirective; else noDirective">
         <ng-content select="mk-box-content"></ng-content>
@@ -23,12 +23,12 @@
         <ng-content></ng-content>
       </ng-template>
     </div>
-    <div *ngIf="footer || boxFooterDirective" [ngClass]="footerStyleClass" [mkFontColor]="footerColor">
+    <div *ngIf="footer || boxFooterDirective" [ngClass]="footerStyleClass" [hrmFontColor]="footerColor">
       {{footer}}
       <ng-content select="mk-box-footer"></ng-content>
     </div>
   </div>
   <div *ngIf="isLoading" class="overlay">
-    <i [ngClass]="loadingStyleClass" [mkFontColor]="loadingColor"></i>
+    <i [ngClass]="loadingStyleClass" [hrmFontColor]="loadingColor"></i>
   </div>
 </div>

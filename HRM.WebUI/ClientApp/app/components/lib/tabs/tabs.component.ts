@@ -31,7 +31,7 @@ import { removeListeners, removeSubscriptions } from '../../../helpers/helpers';
  *
  */
 @Component({
-  selector: 'mk-tab-header',
+  selector: 'hrm-tab-header',
   template: '<ng-template #templateRef><ng-content></ng-content></ng-template>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -44,7 +44,7 @@ export class TabHeaderComponent {
  *
  */
 @Component({
-  selector: 'mk-tab-content',
+  selector: 'hrm-tab-content',
   template: '<ng-template #templateRef><ng-content></ng-content></ng-template>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -56,7 +56,7 @@ export class TabContentComponent {
  *
  */
 @Component({
-  selector: 'mk-tab',
+  selector: 'hrm-tab',
   template: '<ng-template #templateRef><ng-content></ng-content></ng-template>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -91,7 +91,7 @@ export class TabComponent implements OnInit {
  *
  */
 @Component({
-  selector: 'mk-tabs-header',
+  selector: 'hrm-tabs-header',
   template: '<ng-template #templateRef><ng-content></ng-content></ng-template>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -103,7 +103,7 @@ export class TabsHeaderComponent {
  *
  */
 @Component({
-  selector: 'mk-tabs',
+  selector: 'hrm-tabs',
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

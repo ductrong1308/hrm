@@ -6,7 +6,7 @@ import {SidebarRightService} from './sidebar-right.service';
 import { removeListeners, removeSubscriptions } from '../../../../helpers/helpers';
 
 @Component({
-  selector: 'mk-layout-sidebar-right',
+  selector: 'hrm-layout-sidebar-right',
   templateUrl: './sidebar-right.component.html',
   styleUrls: ['./sidebar-right.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

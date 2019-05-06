@@ -21,7 +21,7 @@ import { removeListeners, removeSubscriptions } from '../../../../helpers/helper
  * Header Logo
  */
 @Component({
-  selector: 'mk-layout-header-logo',
+  selector: 'hrm-layout-header-logo',
   template: '<ng-template #templateRef><ng-content></ng-content></ng-template>'
 })
 export class HeaderLogoComponent {
@@ -32,7 +32,7 @@ export class HeaderLogoComponent {
  * Header Logo Mini
  */
 @Component({
-  selector: 'mk-layout-header-logo-mini',
+  selector: 'hrm-layout-header-logo-mini',
   template: '<ng-template #templateRef><ng-content></ng-content></ng-template>'
 })
 export class HeaderLogoMiniComponent {
@@ -43,7 +43,7 @@ export class HeaderLogoMiniComponent {
  * Header
  */
 @Component({
-  selector: 'mk-layout-header',
+  selector: 'hrm-layout-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })

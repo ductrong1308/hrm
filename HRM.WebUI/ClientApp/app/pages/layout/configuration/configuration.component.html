@@ -1,4 +1,4 @@
-<mk-box header="Configuring Layout" [isCollapsable]="false" [isRemovable]="false">
+<hrm-box header="Configuring Layout" [isCollapsable]="false" [isRemovable]="false">
   <p>If can use the layout components or just use the presentation components of angular-admin-lte.</p>
   <p> If you chose to use the layout you will need to:</p>
   <ol>
@@ -6,10 +6,10 @@
     <li>Import the layout module and provide the layout configuration in your main app module.</li>
     <li>Update the main app view.</li>
   </ol>
-</mk-box>
+</hrm-box>
 
 
-<mk-box header="Configuration File" [isCollapsable]="false" [isRemovable]="false">
+<hrm-box header="Configuration File" [isCollapsable]="false" [isRemovable]="false">
   <pre><code class="language-typescript" ngNonBindable>export var adminLteConf = &#123;
   skin: 'blue',
   ...
@@ -19,9 +19,9 @@
   ]
 &#125;;
 </code></pre>
-</mk-box>
+</hrm-box>
 
-<mk-box header="Import Conf And Module" [isCollapsable]="false" [isRemovable]="false">
+<hrm-box header="Import Conf And Module" [isCollapsable]="false" [isRemovable]="false">
   <pre><code class="language-typescript">import &#123; adminLteConf &#125; from './admin-lte.conf';   //Import the layout configuration.
 import &#123; LayoutModule &#125; from './components/index';   //Import the layout module.
 
@@ -34,9 +34,9 @@ import &#123; LayoutModule &#125; from './components/index';   //Import the layo
 &#125;)
 export class AppModule &#123;&#125;
 </code></pre>
-</mk-box>
+</hrm-box>
 
-<mk-box header="App view HTML" [isCollapsable]="false" [isRemovable]="false">
+<hrm-box header="App view HTML" [isCollapsable]="false" [isRemovable]="false">
   <pre><code class="language-html">&lt;mk-layout-wrapper&gt;
   &lt;mk-layout-sidebar-right&gt;
     Sidebar right HTML
@@ -62,9 +62,9 @@ export class AppModule &#123;&#125;
   &lt;/mk-layout-footer&gt;
 &lt;/mk-layout-wrapper&gt;
 </code></pre>
-</mk-box>
+</hrm-box>
 
-<mk-box header="Configuration properties" [isCollapsable]="true" [isRemovable]="false" contentStyleClasses="table-responsive">
+<hrm-box header="Configuration properties" [isCollapsable]="true" [isRemovable]="false" contentStyleClasses="table-responsive">
   <table class="table table-bordered table-hover">
     <tbody>
       <tr>
@@ -123,9 +123,9 @@ export class AppModule &#123;&#125;
       </tr>
     </tbody>
   </table>
-</mk-box>
+</hrm-box>
 
-<mk-box header="Layout setters" [isCollapsable]="false" [isRemovable]="false">
+<hrm-box header="Layout setters" [isCollapsable]="false" [isRemovable]="false">
   <table class="table table-bordered table-hover">
     <tbody>
       <tr>
@@ -185,9 +185,9 @@ export class AppModule &#123;&#125;
       </tr>
     </tbody>
   </table>
-</mk-box>
+</hrm-box>
 
-<mk-box header="Layout subscriptions" [isCollapsable]="false" [isRemovable]="false">
+<hrm-box header="Layout subscriptions" [isCollapsable]="false" [isRemovable]="false">
   <table class="table table-bordered table-hover">
     <tbody>
       <tr>
@@ -237,4 +237,4 @@ export class AppModule &#123;&#125;
       </tr>
     </tbody>
   </table>
-</mk-box>
+</hrm-box>

@@ -5,7 +5,7 @@ import { LayoutStore } from '../layout.store';
 import { WrapperService } from './wrapper.service';
 
 @Component({
-  selector: 'mk-layout-wrapper',
+  selector: 'hrm-layout-wrapper',
   templateUrl: './wrapper.component.html',
   styleUrls: ['./wrapper.component.css']
 })

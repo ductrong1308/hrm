@@ -4,10 +4,10 @@ import { Directive, Input, ElementRef } from '@angular/core';
  *
  */
 @Directive({
-  selector: '[mkMenuToggle]'
+  selector: '[hrmMenuToggle]'
 })
 export class SidebarLeftToggleDirective {
-  @Input('mkMenuToggle') item;
+  @Input('hrmMenuToggle') item;
 
   /**
    * @method constructor

@@ -1,8 +1,8 @@
-<mk-box header="About custom layout" [isCollapsable]="false" [isRemovable]="false">
+<hrm-box header="About custom layout" [isCollapsable]="false" [isRemovable]="false">
   <p>You can completely disable layout components to create custom page layout like <a routerLink="/login">Login</a> and <a routerLink="/register">Register</a> pages.</p>
-</mk-box>
+</hrm-box>
 
-<mk-box header="Configuration" [isCollapsable]="false" [isRemovable]="false">
+<hrm-box header="Configuration" [isCollapsable]="false" [isRemovable]="false">
   <p>First you will need to import LayoutService and subscribe to isCustomLayout in the main app component:</p>
   <pre><code class="language-typescript">import &#123; Component, OnInit } from '@angular/core';
 import &#123; LayoutService } from '../../../src';
@@ -49,4 +49,4 @@ export class AppComponent implements OnInit &#123;
   &#125;,
   ...
 </code></pre>
-</mk-box>
+</hrm-box>

@@ -23,7 +23,7 @@ import { removeListeners } from '../../../helpers/helpers';
  *
  */
 @Component({
-  selector: 'mk-alert',
+  selector: 'hrm-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

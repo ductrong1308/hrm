@@ -3,7 +3,7 @@ import { Directive, Input, Renderer2, ElementRef } from '@angular/core';
 import { ColorService } from './color.service';
 
 @Directive({
-  selector: '[mkColor]',
+  selector: '[hrmColor]',
   providers: [ColorService]
 })
 export class BackgroundColorDirective {
@@ -19,16 +19,16 @@ export class BackgroundColorDirective {
     private colorService: ColorService
   ) {}
 
-  @Input('mkColorCondition') condition = true;
-  @Input('mkColorPrefix') prefix: string;
-  @Input('mkColorProperty') property: string;
-  @Input('mkColor') set color(color: string) {
+  @Input('hrmColorCondition') condition = true;
+  @Input('hrmColorPrefix') prefix: string;
+  @Input('hrmColorProperty') property: string;
+  @Input('hrmColor') set color(color: string) {
     this.colorService.setBackgroundColor(color, this.condition, this.property, this.prefix);
   }
 }
 
 @Directive({
-  selector: '[mkFontColor]',
+  selector: '[hrmFontColor]',
   providers: [ColorService]
 })
 export class ColorDirective {
@@ -44,7 +44,7 @@ export class ColorDirective {
     private colorService: ColorService
   ) {}
 
-  @Input('mkFontColor') set color(color: string) {
+  @Input('hrmFontColor') set color(color: string) {
     this.colorService.setFontColor(color);
   }
 }

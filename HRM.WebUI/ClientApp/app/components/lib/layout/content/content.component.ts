@@ -12,7 +12,7 @@ import { FooterService } from '../footer/footer.service';
 import { removeSubscriptions } from '../../../../helpers/helpers';
 
 @Component({
-  selector: 'mk-layout-content',
+  selector: 'hrm-layout-content',
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

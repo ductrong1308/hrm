@@ -4,10 +4,10 @@ import { Directive, Input, ElementRef } from '@angular/core';
  *
  */
 @Directive({
-  selector: '[mkTabToggle]'
+  selector: '[hrmTabToggle]'
 })
 export class TabToggleDirective {
-  @Input('mkTabToggle') tabComponent;
+  @Input('hrmTabToggle') tabComponent;
 
   /**
    * @method constructor

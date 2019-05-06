@@ -4,7 +4,7 @@ import { AnimationEvent } from './animations.interface';
  *
  */
 @Directive({
-  selector: '[mkCollapseAnimation]'
+  selector: '[hrmCollapseAnimation]'
 })
 export class CollapseAnimationDirective implements OnInit, AfterContentInit, OnDestroy {
   private firstStart = true;
@@ -15,7 +15,7 @@ export class CollapseAnimationDirective implements OnInit, AfterContentInit, OnD
 
   @Input() public collapseAnimationDuration = 350;
   @Input() public collapseAnimationTiming: string;
-  @Input('mkCollapseAnimation') public set _isCollapsed(value: boolean) {
+  @Input('hrmCollapseAnimation') public set _isCollapsed(value: boolean) {
     this.lastIsCollapsed = this.isCollapsed;
     this.isCollapsed = value;
     if (!this.firstStart) {
@@ -28,8 +28,8 @@ export class CollapseAnimationDirective implements OnInit, AfterContentInit, OnD
     }
   }
 
-  @Output('mkCollapseAnimation.start') public startEventEmitter = new EventEmitter();
-  @Output('mkCollapseAnimation.done') public doneEventEmitter = new EventEmitter();
+  @Output('hrmCollapseAnimation.start') public startEventEmitter = new EventEmitter();
+  @Output('hrmCollapseAnimation.done') public doneEventEmitter = new EventEmitter();
 
 
   /**
@@ -140,7 +140,7 @@ export class CollapseAnimationDirective implements OnInit, AfterContentInit, OnD
       phaseName: phaseName,
       toState: this.isCollapsed === undefined ? 'void' : this.isCollapsed ? '1' : '0',
       totalTime: this.collapseAnimationDuration,
-      triggerName: 'mkCollapseAnimation'
+      triggerName: 'hrmCollapseAnimation'
     };
 
     if (phaseName === 'done') {

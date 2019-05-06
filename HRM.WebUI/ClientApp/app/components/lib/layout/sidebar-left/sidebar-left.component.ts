@@ -41,7 +41,7 @@ export interface Item {
 export type Items = Array<Item>;
 
 @Component({
-  selector: 'mk-layout-sidebar-left',
+  selector: 'hrm-layout-sidebar-left',
   templateUrl: './sidebar-left.component.html',
   styleUrls: ['./sidebar-left.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

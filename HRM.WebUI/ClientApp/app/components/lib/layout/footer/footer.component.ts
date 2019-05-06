@@ -6,7 +6,7 @@ import { FooterService } from './footer.service';
  * Footer Left
  */
 @Component({
-  selector: 'mk-layout-footer-left',
+  selector: 'hrm-layout-footer-left',
   template: '<ng-template #templateRef><ng-content></ng-content></ng-template>'
 })
 export class FooterLeftComponent {
@@ -17,7 +17,7 @@ export class FooterLeftComponent {
  * Footer Right
  */
 @Component({
-  selector: 'mk-layout-footer-right',
+  selector: 'hrm-layout-footer-right',
   template: '<ng-template #templateRef><ng-content></ng-content></ng-template>'
 })
 export class FooterRightComponent {
@@ -25,7 +25,7 @@ export class FooterRightComponent {
 }
 
 @Component({
-  selector: 'mk-layout-footer',
+  selector: 'hrm-layout-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
