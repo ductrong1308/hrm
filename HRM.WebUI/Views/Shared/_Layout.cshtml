@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@model HRM.WebUI.Controllers.AppViewModel
+@using Newtonsoft.Json;
+@using Newtonsoft.Json.Serialization;
+
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -20,6 +25,12 @@
     </environment>
 </head>
 <body>
+  <script>
+    window.HRMAppData = {};
+    var dataJSON = '@(Html.Raw(JsonConvert.SerializeObject(Model, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() })))';
+    window.HRMAppData = JSON.parse(dataJSON);
+  </script>
+
     @RenderBody()
 
     <environment names="Development">

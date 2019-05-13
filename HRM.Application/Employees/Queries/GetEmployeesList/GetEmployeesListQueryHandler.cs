@@ -10,16 +10,18 @@ using HRM.Application.Infrastructure;
 using HRM.Domain.Entities;
 using MediatR;
 using System.Linq;
+using System.Reflection;
 
 namespace HRM.Application.Employees.Queries.GetEmployeesList
 {
-    public class GetEmployeesListQueryHandler : BaseRequestHandler<Employee, GetEmployeesListQuery, IEnumerable<EmployeeViewModel>>
+    public class GetEmployeesListQueryHandler : BaseRequestHandler<Employee>, IRequestHandler<GetEmployeesListQuery, IEnumerable<EmployeeViewModel>>
     {
-        public GetEmployeesListQueryHandler()
+        public GetEmployeesListQueryHandler(IMapper mapper, IUnitOfWork unitOfWork)
+            :base(mapper, unitOfWork)
         {
         }
 
-        public async override Task<IEnumerable<EmployeeViewModel>> Handle(GetEmployeesListQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<EmployeeViewModel>> Handle(GetEmployeesListQuery request, CancellationToken cancellationToken)
         {
             var employees = await this._repository.GetAllAsync(null, null, null);
             var employeeListViewModel = this._mapper.Map<IEnumerable<EmployeeViewModel>>(employees);

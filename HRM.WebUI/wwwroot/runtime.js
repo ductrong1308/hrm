@@ -63,7 +63,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"pages-alert-alert-module":"pages-alert-alert-module","pages-layout-configuration-configuration-module":"pages-layout-configuration-configuration-module","pages-layout-custom-custom-module":"pages-layout-custom-custom-module","pages-login-login-module":"pages-login-login-module","pages-register-register-module":"pages-register-register-module"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"pages-alert-alert-module":"pages-alert-alert-module","pages-my-dashboard-my-dashboard-module":"pages-my-dashboard-my-dashboard-module"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function

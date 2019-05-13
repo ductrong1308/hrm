@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using AutoMapper;
+using HRM.Application;
+using HRM.Application.Employees.Queries.GetEmployeesList;
 using HRM.Application.Utilities.MediatR;
 using HRM.Infrastructure.IoC;
 using HRM.Persistence.Context;
@@ -41,10 +43,12 @@ namespace HRM.WebAPI
             services.AddAutoMapper();
 
             // MediatR
-            services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
+            //services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
             // MediatR Pipleline for checking performance and validation
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+
+            services.AddMediatR(typeof(BaseRequestHandler<>).GetTypeInfo().Assembly);
 
             // Entityframework Core
             services.AddDbContext<HRMContext>(options => options.UseSqlServer(_appConnectionString));
@@ -73,6 +77,15 @@ namespace HRM.WebAPI
                 app.UseHsts();
                 app.UseExceptionHandler("/Error");
             }
+
+            // CORS
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials();
+            });
 
             app.UseHttpsRedirection();
             app.UseMvc();

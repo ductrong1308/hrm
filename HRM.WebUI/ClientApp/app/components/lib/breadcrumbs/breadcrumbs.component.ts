@@ -33,7 +33,6 @@ export class BreadcrumbsComponent implements OnInit, OnDestroy {
      */
     ngOnInit() {
         this.subscription = this.routingService.onChange.subscribe(value => {
-            debugger;
             this.breadcrumbs = value;
         });
     }

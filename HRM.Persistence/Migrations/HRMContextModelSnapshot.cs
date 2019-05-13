@@ -25,11 +25,23 @@ namespace HRM.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("CreatedDate");
+
+                    b.Property<string>("CreatedUser");
+
                     b.Property<DateTime>("DateOfBirth");
 
                     b.Property<string>("FirstName");
 
                     b.Property<string>("LastName");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate();
+
+                    b.Property<DateTime>("UpdatedDate");
+
+                    b.Property<string>("UpdatedUser");
 
                     b.HasKey("Id");
 

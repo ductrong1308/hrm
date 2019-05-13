@@ -1,4 +1,5 @@
-﻿using HRM.Application.Infrastructure;
+﻿using HRM.Application.Employees.Queries.GetEmployeesList;
+using HRM.Application.Infrastructure;
 using HRM.Domain.Entities;
 using HRM.Infrastructure.Repositories;
 using HRM.Infrastructure.Repositories.Employees;
@@ -29,6 +30,9 @@ namespace HRM.Infrastructure.IoC
 
             // Repositories
             services.AddScoped<IRepository<Employee>, EmployeeRepository>();
+
+            // Service
+            //services.AddScoped<GetEmployeesListQueryHandler, GetEmployeesListQueryHandler>();
 
         }
     }

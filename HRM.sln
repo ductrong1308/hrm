@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRM.Persistence", "HRM.Pers
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRM.Common", "HRM.Common\HRM.Common.csproj", "{D6137C0A-79E9-40F4-A823-E8A84D17723D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRM.Infrastructure.IoC", "HRM.Infrastructure.IoC\HRM.Infrastructure.IoC.csproj", "{E8AB8F5A-520E-46F5-81A8-40BFCE0D6B90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRM.Infrastructure.IoC", "HRM.Infrastructure.IoC\HRM.Infrastructure.IoC.csproj", "{E8AB8F5A-520E-46F5-81A8-40BFCE0D6B90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRMPersistence.Identity", "HRMPersistence.Identity\HRMPersistence.Identity.csproj", "{65933F0C-B0A5-40F5-A9A4-A269DF6BA42B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{E8AB8F5A-520E-46F5-81A8-40BFCE0D6B90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8AB8F5A-520E-46F5-81A8-40BFCE0D6B90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8AB8F5A-520E-46F5-81A8-40BFCE0D6B90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65933F0C-B0A5-40F5-A9A4-A269DF6BA42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65933F0C-B0A5-40F5-A9A4-A269DF6BA42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65933F0C-B0A5-40F5-A9A4-A269DF6BA42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65933F0C-B0A5-40F5-A9A4-A269DF6BA42B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +84,7 @@ Global
 		{03794CC9-A04E-4D72-9BC3-B62BE34257E0} = {4301D7A3-280D-405A-B8EB-AF7D62BD4F66}
 		{D6137C0A-79E9-40F4-A823-E8A84D17723D} = {6BE5D1A8-64FB-4D7C-910B-E8D8ADF8D835}
 		{E8AB8F5A-520E-46F5-81A8-40BFCE0D6B90} = {4301D7A3-280D-405A-B8EB-AF7D62BD4F66}
+		{65933F0C-B0A5-40F5-A9A4-A269DF6BA42B} = {4301D7A3-280D-405A-B8EB-AF7D62BD4F66}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E409C533-069A-4433-AFAE-4DC0E8C1B553}

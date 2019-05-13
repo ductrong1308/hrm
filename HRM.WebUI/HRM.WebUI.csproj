@@ -18,7 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\app.service.ts" />
     <None Remove="ClientApp\app\helpers\url-serializer.ts" />
+    <None Remove="ClientApp\app\services\app.util.ts" />
+    <None Remove="ClientApp\app\services\base.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +30,7 @@
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
     <PackageReference Include="OdeToCode.UseNodeModules" Version="1.0.6" />
   </ItemGroup>
@@ -42,7 +46,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\services\app.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\helpers\url-serializer.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\app.util.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\base.service.ts" />
   </ItemGroup>
 
 </Project>

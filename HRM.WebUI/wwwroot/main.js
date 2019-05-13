@@ -12,21 +12,9 @@ var map = {
 		"./app/pages/alert/alert.module.ts",
 		"pages-alert-alert-module"
 	],
-	"./pages/layout/configuration/configuration.module": [
-		"./app/pages/layout/configuration/configuration.module.ts",
-		"pages-layout-configuration-configuration-module"
-	],
-	"./pages/layout/custom/custom.module": [
-		"./app/pages/layout/custom/custom.module.ts",
-		"pages-layout-custom-custom-module"
-	],
-	"./pages/login/login.module": [
-		"./app/pages/login/login.module.ts",
-		"pages-login-login-module"
-	],
-	"./pages/register/register.module": [
-		"./app/pages/register/register.module.ts",
-		"pages-register-register-module"
+	"./pages/my-dashboard/my-dashboard.module": [
+		"./app/pages/my-dashboard/my-dashboard.module.ts",
+		"pages-my-dashboard-my-dashboard-module"
 	]
 };
 function webpackAsyncContext(req) {
@@ -76,17 +64,12 @@ var adminLteConf = {
         { label: 'My Dashboard', route: '/', iconClasses: 'fa fa-road' },
         {
             label: 'My Requests', iconClasses: 'fa fa-th-list', children: [
-                { label: 'Late-in / Early-out', route: 'layout/configuration' },
-                { label: 'Leave', route: 'layout/custom' }
+                { label: 'Late-in / Early-out', route: 'requests/in-out' },
+                { label: 'Leave', route: 'requests/leave' }
             ]
         },
         { label: 'COMPANY', separator: true },
-        { label: 'Employees', route: 'alert', iconClasses: 'fa fa-exclamation-triangle' },
-        {
-            label: 'Requests', iconClasses: 'fa fa-files-o', children: [
-                { label: 'Late-in / Early-out', route: 'boxs/box' },
-            ]
-        },
+        { label: 'Employees', route: 'alert', iconClasses: 'fa fa-exclamation-triangle' }
     ]
 }; // font awesome
 
@@ -106,9 +89,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _pages_home_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/home/home.component */ "./app/pages/home/home.component.ts");
-/* harmony import */ var _helpers_url_serializer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./helpers/url-serializer */ "./app/helpers/url-serializer.ts");
-
+/* harmony import */ var _helpers_url_serializer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./helpers/url-serializer */ "./app/helpers/url-serializer.ts");
 
 
 
@@ -117,28 +98,9 @@ var routes = [
     {
         path: '', data: { title: 'Home' },
         children: [
-            { path: '', component: _pages_home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
+            { path: '', redirectTo: 'Dashboard', pathMatch: 'full' },
+            { path: 'dashboard', loadChildren: './pages/my-dashboard/my-dashboard.module#MyDashboardModule' },
             { path: 'alert', loadChildren: './pages/alert/alert.module#AlertModule', data: { title: 'Alert' } },
-            {
-                path: 'layout', data: { title: 'Layout' },
-                children: [
-                    { path: 'configuration', loadChildren: './pages/layout/configuration/configuration.module#ConfigurationModule', data: { title: 'Configuration' } },
-                    { path: 'custom', loadChildren: './pages/layout/custom/custom.module#CustomModule', data: { title: 'Disable Layout' } },
-                ]
-            },
-            {
-                path: 'boxs', data: { title: 'Boxs' },
-                children: [
-                    { path: 'box', loadChildren: './pages/layout/configuration/configuration.module#ConfigurationModule', data: { title: 'Configuration' } },
-                ]
-            },
-            {
-                path: 'login', loadChildren: './pages/login/login.module#LoginModule', data: { customLayout: true }
-            },
-            {
-                path: 'register', loadChildren: './pages/register/register.module#RegisterModule',
-                data: { customLayout: true }
-            },
         ]
     }
 ];
@@ -147,12 +109,12 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes)],
+            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, { useHash: false })],
             exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
             providers: [
                 {
                     provide: _angular_router__WEBPACK_IMPORTED_MODULE_2__["UrlSerializer"],
-                    useClass: _helpers_url_serializer__WEBPACK_IMPORTED_MODULE_4__["LowerCaseUrlSerializer"]
+                    useClass: _helpers_url_serializer__WEBPACK_IMPORTED_MODULE_3__["LowerCaseUrlSerializer"]
                 }
             ],
         })
@@ -230,11 +192,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _admin_lte_conf__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./admin-lte.conf */ "./app/admin-lte.conf.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app-routing.module */ "./app/app-routing.module.ts");
-/* harmony import */ var _pages_core_core_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/core/core.module */ "./app/pages/core/core.module.ts");
+/* harmony import */ var _pages_layout_layout_core_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/layout/layout-core.module */ "./app/pages/layout/layout-core.module.ts");
 /* harmony import */ var _components_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/index */ "./app/components/index.ts");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./app/app.component.ts");
-/* harmony import */ var _pages_home_home_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./pages/home/home.component */ "./app/pages/home/home.component.ts");
-/* harmony import */ var angular_loading_page__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! angular-loading-page */ "../node_modules/angular-loading-page/esm5/angular-loading-page.js");
+/* harmony import */ var angular_loading_page__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! angular-loading-page */ "../node_modules/angular-loading-page/esm5/angular-loading-page.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/http */ "../node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _services_base_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./services/base.service */ "./app/services/base.service.ts");
+/* harmony import */ var _services_app_util__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./services/app.util */ "./app/services/app.util.ts");
+
+
 
 
 
@@ -253,14 +219,16 @@ var AppModule = /** @class */ (function () {
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
-                _pages_core_core_module__WEBPACK_IMPORTED_MODULE_5__["CoreModule"],
+                _pages_layout_layout_core_module__WEBPACK_IMPORTED_MODULE_5__["LayoutCoreModule"],
                 _components_index__WEBPACK_IMPORTED_MODULE_6__["LayoutModule"].forRoot(_admin_lte_conf__WEBPACK_IMPORTED_MODULE_3__["adminLteConf"]),
-                angular_loading_page__WEBPACK_IMPORTED_MODULE_9__["LoadingPageModule"], angular_loading_page__WEBPACK_IMPORTED_MODULE_9__["MaterialBarModule"]
+                angular_loading_page__WEBPACK_IMPORTED_MODULE_8__["LoadingPageModule"],
+                angular_loading_page__WEBPACK_IMPORTED_MODULE_8__["MaterialBarModule"],
+                _angular_http__WEBPACK_IMPORTED_MODULE_9__["HttpModule"]
             ],
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
-                _pages_home_home_component__WEBPACK_IMPORTED_MODULE_8__["HomeComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]
             ],
+            providers: [_services_base_service__WEBPACK_IMPORTED_MODULE_10__["HRMBaseService"], _services_app_util__WEBPACK_IMPORTED_MODULE_11__["AppUtil"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
         })
     ], AppModule);
@@ -1202,7 +1170,6 @@ var BreadcrumbsComponent = /** @class */ (function () {
     BreadcrumbsComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.subscription = this.routingService.onChange.subscribe(function (value) {
-            debugger;
             _this.breadcrumbs = value;
         });
     };
@@ -4675,7 +4642,8 @@ var LowerCaseUrlSerializer = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     LowerCaseUrlSerializer.prototype.parse = function (url) {
-        // Optional Step: Do some stuff with the url if needed.
+        // Optional Step: Prserving trailing slash
+        //TO DO
         // If you lower it in the optional step 
         // you don't need to use "toLowerCase" 
         // when you pass it down to the next function
@@ -4691,62 +4659,10 @@ var LowerCaseUrlSerializer = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ "./app/pages/core/core.module.ts":
-/*!***************************************!*\
-  !*** ./app/pages/core/core.module.ts ***!
-  \***************************************/
-/*! exports provided: CoreModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CoreModule", function() { return CoreModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "../node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _components_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/index */ "./app/components/index.ts");
-/* harmony import */ var _header_inner_header_inner_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./header-inner/header-inner.component */ "./app/pages/core/header-inner/header-inner.component.ts");
-/* harmony import */ var _sidebar_left_inner_sidebar_left_inner_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./sidebar-left-inner/sidebar-left-inner.component */ "./app/pages/core/sidebar-left-inner/sidebar-left-inner.component.ts");
-/* harmony import */ var _sidebar_right_inner_sidebar_right_inner_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./sidebar-right-inner/sidebar-right-inner.component */ "./app/pages/core/sidebar-right-inner/sidebar-right-inner.component.ts");
-
-
-
-
-
-
-
-
-
-var CoreModule = /** @class */ (function () {
-    function CoreModule() {
-    }
-    CoreModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-                _components_index__WEBPACK_IMPORTED_MODULE_5__["DropdownModule"],
-                _components_index__WEBPACK_IMPORTED_MODULE_5__["TabsModule"],
-                _components_index__WEBPACK_IMPORTED_MODULE_5__["BoxModule"]
-            ],
-            declarations: [_header_inner_header_inner_component__WEBPACK_IMPORTED_MODULE_6__["HeaderInnerComponent"], _sidebar_left_inner_sidebar_left_inner_component__WEBPACK_IMPORTED_MODULE_7__["SidebarLeftInnerComponent"], _sidebar_right_inner_sidebar_right_inner_component__WEBPACK_IMPORTED_MODULE_8__["SidebarRightInnerComponent"]],
-            exports: [_components_index__WEBPACK_IMPORTED_MODULE_5__["BoxModule"], _components_index__WEBPACK_IMPORTED_MODULE_5__["TabsModule"], _header_inner_header_inner_component__WEBPACK_IMPORTED_MODULE_6__["HeaderInnerComponent"], _sidebar_left_inner_sidebar_left_inner_component__WEBPACK_IMPORTED_MODULE_7__["SidebarLeftInnerComponent"], _sidebar_right_inner_sidebar_right_inner_component__WEBPACK_IMPORTED_MODULE_8__["SidebarRightInnerComponent"]]
-        })
-    ], CoreModule);
-    return CoreModule;
-}());
-
-
-
-/***/ }),
-
-/***/ "./app/pages/core/header-inner/header-inner.component.html":
-/*!*****************************************************************!*\
-  !*** ./app/pages/core/header-inner/header-inner.component.html ***!
-  \*****************************************************************/
+/***/ "./app/pages/layout/header-inner/header-inner.component.html":
+/*!*******************************************************************!*\
+  !*** ./app/pages/layout/header-inner/header-inner.component.html ***!
+  \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -4754,10 +4670,10 @@ module.exports = "<div class=\"navbar-custom-menu\">\r\n    <ul class=\"nav navb
 
 /***/ }),
 
-/***/ "./app/pages/core/header-inner/header-inner.component.ts":
-/*!***************************************************************!*\
-  !*** ./app/pages/core/header-inner/header-inner.component.ts ***!
-  \***************************************************************/
+/***/ "./app/pages/layout/header-inner/header-inner.component.ts":
+/*!*****************************************************************!*\
+  !*** ./app/pages/layout/header-inner/header-inner.component.ts ***!
+  \*****************************************************************/
 /*! exports provided: HeaderInnerComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4774,7 +4690,7 @@ var HeaderInnerComponent = /** @class */ (function () {
     HeaderInnerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-header-inner',
-            template: __webpack_require__(/*! ./header-inner.component.html */ "./app/pages/core/header-inner/header-inner.component.html")
+            template: __webpack_require__(/*! ./header-inner.component.html */ "./app/pages/layout/header-inner/header-inner.component.html")
         })
     ], HeaderInnerComponent);
     return HeaderInnerComponent;
@@ -4784,10 +4700,62 @@ var HeaderInnerComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./app/pages/core/sidebar-left-inner/sidebar-left-inner.component.html":
-/*!*****************************************************************************!*\
-  !*** ./app/pages/core/sidebar-left-inner/sidebar-left-inner.component.html ***!
-  \*****************************************************************************/
+/***/ "./app/pages/layout/layout-core.module.ts":
+/*!************************************************!*\
+  !*** ./app/pages/layout/layout-core.module.ts ***!
+  \************************************************/
+/*! exports provided: LayoutCoreModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LayoutCoreModule", function() { return LayoutCoreModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "../node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _components_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/index */ "./app/components/index.ts");
+/* harmony import */ var _header_inner_header_inner_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./header-inner/header-inner.component */ "./app/pages/layout/header-inner/header-inner.component.ts");
+/* harmony import */ var _sidebar_left_inner_sidebar_left_inner_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./sidebar-left-inner/sidebar-left-inner.component */ "./app/pages/layout/sidebar-left-inner/sidebar-left-inner.component.ts");
+/* harmony import */ var _sidebar_right_inner_sidebar_right_inner_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./sidebar-right-inner/sidebar-right-inner.component */ "./app/pages/layout/sidebar-right-inner/sidebar-right-inner.component.ts");
+
+
+
+
+
+
+
+
+
+var LayoutCoreModule = /** @class */ (function () {
+    function LayoutCoreModule() {
+    }
+    LayoutCoreModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
+                _components_index__WEBPACK_IMPORTED_MODULE_5__["DropdownModule"],
+                _components_index__WEBPACK_IMPORTED_MODULE_5__["TabsModule"],
+                _components_index__WEBPACK_IMPORTED_MODULE_5__["BoxModule"]
+            ],
+            declarations: [_header_inner_header_inner_component__WEBPACK_IMPORTED_MODULE_6__["HeaderInnerComponent"], _sidebar_left_inner_sidebar_left_inner_component__WEBPACK_IMPORTED_MODULE_7__["SidebarLeftInnerComponent"], _sidebar_right_inner_sidebar_right_inner_component__WEBPACK_IMPORTED_MODULE_8__["SidebarRightInnerComponent"]],
+            exports: [_components_index__WEBPACK_IMPORTED_MODULE_5__["BoxModule"], _components_index__WEBPACK_IMPORTED_MODULE_5__["TabsModule"], _header_inner_header_inner_component__WEBPACK_IMPORTED_MODULE_6__["HeaderInnerComponent"], _sidebar_left_inner_sidebar_left_inner_component__WEBPACK_IMPORTED_MODULE_7__["SidebarLeftInnerComponent"], _sidebar_right_inner_sidebar_right_inner_component__WEBPACK_IMPORTED_MODULE_8__["SidebarRightInnerComponent"]]
+        })
+    ], LayoutCoreModule);
+    return LayoutCoreModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./app/pages/layout/sidebar-left-inner/sidebar-left-inner.component.html":
+/*!*******************************************************************************!*\
+  !*** ./app/pages/layout/sidebar-left-inner/sidebar-left-inner.component.html ***!
+  \*******************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -4795,10 +4763,10 @@ module.exports = "<div class=\"user-panel\">\n  <div class=\"pull-left image\">\
 
 /***/ }),
 
-/***/ "./app/pages/core/sidebar-left-inner/sidebar-left-inner.component.ts":
-/*!***************************************************************************!*\
-  !*** ./app/pages/core/sidebar-left-inner/sidebar-left-inner.component.ts ***!
-  \***************************************************************************/
+/***/ "./app/pages/layout/sidebar-left-inner/sidebar-left-inner.component.ts":
+/*!*****************************************************************************!*\
+  !*** ./app/pages/layout/sidebar-left-inner/sidebar-left-inner.component.ts ***!
+  \*****************************************************************************/
 /*! exports provided: SidebarLeftInnerComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4815,7 +4783,7 @@ var SidebarLeftInnerComponent = /** @class */ (function () {
     SidebarLeftInnerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-sidebar-left-inner',
-            template: __webpack_require__(/*! ./sidebar-left-inner.component.html */ "./app/pages/core/sidebar-left-inner/sidebar-left-inner.component.html")
+            template: __webpack_require__(/*! ./sidebar-left-inner.component.html */ "./app/pages/layout/sidebar-left-inner/sidebar-left-inner.component.html")
         })
     ], SidebarLeftInnerComponent);
     return SidebarLeftInnerComponent;
@@ -4825,10 +4793,10 @@ var SidebarLeftInnerComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./app/pages/core/sidebar-right-inner/sidebar-right-inner.component.html":
-/*!*******************************************************************************!*\
-  !*** ./app/pages/core/sidebar-right-inner/sidebar-right-inner.component.html ***!
-  \*******************************************************************************/
+/***/ "./app/pages/layout/sidebar-right-inner/sidebar-right-inner.component.html":
+/*!*********************************************************************************!*\
+  !*** ./app/pages/layout/sidebar-right-inner/sidebar-right-inner.component.html ***!
+  \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -4836,10 +4804,10 @@ module.exports = "<hrm-tabs styleClass=\"sidebar-right-tabs-wrapper\" navStyleCl
 
 /***/ }),
 
-/***/ "./app/pages/core/sidebar-right-inner/sidebar-right-inner.component.ts":
-/*!*****************************************************************************!*\
-  !*** ./app/pages/core/sidebar-right-inner/sidebar-right-inner.component.ts ***!
-  \*****************************************************************************/
+/***/ "./app/pages/layout/sidebar-right-inner/sidebar-right-inner.component.ts":
+/*!*******************************************************************************!*\
+  !*** ./app/pages/layout/sidebar-right-inner/sidebar-right-inner.component.ts ***!
+  \*******************************************************************************/
 /*! exports provided: SidebarRightInnerComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4930,7 +4898,7 @@ var SidebarRightInnerComponent = /** @class */ (function () {
     SidebarRightInnerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-sidebar-right-inner',
-            template: __webpack_require__(/*! ./sidebar-right-inner.component.html */ "./app/pages/core/sidebar-right-inner/sidebar-right-inner.component.html")
+            template: __webpack_require__(/*! ./sidebar-right-inner.component.html */ "./app/pages/layout/sidebar-right-inner/sidebar-right-inner.component.html")
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_components_index__WEBPACK_IMPORTED_MODULE_2__["LayoutStore"],
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
@@ -4942,62 +4910,75 @@ var SidebarRightInnerComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./app/pages/home/home.component.css":
-/*!*******************************************!*\
-  !*** ./app/pages/home/home.component.css ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL3BhZ2VzL2hvbWUvaG9tZS5jb21wb25lbnQuY3NzIn0= */"
-
-/***/ }),
-
-/***/ "./app/pages/home/home.component.html":
-/*!********************************************!*\
-  !*** ./app/pages/home/home.component.html ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<hrm-box header=\"About Angular Admin LTE\" [isCollapsable]=\"false\" [isRemovable]=\"false\">\n  <p>Angular Admin LTE is an implementation of the Admin LTE theme. It comes with native angular components and directive and do not need JS dependencies. It provides a layout module witch comes with components for header, sidebar right & left, footer...</p>\n</hrm-box>\n\n<hrm-box header=\"Download\" [isCollapsable]=\"false\" [isRemovable]=\"false\">\n  <p>Angular Admin LTE is available at npm, if you have an existing application run the following command to download it to your project.</p>\n  <p>Angular Admin LTE is distributed in commonjs format, a module manager of your choice is required.</p>\n  <pre><code class=\"language-bash\">npm install angular-admin-lte --save</code></pre>\n</hrm-box>\n\n<hrm-box header=\"Import\" [isCollapsable]=\"false\" [isRemovable]=\"false\">\n  <p>UI components are configured as modules, once Angular Admin LTE is downloaded and configured, modules and apis can be imported from 'angular-loading-page' shorthand in your application code.</p>\n  <pre><code class=\"language-typescript\">import &#123; LayoutModule &#125; from './components/index';    //Loading layout module\nimport &#123; BoxModule &#125; from './components/index';       //Box component</code></pre>\n</hrm-box>\n\n<hrm-box header=\"Dependencies\" [isCollapsable]=\"false\" [isRemovable]=\"false\">\n  <p>Angular Admin LTE have no JS dependencies but still need Admin LTE and Bootstrap CSS. You can also use FontAwesome and Ionicons as it is used by default in Admin LTE.</p>\n  <pre><code class=\"language-typescript\">\"styles\": [\n  \"node_modules/bootstrap-css-only/css/bootstrap.min.css\",\n  \"node_modules/font-awesome/css/font-awesome.css\", // optional\n  \"node_modules/ionicons/css/ionicons.css\", // optional\n  \"node_modules/admin-lte-css/dist/css/AdminLTE.css\",\n  \"node_modules/admin-lte-css/dist/css/skins/_all-skins.css\"\n]</code></pre>\n</hrm-box>\n"
-
-/***/ }),
-
-/***/ "./app/pages/home/home.component.ts":
-/*!******************************************!*\
-  !*** ./app/pages/home/home.component.ts ***!
-  \******************************************/
-/*! exports provided: HomeComponent */
+/***/ "./app/services/app.util.ts":
+/*!**********************************!*\
+  !*** ./app/services/app.util.ts ***!
+  \**********************************/
+/*! exports provided: AppUtil */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppUtil", function() { return AppUtil; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prismjs */ "../node_modules/prismjs/prism.js");
-/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prismjs__WEBPACK_IMPORTED_MODULE_2__);
 
 
-
-var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+var AppUtil = /** @class */ (function () {
+    //public static apiHost: string = window["HRMAppData"].apiHost;
+    //public static authUrl: string = window["HRMAppData"].authUrl;
+    function AppUtil() {
     }
-    /**
-     * @method ngAfterViewInit
-     */
-    HomeComponent.prototype.ngAfterViewInit = function () {
-        prismjs__WEBPACK_IMPORTED_MODULE_2__["highlightAll"]();
+    AppUtil.prototype.getEndPoint = function (requestedUrl) {
+        var apiHost = window["HRMAppData"].apiHost;
+        debugger;
+        return apiHost + requestedUrl;
     };
-    HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-home',
-            template: __webpack_require__(/*! ./home.component.html */ "./app/pages/home/home.component.html"),
-            styles: [__webpack_require__(/*! ./home.component.css */ "./app/pages/home/home.component.css")]
-        })
-    ], HomeComponent);
-    return HomeComponent;
+    AppUtil = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], AppUtil);
+    return AppUtil;
+}());
+
+
+
+/***/ }),
+
+/***/ "./app/services/base.service.ts":
+/*!**************************************!*\
+  !*** ./app/services/base.service.ts ***!
+  \**************************************/
+/*! exports provided: HRMBaseService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HRMBaseService", function() { return HRMBaseService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/http */ "../node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _app_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.util */ "./app/services/app.util.ts");
+
+
+
+
+var HRMBaseService = /** @class */ (function () {
+    function HRMBaseService(http, appUtil) {
+        this.http = http;
+        this.appUtil = appUtil;
+    }
+    HRMBaseService.prototype.doGet = function (url, params) {
+        return this.http.get(this.appUtil.getEndPoint(url), params);
+    };
+    HRMBaseService.prototype.doPost = function (url, data) {
+        return this.http.post(this.appUtil.getEndPoint(url), data);
+    };
+    HRMBaseService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_http__WEBPACK_IMPORTED_MODULE_1__["Http"], _app_util__WEBPACK_IMPORTED_MODULE_3__["AppUtil"]])
+    ], HRMBaseService);
+    return HRMBaseService;
 }());
 
 

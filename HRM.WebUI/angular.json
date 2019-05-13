@@ -27,7 +27,6 @@
                             //    "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
                             //},
                             //"./node_modules/bootstrap/dist/css/bootstrap.min.css", // bootstrap
-                            //"ClientApp/styles.css", // kendo theme builder theme
 
                             "node_modules/bootstrap-css-only/css/bootstrap.min.css",
                             "node_modules/font-awesome/css/font-awesome.css",
@@ -35,7 +34,9 @@
                             "node_modules/prismjs/themes/prism-tomorrow.css",
                             "node_modules/admin-lte-css/dist/css/AdminLTE.css",
                             "node_modules/admin-lte-css/dist/css/skins/_all-skins.css",
-                            "ClientApp/assets/hrm_style.css" // custom css
+                            "ClientApp/assets/hrm_style.css", // custom css
+                            "ClientApp/kendo_styles.css" // kendo theme builder theme
+
                         ],
                         "scripts": [],
                         "es5BrowserSupport": true

@@ -53,6 +53,16 @@ namespace HRM.Infrastructure.Repositories
                 query = orderBy(query);
             }
 
+            try
+            {
+                var abc = query.ToList();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
             return await query.ToListAsync();
         }
 

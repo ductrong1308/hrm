@@ -13,16 +13,11 @@ export const adminLteConf = {
         { label: 'My Dashboard', route: '/', iconClasses: 'fa fa-road' },
         {
             label: 'My Requests', iconClasses: 'fa fa-th-list', children: [
-                { label: 'Late-in / Early-out', route: 'layout/configuration' },
-                { label: 'Leave', route: 'layout/custom' }
+                { label: 'Late-in / Early-out', route: 'requests/in-out' },
+                { label: 'Leave', route: 'requests/leave' }
             ]
         },
         { label: 'COMPANY', separator: true },
-        { label: 'Employees', route: 'alert', iconClasses: 'fa fa-exclamation-triangle' },
-        {
-            label: 'Requests', iconClasses: 'fa fa-files-o', children: [
-                { label: 'Late-in / Early-out', route: 'boxs/box' },
-            ]
-        },
+        { label: 'Employees', route: 'alert', iconClasses: 'fa fa-exclamation-triangle' }
     ]
 }; // font awesome

@@ -12,7 +12,7 @@ namespace HRM.WebAPI.Controllers.Employees
 {
     public class EmployeeController : BaseController
     {
-        public async Task<ActionResult<List<EmployeeViewModel>>> GetAll()
+        public async Task<ActionResult<List<EmployeeViewModel>>> List()
         {
             var employees = await Mediator.Send(new GetEmployeesListQuery());
             return Ok(employees);
