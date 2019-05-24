@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using HRM.Application.Employees.Queries;
 using HRM.Application.Infrastructure;
+using HRM.Application.Infrastructure.Models;
 using HRM.Domain.Base;
+using HRM.Infrastructure.Models;
+using HRM.Infrastructure.Utilities.QueryExtensions;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace HRM.Infrastructure.Repositories
 {
@@ -13,6 +18,22 @@ namespace HRM.Infrastructure.Repositories
         where TContext : DbContext where TEntity : BaseEntity, new()
     {
         private readonly TContext _currentContext;
+
+        public virtual Dictionary<string, string> FilterMaps => new Dictionary<string, string>();
+
+        public virtual Dictionary<ListSort, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>> OrderByMaps 
+            => new Dictionary<ListSort, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>>()
+            {
+                { new ListSort("Id", "asc"), x => x.OrderBy(t => t.Id) },
+                { new ListSort("Id", "desc"), x => x.OrderByDescending(t => t.Id) }
+            };
+
+        public virtual OrderByQuery<TEntity> DefaultOrderBy
+            => new OrderByQuery<TEntity>(x => x.OrderByDescending(e => e.UpdatedDate).ThenByDescending(e => e.CreatedDate));
+
+        protected virtual Func<IQueryable<TEntity>, IQueryable<TEntity>> IncludePropertiesForDetail { get; }
+
+        protected virtual Func<IQueryable<TEntity>, IQueryable<TEntity>> IncludePropertiesForList { get; }
 
         public Repository(TContext context)
         {
@@ -29,6 +50,15 @@ namespace HRM.Infrastructure.Repositories
             }
 
             return await query.CountAsync();
+        }
+
+        public virtual async Task<IEnumerable<TEntity>> ListAsync(BaseListQueryModel query)
+        {
+            var state = JsonConvert.DeserializeObject<ListQueryModel>(query.State);
+            var filter = new FilterQuery<TEntity>(state.Filter, this.FilterMaps);
+            var orderBy = new OrderByQuery<TEntity>(state.Sort, this.OrderByMaps);
+
+            return null;
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync(

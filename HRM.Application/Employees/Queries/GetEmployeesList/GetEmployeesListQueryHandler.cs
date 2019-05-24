@@ -23,7 +23,7 @@ namespace HRM.Application.Employees.Queries.GetEmployeesList
 
         public async Task<IEnumerable<EmployeeViewModel>> Handle(GetEmployeesListQuery request, CancellationToken cancellationToken)
         {
-            var employees = await this._repository.GetAllAsync(null, null, null);
+            var employees = await this._repository.ListAsync(request);
             var employeeListViewModel = this._mapper.Map<IEnumerable<EmployeeViewModel>>(employees);
 
             return employeeListViewModel;

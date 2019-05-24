@@ -1,0 +1,28 @@
+
+<kendo-grid [data]="view | async"
+            [pageable]="true"
+            [filterable]="true"
+            [sortable]="true"
+
+            [pageSize]="service.state.take"
+            [skip]="service.state.skip"
+            [sort]="service.state.sort"
+            [filter]="service.state.filter"
+
+            (dataStateChange)="onEmployeeListDataChanges($event)">
+  <kendo-grid-column field="firstName" title="First Name" width="40">
+  </kendo-grid-column>
+  <kendo-grid-column field="lastName" title="Last Name" width="50">
+  </kendo-grid-column>
+  <kendo-grid-column field="dateOfBirth" title="Date Of Birth" format="yyyy/MM/dd" width="50">
+  </kendo-grid-column>
+  <kendo-grid-column field="phoneNumber" title="Phone Number" width="80">
+  </kendo-grid-column>
+  <kendo-grid-column field="email" title="Email" width="80">
+  </kendo-grid-column>
+  <!--<kendo-grid-column field="IsLead" title="Discontinued" width="120">
+    <ng-template kendoGridCellTemplate let-dataItem>
+      <input type="checkbox" [checked]="dataItem.Discontinued" disabled />
+    </ng-template>
+  </kendo-grid-column>-->
+</kendo-grid>

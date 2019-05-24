@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using HRM.Application;
@@ -10,16 +11,21 @@ using HRM.Application.Utilities.MediatR;
 using HRM.Infrastructure.IoC;
 using HRM.Persistence.Context;
 using HRM.Persistence.SeedingData;
+using HRMPersistence.Identity.Context;
+using HRMPersistence.Identity.Models;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
 namespace HRM.WebAPI
 {
@@ -53,8 +59,33 @@ namespace HRM.WebAPI
             // Entityframework Core
             services.AddDbContext<HRMContext>(options => options.UseSqlServer(_appConnectionString));
 
+            // Identity EntityFramework Core
+            services.AddDbContext<HRMIdentityContext>(options => options.UseSqlServer(_appConnectionString));
+
             // HRM Dependency Injection
             services.AddTransient<HRMSeeder>();
+
+            // Authentication
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddCookie()
+            .AddJwtBearer(cfg =>
+            {
+                cfg.RequireHttpsMetadata = true;
+                cfg.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidIssuer = _configuration["Tokens:Issuer"],
+                    ValidAudience = _configuration["Tokens:Audience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(
+                        Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("TOKEN_KEY")))
+                };
+            });
 
             // MVC
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -88,6 +119,9 @@ namespace HRM.WebAPI
             });
 
             app.UseHttpsRedirection();
+
+            app.UseAuthentication();
+
             app.UseMvc();
         }
     }

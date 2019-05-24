@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\app\app.service.ts" />
+    <None Remove="ClientApp\app\components\base.component.ts" />
     <None Remove="ClientApp\app\helpers\url-serializer.ts" />
     <None Remove="ClientApp\app\services\app.util.ts" />
     <None Remove="ClientApp\app\services\base.service.ts" />
@@ -43,9 +44,11 @@
     <ProjectReference Include="..\HRM.Application\HRM.Application.csproj" />
     <ProjectReference Include="..\HRM.Infrastructure\HRM.Infrastructure.csproj" />
     <ProjectReference Include="..\HRM.Persistence\HRM.Persistence.csproj" />
+    <ProjectReference Include="..\HRMPersistence.Identity\HRMPersistence.Identity.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\base.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\app.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\helpers\url-serializer.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\app.util.ts" />

@@ -4,12 +4,18 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using HRM.Application.Employees.Queries;
+using HRM.Application.Infrastructure.Models;
 using HRM.Domain.Base;
 
 namespace HRM.Application.Infrastructure
 {
     public interface IRepository<TEntity> where TEntity : BaseEntity
     {
+        Dictionary<string, string> FilterMaps { get; }
+
+        Dictionary<ListSort, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>> OrderByMaps { get; }
+
         // Get Entity By Id
         Task<TEntity> GetByIdAsync(int id, Func<IQueryable<TEntity>, IQueryable<TEntity>> includes);
 
@@ -29,5 +35,7 @@ namespace HRM.Application.Infrastructure
 
         // Paging - Count records
         Task<int> CountAsync(Expression<Func<TEntity, bool>> filter);
+
+        Task<IEnumerable<TEntity>> ListAsync(BaseListQueryModel query);
     }
 }

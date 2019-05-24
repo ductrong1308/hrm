@@ -11,7 +11,6 @@ export class MyDashboardComponent implements OnInit {
     constructor(private listService: MyDashboardListService) { }
 
     ngOnInit() {
-        debugger;
         //this.listService.getData("employee/list")
     }
 

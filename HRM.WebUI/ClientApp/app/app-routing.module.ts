@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, UrlSerializer } from '@angular/router';
+import { Routes, RouterModule, UrlSerializer, Router } from '@angular/router';
 
 import { MyDashboardComponent } from './pages/my-dashboard/my-dashboard.component';
 import { LowerCaseUrlSerializer } from './helpers/url-serializer';
@@ -8,9 +8,9 @@ const routes: Routes = [
     {
         path: '', data: { title: 'Home' },
         children: [
-            { path: '', redirectTo: 'Dashboard', pathMatch: 'full' },
+            { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', loadChildren: './pages/my-dashboard/my-dashboard.module#MyDashboardModule' },
-            { path: 'alert', loadChildren: './pages/alert/alert.module#AlertModule', data: { title: 'Alert' } },
+            { path: 'employee/list', loadChildren: './pages/employee/employee-list/employee-list.module#EmployeeListModule', data: { title: 'Employee' } },
             //{
             //    path: 'layout', data: { title: 'Layout' },
             //    children: [
@@ -18,6 +18,7 @@ const routes: Routes = [
             //        { path: 'custom', loadChildren: './pages/layout/custom/custom.module#CustomModule', data: { title: 'Disable Layout' } },
             //    ]
             //}
+            //{ path: '404', redirectTo: 'app/error?errorCode=404' }
         ]
     }
 ];
@@ -32,6 +33,15 @@ const routes: Routes = [
         }
     ],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+    constructor(private router: Router) {
+        this.router.errorHandler = (error: any) => {
+            var message: string = error.message;
+            if (message.toLowerCase().indexOf('cannot match any routes') >= 0) {
+                window.location.href = 'app/error?errorCode=404';
+            }
+        }
+    }
+}
 
 

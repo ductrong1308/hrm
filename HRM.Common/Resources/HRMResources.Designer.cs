@@ -59,5 +59,95 @@ namespace HRM.Common.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The server encountered an unexpected condition which prevented it from fulfilling the request..
+        /// </summary>
+        public static string Error_InternalServer_Message {
+            get {
+                return ResourceManager.GetString("Error_InternalServer_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Internal Server Error.
+        /// </summary>
+        public static string Error_InternalServer_Title {
+            get {
+                return ResourceManager.GetString("Error_InternalServer_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This page is not available. Sorry about that..
+        /// </summary>
+        public static string Error_PageNotFound_Message {
+            get {
+                return ResourceManager.GetString("Error_PageNotFound_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page Not Found.
+        /// </summary>
+        public static string Error_PageNotFound_Title {
+            get {
+                return ResourceManager.GetString("Error_PageNotFound_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Access denied..
+        /// </summary>
+        public static string Error_Unauthorized_Message {
+            get {
+                return ResourceManager.GetString("Error_Unauthorized_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forbidden.
+        /// </summary>
+        public static string Error_Unauthorized_Title {
+            get {
+                return ResourceManager.GetString("Error_Unauthorized_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Falied to login.
+        /// </summary>
+        public static string FailedToLogin {
+            get {
+                return ResourceManager.GetString("FailedToLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home Page.
+        /// </summary>
+        public static string HomePage {
+            get {
+                return ResourceManager.GetString("HomePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HRM.
+        /// </summary>
+        public static string HRM {
+            get {
+                return ResourceManager.GetString("HRM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login Page.
+        /// </summary>
+        public static string LoginPage {
+            get {
+                return ResourceManager.GetString("LoginPage", resourceCulture);
+            }
+        }
     }
 }

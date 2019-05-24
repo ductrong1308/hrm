@@ -23,9 +23,9 @@
                             "ClientApp/assets"
                         ],
                         "styles": [
-                            //{
-                            //    "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
-                            //},
+                            {
+                                "input": "node_modules/@progress/kendo-theme-bootstrap/dist/all.css"
+                            },
                             //"./node_modules/bootstrap/dist/css/bootstrap.min.css", // bootstrap
 
                             "node_modules/bootstrap-css-only/css/bootstrap.min.css",
@@ -35,7 +35,7 @@
                             "node_modules/admin-lte-css/dist/css/AdminLTE.css",
                             "node_modules/admin-lte-css/dist/css/skins/_all-skins.css",
                             "ClientApp/assets/hrm_style.css", // custom css
-                            "ClientApp/kendo_styles.css" // kendo theme builder theme
+                            //"ClientApp/kendo_styles.css" // kendo theme builder theme
 
                         ],
                         "scripts": [],

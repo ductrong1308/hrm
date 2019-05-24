@@ -11,16 +11,18 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+        "environmentVariables": {
+            "ASPNETCORE_ENVIRONMENT": "Development",
+            "TOKEN_KEY": "026b74d7-440e-469c-989d-43e5b57dd5b3"
+        }
     },
     "HRM.WebUI": {
       "commandName": "Project",
       "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
+        "environmentVariables": {
+            "ASPNETCORE_ENVIRONMENT": "Development",
+            "TOKEN_KEY": "026b74d7-440e-469c-989d-43e5b57dd5b3"
+        },
       "applicationUrl": "https://localhost:5001;http://localhost:5000"
     }
   }

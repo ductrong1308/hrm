@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using HRM.Persistence.SeedingData;
+using HRMPersistence.Identity.IdentitySeeder;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -52,8 +53,8 @@ namespace HRM.WebUI
             {
                 try
                 {
-                    var seeder = scope.ServiceProvider.GetService<HRMSeeder>();
-                    seeder.Seed();
+                    var seeder = scope.ServiceProvider.GetService<IdentitySeeder>();
+                    seeder.SeedAsync().Wait();
                 }
                 catch (Exception ex)
                 {

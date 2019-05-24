@@ -1,0 +1,66 @@
+﻿@model LoginViewModel
+@{
+  ViewBag.Title = "Login";
+}
+@section Scripts {
+  @*<script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>*@
+}
+
+<html style=" background:#d2d6de; height:100px;">
+<head>
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-box">
+      <div class="login-logo">
+        <a routerLink="/"><b>My HRM</b></a>
+      </div>
+      <div class="login-box-body">
+        <form method="post">
+          <div asp-validation-summary="ModelOnly"></div>
+          <div class="form-group has-feedback">
+            <input asp-for="Username" class="form-control" placeholder="Username" />
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            <span asp-validation-for="Username" class="text-warning"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <span asp-validation-for="Password" class="text-warning"></span>
+          </div>
+
+          <div class="form-group has-feedback">
+            <div class="col-xs-8" style="padding-left:0;">
+              <input asp-for="RememberMe" type="checkbox" class="form-check-input" />
+              <label asp-for="RememberMe" class="form-check-label">Remember Me?</label>
+              <span asp-validation-for="RememberMe" class="text-warning"></span>
+            </div>
+            <div class="col-xs-4" style="padding-right:0;">
+              <input type="submit" value="Sign In" class="btn btn-primary btn-block btn-flat" />
+            </div>
+
+          </div>
+        </form>
+
+        @*Other options*@
+        <div class="social-auth-links text-center">
+          <p>- OR -</p>
+          <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
+            <i class="fa fa-facebook"></i> Sign in using
+            Facebook
+          </a>
+          <a href="#" class="btn btn-block btn-social btn-google btn-flat">
+            <i class="fa fa-google-plus"></i> Sign in using
+            Google+
+          </a>
+        </div>
+        <!-- /.social-auth-links -->
+        <a href="#">I forgot my password</a><br>
+        <a routerLink="/register" class="text-center">Register a new membership</a>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

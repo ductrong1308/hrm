@@ -19,6 +19,7 @@
     <ProjectReference Include="..\HRM.Infrastructure.IoC\HRM.Infrastructure.IoC.csproj" />
     <ProjectReference Include="..\HRM.Infrastructure\HRM.Infrastructure.csproj" />
     <ProjectReference Include="..\HRM.Persistence\HRM.Persistence.csproj" />
+    <ProjectReference Include="..\HRMPersistence.Identity\HRMPersistence.Identity.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,28 +1,32 @@
-﻿@model HRM.WebUI.Controllers.AppViewModel
+﻿@model HRM.WebUI.ViewModels.AppViewModel
 @using Newtonsoft.Json;
 @using Newtonsoft.Json.Serialization;
-
-
 <!DOCTYPE html>
 
 <html>
 <head>
-    @*Meta data*@
-    <meta charset="utf-8" />
-    <meta name="robots" content="noindex">
-    <meta name="googlebot" content="noindex">
-    <meta name="viewport" content="width=device-width" />
+  @*Meta data*@
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex">
+  <meta name="googlebot" content="noindex">
+  <meta name="viewport" content="width=device-width" />
 
-    <title>My HRM</title>
-    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
-    <base href="/" />
-    <environment names="Development">
+  <title>My HRM</title>
+  <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+  <base href="/" />
+  <environment names="Development">
 
-    </environment>
+  </environment>
 
-    <environment names="QC, Production">
+  <environment names="QC, Production">
 
-    </environment>
+  </environment>
+
+  <script type="text/javascript" src="@Url.Content("~/styles.js")"></script>
+  <script type="text/javascript" src="@Url.Content("~/runtime.js")"></script>
+  <script type="text/javascript" src="@Url.Content("~/polyfills.js")"></script>
+  <script type="text/javascript" src="@Url.Content("~/styles.js")"></script>
+  <script type="text/javascript" src="@Url.Content("~/vendor.js")"></script>
 </head>
 <body>
   <script>
@@ -34,11 +38,10 @@
     @RenderBody()
 
     <environment names="Development">
-        <script type="text/javascript" src="@Url.Content("~/runtime.js")"></script>
+        @*<script type="text/javascript" src="@Url.Content("~/runtime.js")"></script>
         <script type="text/javascript" src="@Url.Content("~/polyfills.js")"></script>
         <script type="text/javascript" src="@Url.Content("~/styles.js")"></script>
-        <script type="text/javascript" src="@Url.Content("~/vendor.js")"></script>
-        <script type="text/javascript" src="@Url.Content("~/main.js")"></script>
+        <script type="text/javascript" src="@Url.Content("~/vendor.js")"></script>*@
     </environment>
     <environment names="QC, Production"></environment>
 

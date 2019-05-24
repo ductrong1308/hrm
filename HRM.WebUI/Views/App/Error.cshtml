@@ -1,0 +1,46 @@
+﻿@model ErrorViewModel
+@using HRM.Common.Resources
+@*@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet*@
+
+@{
+  Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex">
+  <meta name="googlebot" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@HRMResources.HRM</title>
+  <base href="/">
+
+  @*@Html.Raw(JavaScriptSnippet.FullScript)*@
+</head>
+<body class="account">
+  <div class="error-page-overlay"></div>
+  <div class="logo-contain-wrapper">
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <a href="@Model.RedirectUrl">@Model.RedirectUrlText</a>
+      </div>
+    </div>
+  </div>
+  <div class="content account-content container-fluid">
+    <div class="container-flex">
+      <div class="row content__detail error-page-content">
+        <h1>@Model.ErrorCode</h1>
+        <h2><strong>@Model.ErrorTitle</strong></h2>
+        <p><label>@Model.ErrorMessage</label></p>
+      </div>
+    </div>
+  </div>
+  <footer class="footer account-footer">
+    <div class="row account-footer-wrapper">
+
+    </div>
+  </footer>
+</body>
+</html>
