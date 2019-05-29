@@ -1,5 +1,4 @@
-﻿using HRM.Application.Employees.Queries.GetEmployeesList;
-using HRM.Application.Infrastructure;
+﻿using HRM.Application.Infrastructure.Interfaces;
 using HRM.Domain.Entities;
 using HRM.Infrastructure.Repositories;
 using HRM.Infrastructure.Repositories.Employees;

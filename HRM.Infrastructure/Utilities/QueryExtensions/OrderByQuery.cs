@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
-using HRM.Application.Infrastructure.Models;
 using HRM.Common.Constants;
 using HRM.Common.Extensions;
 using HRM.Infrastructure.Models;
@@ -13,14 +11,14 @@ namespace HRM.Infrastructure.Utilities.QueryExtensions
 {
     public class OrderByQuery<TEntity> where TEntity : class
     {
-        public Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> _expression { get; private set; }
+        public Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> OrderByExpression { get; private set; }
 
         public OrderByQuery(Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> expression)
         {
-            _expression = expression;
+            OrderByExpression = expression;
         }
 
-        public OrderByQuery(List<ListSort> sortByData, Dictionary<ListSort, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>> orderByColumnMaps = null)
+        public OrderByQuery(List<SortData> sortByData, Dictionary<SortData, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>> orderByColumnMaps = null)
         {
             var filteredSortByData = sortByData.Where(x => !string.IsNullOrEmpty(x.Dir)).ToList();
             foreach (var sortByItem in filteredSortByData)
@@ -28,11 +26,11 @@ namespace HRM.Infrastructure.Utilities.QueryExtensions
                 var columnToSort = sortByItem.Field.ToPascalCase();
                 if (orderByColumnMaps != null && orderByColumnMaps.ContainsKey(sortByItem))
                 {
-                    _expression += orderByColumnMaps[sortByItem];
+                    OrderByExpression += orderByColumnMaps[sortByItem];
                 }
                 else
                 {
-                    _expression += GetOrderBy(columnToSort,
+                    OrderByExpression += GetOrderBy(columnToSort,
                         sortByItem.Dir.ToLower().Equals(HRMConstants.ORDER_BY_DESC, StringComparison.OrdinalIgnoreCase));
                 }
             }
@@ -40,7 +38,7 @@ namespace HRM.Infrastructure.Utilities.QueryExtensions
 
         public OrderByQuery(string columName, bool isOrderByDesc)
         {
-            _expression = GetOrderBy(columName, isOrderByDesc);
+            OrderByExpression = GetOrderBy(columName, isOrderByDesc);
         }
 
         private Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> GetOrderBy(string columnName, bool isOrderByDesc)
@@ -50,7 +48,7 @@ namespace HRM.Infrastructure.Utilities.QueryExtensions
             var outerExpression = Expression.Lambda(argQueryable, argQueryable);
 
             var entityType = typeof(TEntity);
-            ParameterExpression arg = System.Linq.Expressions.Expression.Parameter(entityType, "x");
+            ParameterExpression arg = Expression.Parameter(entityType, "x");
 
             Expression expression = arg;
             string[] properties = columnName.Split('.');

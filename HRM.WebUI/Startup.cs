@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using HRM.Application.Infrastructure;
 using HRM.Application.Utilities.MediatR;
 using HRM.Persistence.Context;
 using HRM.Persistence.SeedingData;
@@ -52,10 +53,12 @@ namespace HRM.WebUI
             services.AddAutoMapper();
 
             // MediatR
-            services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
+            //services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
             // MediatR Pipleline for checking performance and validation
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPerformanceBehaviour<,>));
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+
+            services.AddMediatR(typeof(BaseRequestHandler<,>).GetTypeInfo().Assembly);
 
             // Entityframework Core
             services.AddDbContext<HRMContext>(options => options.UseSqlServer(_appConnectionString));

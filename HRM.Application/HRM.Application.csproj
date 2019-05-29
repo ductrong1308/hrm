@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Employees\Commands\" />
+    <Folder Include="Infrastructure\Models\" />
     <Folder Include="Utilities\AutoMapper\" />
   </ItemGroup>
 
@@ -19,6 +20,12 @@
   <ItemGroup>
     <ProjectReference Include="..\HRM.Common\HRM.Common.csproj" />
     <ProjectReference Include="..\HRM.Domain\HRM.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\newtonsoft.json\11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
 using HRM.Application.Employees.ViewModels;
-using HRM.Application.Infrastructure.Models;
+using HRM.Application.Infrastructure;
 using MediatR;
 
 namespace HRM.Application.Employees.Queries.GetEmployeeList
 {
-    public class GetEmployeesListQuery: BaseListQueryModel, IRequest<IEnumerable<EmployeeViewModel>>
+    public class GetEmployeesListQuery: BaseListQuery<EmployeeViewModel>
     {
-        public GetEmployeesListQuery(): base()
-        {
-        }
+        public string Test { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using HRM.Application.Infrastructure;
+﻿using HRM.Application.Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace HRM.Persistence.Context

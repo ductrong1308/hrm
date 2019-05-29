@@ -39,5 +39,10 @@ namespace HRM.Common.Constants
 
         public const string LINQ_TRANSLATED_ORDER_BY_DESC = "OrderByDescending";
 
+        // Query Page
+        public const int DEFAULT_PAGE_QUERY_SKIP = 0;
+
+        public const int DEFAULT_PAGE_QUERY_TAKE = 20;
+
     }
 }

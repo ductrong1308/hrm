@@ -13,9 +13,10 @@ import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 
 import { HttpModule } from '@angular/http';
 
-import { HrmBaseService } from './services/base.service';
-import { AppUtil } from './services/app.util';
+import { HrmBaseService } from './base.service';
+import { AppUtil } from './app.util';
 import { CookieService } from 'ngx-cookie-service';
+import { EmployeeFormComponent } from './pages/employee/employee-form/employee-form.component';
 
 
 const LEFT_MENU_ROUTES = {
@@ -54,7 +55,8 @@ const LEFT_MENU_ROUTES = {
         BrowserAnimationsModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        EmployeeFormComponent
     ],
     providers: [AppUtil, HrmBaseService, CookieService],
     bootstrap: [AppComponent]

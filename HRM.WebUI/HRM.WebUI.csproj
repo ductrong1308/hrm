@@ -18,11 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\app\app.service.ts" />
     <None Remove="ClientApp\app\components\base.component.ts" />
     <None Remove="ClientApp\app\helpers\url-serializer.ts" />
-    <None Remove="ClientApp\app\services\app.util.ts" />
-    <None Remove="ClientApp\app\services\base.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -48,11 +45,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\app\components\base.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\services\app.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\base.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\app.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\helpers\url-serializer.ts" />
-    <TypeScriptCompile Include="ClientApp\app\services\app.util.ts" />
-    <TypeScriptCompile Include="ClientApp\app\services\base.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\app.util.ts" />
+    <TypeScriptCompile Include="ClientApp\app\base.service.ts" />
   </ItemGroup>
 
 </Project>

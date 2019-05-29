@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
-using HRM.Application.Infrastructure.Models;
 using HRM.Common.Constants;
 using HRM.Common.Extensions;
 using HRM.Infrastructure.Models;
@@ -13,16 +11,16 @@ namespace HRM.Infrastructure.Utilities.QueryExtensions
 {
     public class FilterQuery<TEntity> where TEntity : class
     {
-        public Expression<Func<TEntity, bool>> _expression { get; private set; }
+        public Expression<Func<TEntity, bool>> FilterExpression { get; private set; }
 
         public FilterQuery(Expression<Func<TEntity, bool>> expression)
         {
-            _expression = expression;
+            FilterExpression = expression;
         }
 
-        public FilterQuery(ListFilter filterRequest, Dictionary<string, string> filterMaps = null)
+        public FilterQuery(FilterData filterRequest, Dictionary<string, string> filterMaps = null)
         {
-            _expression = BuildExpression(filterRequest, filterMaps);
+            FilterExpression = BuildExpression(filterRequest, filterMaps);
         }
 
         public virtual Dictionary<string, Operation> OperationDictionary
@@ -49,12 +47,12 @@ namespace HRM.Infrastructure.Utilities.QueryExtensions
             }
         }
 
-        public void Filter(ListFilter filters, Dictionary<string, string> filterMaps = null)
+        public void Filter(FilterData filters, Dictionary<string, string> filterMaps = null)
         {
-            _expression = BuildExpression(filters, filterMaps);
+            FilterExpression = BuildExpression(filters, filterMaps);
         }
 
-        public Expression<Func<TEntity, bool>> BuildExpression(ListFilter filters, Dictionary<string, string> filterMaps)
+        public Expression<Func<TEntity, bool>> BuildExpression(FilterData filters, Dictionary<string, string> filterMaps)
         {
             var filter = new Filter<TEntity>();
             foreach (var filterDetails in filters.Filters)

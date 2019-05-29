@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HrmListService } from 'ClientApp/app/services/app.service';
-import { HrmBaseService } from 'ClientApp/app/services/base.service';
+import { HrmListService } from '../../app.service';
+import { HrmBaseService } from '../../base.service';
 
 @Injectable({
   providedIn: 'root'

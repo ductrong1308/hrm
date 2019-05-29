@@ -9,8 +9,8 @@ const routes: Routes = [
         path: '', data: { title: 'Home' },
         children: [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-            { path: 'dashboard', loadChildren: './pages/my-dashboard/my-dashboard.module#MyDashboardModule' },
-            { path: 'employee/list', loadChildren: './pages/employee/employee-list/employee-list.module#EmployeeListModule', data: { title: 'Employee' } },
+            { path: 'dashboard', loadChildren: './pages/my-dashboard/my-dashboard.module#MyDashboardModule', data: { title: 'Dashboard' } },
+            { path: 'employee/list', loadChildren: './pages/employee/employee-list/employee-list.module#EmployeeListModule', data: { title: 'Employees' } },
             //{
             //    path: 'layout', data: { title: 'Layout' },
             //    children: [

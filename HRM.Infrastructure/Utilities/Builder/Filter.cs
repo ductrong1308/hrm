@@ -3,6 +3,8 @@ namespace HRM.Infrastructure.Utilities.Builder
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
     using HRM.Infrastructure.Utilities.Builder.Interfaces;
     using static HRM.Infrastructure.Utilities.Enums.Enumerations;
 

@@ -14,13 +14,13 @@ namespace HRM.Infrastructure.Utilities.Builder
     {
         private static readonly Dictionary<Operation, Func<Expression, Expression, Expression>> Expressions;
 
-        private static MethodInfo containsMethod = typeof(string).GetMethod("Contains");
-        private static MethodInfo isNullOrEmptyMethod = typeof(string).GetMethod("IsNullOrEmpty");
-        private static MethodInfo trimMethod = typeof(string).GetMethod("Trim", new Type[0]);
-        private static MethodInfo toLowerMethod = typeof(string).GetMethod("ToLower", new Type[0]);
-        private static MethodInfo replaceMethod = typeof(string).GetMethod("Replace", new[] { typeof(string), typeof(string) });
-        private static MethodInfo startsWithMethod = typeof(string).GetMethod("StartsWith", new[] { typeof(string) });
-        private static MethodInfo endsWithMethod = typeof(string).GetMethod("EndsWith", new[] { typeof(string) });
+        private static MethodInfo containsMethod = typeof(string).GetMethods().FirstOrDefault(x => x.Name == "Contains");
+        private static MethodInfo isNullOrEmptyMethod = typeof(string).GetMethods().FirstOrDefault(x => x.Name == "IsNullOrEmpty");
+        private static MethodInfo trimMethod = typeof(string).GetMethods().FirstOrDefault(x => x.Name == "Trim");
+        private static MethodInfo toLowerMethod = typeof(string).GetMethods().FirstOrDefault(x => x.Name == "ToLower");
+        private static MethodInfo replaceMethod = typeof(string).GetMethods().FirstOrDefault(x => x.Name == "Replace");
+        private static MethodInfo startsWithMethod = typeof(string).GetMethods().FirstOrDefault(x => x.Name == "StartsWith");
+        private static MethodInfo endsWithMethod = typeof(string).GetMethods().FirstOrDefault(x => x.Name == "EndsWith");
 
         static DynammicBuilder()
         {

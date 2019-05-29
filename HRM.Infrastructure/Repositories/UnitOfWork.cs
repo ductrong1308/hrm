@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HRM.Application.Infrastructure;
+using HRM.Application.Infrastructure.Interfaces;
 using HRM.Domain.Base;
 using Microsoft.EntityFrameworkCore;
 
