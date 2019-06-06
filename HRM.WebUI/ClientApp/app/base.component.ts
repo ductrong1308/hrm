@@ -3,14 +3,45 @@ import { Observable } from 'rxjs';
 import { GridDataResult } from '@progress/kendo-angular-grid';
 import { AppUtil, QueryState } from './app.util';
 import { HrmListService } from './app.service';
-import { Params } from '@angular/router';
+import { Params, ActivatedRoute } from '@angular/router';
+import { UploadEvent, RemoveEvent, SelectEvent } from '@progress/kendo-angular-upload';
 
 export class BaseComponent{
     constructor(protected appUtil: AppUtil) { }
 }
 
 export class BaseFormComponent extends BaseComponent implements OnInit {
-    ngOnInit() {}
+    constructor(protected appUtil: AppUtil, protected route: ActivatedRoute) {
+        super(appUtil);
+    }
+
+    public mode: string = '';
+
+    public model: any = {};
+
+    public defaultDropdownItem: { text: string, value: number } = { text: "Select item...", value: null };
+
+    ngOnInit() {
+        this.routingHandler();
+    }
+
+    routingHandler() {
+        // TO DO
+        //this.route.params.subscribe((param: Params) => {
+        //    let formMode = param['mode'].toLowerCase();
+        //});
+    }
+
+    uploadEventHandler(e: UploadEvent) {
+        e.headers = this.appUtil.getBearerTokenHeaders(e.headers);
+    }
+
+    removeEventHandler(e: RemoveEvent) {
+        e.headers = this.appUtil.getBearerTokenHeaders(e.headers);
+    }
+
+    selectEventHandler(e: SelectEvent) {
+    }
 }
 
 export class BaseListComponent extends BaseComponent implements OnInit {

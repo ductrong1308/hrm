@@ -56,7 +56,8 @@ export abstract class HrmListService extends BehaviorSubject<GridDataResult>{
 }
 
 export abstract class HrmFormService {
-    constructor(private http: HrmBaseService) { }
+    constructor(private http: HrmBaseService) {
+    }
 
     public getData(url: string, params?: any): Observable<any> {
         return this.http.doGet({ url, params });

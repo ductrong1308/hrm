@@ -295,14 +295,18 @@ webpackContext.id = "../node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./pages/employee/employee-form/employee-form.module": [
+		"./app/pages/employee/employee-form/employee-form.module.ts",
+		"default~pages-employee-employee-form-employee-form-module~pages-employee-employee-list-employee-list~d49a1b86",
+		"pages-employee-employee-form-employee-form-module"
+	],
 	"./pages/employee/employee-list/employee-list.module": [
 		"./app/pages/employee/employee-list/employee-list.module.ts",
-		"common",
+		"default~pages-employee-employee-form-employee-form-module~pages-employee-employee-list-employee-list~d49a1b86",
 		"pages-employee-employee-list-employee-list-module"
 	],
 	"./pages/my-dashboard/my-dashboard.module": [
 		"./app/pages/my-dashboard/my-dashboard.module.ts",
-		"common",
 		"pages-my-dashboard-my-dashboard-module"
 	]
 };
@@ -353,6 +357,7 @@ var routes = [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', loadChildren: './pages/my-dashboard/my-dashboard.module#MyDashboardModule', data: { title: 'Dashboard' } },
             { path: 'employee/list', loadChildren: './pages/employee/employee-list/employee-list.module#EmployeeListModule', data: { title: 'Employees' } },
+            { path: 'employee/form', loadChildren: './pages/employee/employee-form/employee-form.module#EmployeeFormModule', data: { title: 'New Employee' } },
         ]
     }
 ];
@@ -361,6 +366,7 @@ var AppRoutingModule = /** @class */ (function () {
         this.router = router;
         this.router.errorHandler = function (error) {
             var message = error.message;
+            console.error(message);
             if (message.toLowerCase().indexOf('cannot match any routes') >= 0) {
                 window.location.href = 'app/error?errorCode=404';
             }
@@ -368,7 +374,9 @@ var AppRoutingModule = /** @class */ (function () {
     }
     AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-            imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, { useHash: false })],
+            imports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes, { useHash: false })
+            ],
             exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
             providers: [
                 {
@@ -448,20 +456,18 @@ var AppComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "../node_modules/@angular/platform-browser/fesm5/platform-browser.js");
-/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser/animations */ "../node_modules/@angular/platform-browser/fesm5/animations.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app-routing.module */ "./app/app-routing.module.ts");
-/* harmony import */ var _pages_layout_layout_core_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/layout/layout-core.module */ "./app/pages/layout/layout-core.module.ts");
-/* harmony import */ var _components_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/index */ "./app/components/index.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./app/app.component.ts");
-/* harmony import */ var angular_loading_page__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! angular-loading-page */ "../node_modules/angular-loading-page/esm5/angular-loading-page.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/http */ "../node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var _base_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./base.service */ "./app/base.service.ts");
-/* harmony import */ var _app_util__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app.util */ "./app/app.util.ts");
-/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ngx-cookie-service */ "../node_modules/ngx-cookie-service/index.js");
-/* harmony import */ var _pages_employee_employee_form_employee_form_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/employee/employee-form/employee-form.component */ "./app/pages/employee/employee-form/employee-form.component.ts");
-
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/http */ "../node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "../node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-cookie-service */ "../node_modules/ngx-cookie-service/index.js");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser/animations */ "../node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./app/app.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app-routing.module */ "./app/app-routing.module.ts");
+/* harmony import */ var _components_index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/index */ "./app/components/index.ts");
+/* harmony import */ var angular_loading_page__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! angular-loading-page */ "../node_modules/angular-loading-page/esm5/angular-loading-page.js");
+/* harmony import */ var _pages_layout_layout_core_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./pages/layout/layout-core.module */ "./app/pages/layout/layout-core.module.ts");
+/* harmony import */ var _base_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./base.service */ "./app/base.service.ts");
+/* harmony import */ var _app_util__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app.util */ "./app/app.util.ts");
 
 
 
@@ -502,23 +508,22 @@ var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["NgModule"])({
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_4__["AppRoutingModule"],
-                _pages_layout_layout_core_module__WEBPACK_IMPORTED_MODULE_5__["LayoutCoreModule"],
-                _components_index__WEBPACK_IMPORTED_MODULE_6__["LayoutModule"].forRoot(LEFT_MENU_ROUTES),
-                angular_loading_page__WEBPACK_IMPORTED_MODULE_8__["LoadingPageModule"],
-                angular_loading_page__WEBPACK_IMPORTED_MODULE_8__["MaterialBarModule"],
-                _angular_http__WEBPACK_IMPORTED_MODULE_9__["HttpModule"],
-                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"]
+                _components_index__WEBPACK_IMPORTED_MODULE_8__["LayoutModule"].forRoot(LEFT_MENU_ROUTES),
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["BrowserModule"],
+                _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"],
+                _pages_layout_layout_core_module__WEBPACK_IMPORTED_MODULE_10__["LayoutCoreModule"],
+                angular_loading_page__WEBPACK_IMPORTED_MODULE_9__["LoadingPageModule"],
+                angular_loading_page__WEBPACK_IMPORTED_MODULE_9__["MaterialBarModule"],
+                _angular_http__WEBPACK_IMPORTED_MODULE_2__["HttpModule"]
             ],
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
-                _pages_employee_employee_form_employee_form_component__WEBPACK_IMPORTED_MODULE_13__["EmployeeFormComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
             ],
-            providers: [_app_util__WEBPACK_IMPORTED_MODULE_11__["AppUtil"], _base_service__WEBPACK_IMPORTED_MODULE_10__["HrmBaseService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_12__["CookieService"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
+            providers: [_app_util__WEBPACK_IMPORTED_MODULE_12__["AppUtil"], _base_service__WEBPACK_IMPORTED_MODULE_11__["HrmBaseService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -544,6 +549,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "../node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var ngx_cookie_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-cookie-service */ "../node_modules/ngx-cookie-service/index.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "../node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "../node_modules/@angular/common/fesm5/http.js");
+
 
 
 
@@ -556,6 +563,16 @@ var AppUtil = /** @class */ (function () {
         this.cookieService = cookieService;
         this.location = location;
     }
+    AppUtil.prototype.getBearerTokenHeaders = function (httpHeaders) {
+        if (!httpHeaders) {
+            httpHeaders = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpHeaders"]();
+        }
+        var accessToken = this.cookieService.get('HRMAccessToken');
+        if (accessToken) {
+            httpHeaders = httpHeaders.append('Authorization', 'Bearer ' + this.cookieService.get('HRMAccessToken'));
+        }
+        return httpHeaders;
+    };
     AppUtil.prototype.encodedQueryString = function (state) {
         return "?state=" + encodeURIComponent(JSON.stringify(state));
     };
@@ -675,14 +692,14 @@ var HrmBaseService = /** @class */ (function () {
     }
     HrmBaseService.prototype.doGet = function (request) {
         var _this = this;
-        var authenticationData = this.GetAuthenticationData();
+        var bearerTokenHeaders = this.appUtil.getBearerTokenHeaders();
         if (this.appUtil.isNullOrEmpty(request.isGridData)) {
             request.isGridData = false;
         }
-        if (authenticationData) {
+        if (bearerTokenHeaders) {
             var params = new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpParams"]();
             params = params.append('state', JSON.stringify(request.params));
-            return this.http.get(this.appUtil.getEndPoint(request.url), { params: params, headers: authenticationData.headers })
+            return this.http.get(this.appUtil.getEndPoint(request.url), { params: params, headers: bearerTokenHeaders })
                 .map(function (response) {
                 var formattedResponseData = parseResponse(response.listResult);
                 return request.isGridData ? { data: formattedResponseData, total: response.listCount } : formattedResponseData;
@@ -702,20 +719,11 @@ var HrmBaseService = /** @class */ (function () {
         location.href = 'account/login';
     };
     HrmBaseService.prototype.doPost = function (url, data) {
-        var authenticationData = this.GetAuthenticationData();
-        if (authenticationData) {
-            return this.http.post(this.appUtil.getEndPoint(url), data, authenticationData);
+        var bearerTokenHeaders = this.appUtil.getBearerTokenHeaders();
+        if (bearerTokenHeaders) {
+            return this.http.post(this.appUtil.getEndPoint(url), data, { headers: bearerTokenHeaders });
         }
         //location.href = 'account/login';
-    };
-    HrmBaseService.prototype.GetAuthenticationData = function () {
-        var accessToken = this.appUtil.cookieService.get('HRMAccessToken');
-        if (accessToken) {
-            return {
-                headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpHeaders"]({ 'Authorization': 'Bearer ' + this.appUtil.cookieService.get('HRMAccessToken') })
-            };
-        }
-        return null;
     };
     HrmBaseService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
@@ -2406,7 +2414,7 @@ module.exports = ":host {\n  display: block;\n}\n\n.content-wrapper {\n     posi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content-wrapper\" [style.min-height.px]=\"heightStyle\">\n  <div #contentInnerElement class=\"content-inner\">\n    <ng-content select=\"[hrm-layout-content-before-header]\"></ng-content>\n    <section *ngIf=\"header || description\" class=\"content-header\">\r\n      <button kendoButton [primary]=\"true\" [icon]=\"'plus'\">Add Employee</button>\r\n      <hrm-breadcrumbs></hrm-breadcrumbs>\r\n    </section>\n    <ng-content select=\"[hrm-layout-content-after-header]\"></ng-content>\n    <section class=\"content\">\n      <ng-content></ng-content>\n    </section>\n  </div>\n</div>\n"
+module.exports = "<div class=\"content-wrapper\" [style.min-height.px]=\"heightStyle\">\n  <div #contentInnerElement class=\"content-inner\">\n    <ng-content select=\"[hrm-layout-content-before-header]\"></ng-content>\n    <section *ngIf=\"header || description\" class=\"content-header\">\r\n      <!--<button kendoButton [primary]=\"true\" [icon]=\"'plus'\">Add Employee</button>-->\r\n      <h1>{{header}}</h1>\r\n      <hrm-breadcrumbs></hrm-breadcrumbs>\r\n    </section>\n    <ng-content select=\"[hrm-layout-content-after-header]\"></ng-content>\n    <section class=\"content\">\n      <ng-content></ng-content>\n    </section>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -5191,62 +5199,6 @@ var LowerCaseUrlSerializer = /** @class */ (function (_super) {
     ], LowerCaseUrlSerializer);
     return LowerCaseUrlSerializer;
 }(_angular_router__WEBPACK_IMPORTED_MODULE_1__["DefaultUrlSerializer"]));
-
-
-
-/***/ }),
-
-/***/ "./app/pages/employee/employee-form/employee-form.component.css":
-/*!**********************************************************************!*\
-  !*** ./app/pages/employee/employee-form/employee-form.component.css ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL3BhZ2VzL2VtcGxveWVlL2VtcGxveWVlLWZvcm0vZW1wbG95ZWUtZm9ybS5jb21wb25lbnQuY3NzIn0= */"
-
-/***/ }),
-
-/***/ "./app/pages/employee/employee-form/employee-form.component.html":
-/*!***********************************************************************!*\
-  !*** ./app/pages/employee/employee-form/employee-form.component.html ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  employee-form works!\n</p>\n"
-
-/***/ }),
-
-/***/ "./app/pages/employee/employee-form/employee-form.component.ts":
-/*!*********************************************************************!*\
-  !*** ./app/pages/employee/employee-form/employee-form.component.ts ***!
-  \*********************************************************************/
-/*! exports provided: EmployeeFormComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EmployeeFormComponent", function() { return EmployeeFormComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-
-
-var EmployeeFormComponent = /** @class */ (function () {
-    function EmployeeFormComponent() {
-    }
-    EmployeeFormComponent.prototype.ngOnInit = function () {
-    };
-    EmployeeFormComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-            selector: 'app-employee-form',
-            template: __webpack_require__(/*! ./employee-form.component.html */ "./app/pages/employee/employee-form/employee-form.component.html"),
-            styles: [__webpack_require__(/*! ./employee-form.component.css */ "./app/pages/employee/employee-form/employee-form.component.css")]
-        }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
-    ], EmployeeFormComponent);
-    return EmployeeFormComponent;
-}());
 
 
 

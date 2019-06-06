@@ -61,6 +61,78 @@ namespace HRM.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Azure storage error: {0}.
+        /// </summary>
+        public static string Error_AzureStorage_Error {
+            get {
+                return ResourceManager.GetString("Error_AzureStorage_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not able to parse {0} into address key..
+        /// </summary>
+        public static string Error_BlobStorage_Cannot_Parse_Into_Address {
+            get {
+                return ResourceManager.GetString("Error_BlobStorage_Cannot_Parse_Into_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid category: {0}.
+        /// </summary>
+        public static string Error_BlobStorage_InvalidCategory {
+            get {
+                return ResourceManager.GetString("Error_BlobStorage_InvalidCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid blob key: {0} - {1}.
+        /// </summary>
+        public static string Error_BlobStorage_InvalidKey {
+            get {
+                return ResourceManager.GetString("Error_BlobStorage_InvalidKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not found: {0}.
+        /// </summary>
+        public static string Error_BlobStorage_NotFound {
+            get {
+                return ResourceManager.GetString("Error_BlobStorage_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to null or empty.
+        /// </summary>
+        public static string Error_BlobStorage_NullOrEmpty {
+            get {
+                return ResourceManager.GetString("Error_BlobStorage_NullOrEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4 parts expected.
+        /// </summary>
+        public static string Error_BlobStorage_ValidParts {
+            get {
+                return ResourceManager.GetString("Error_BlobStorage_ValidParts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to timestamp format not &apos;yyyyMMddHH&apos;.
+        /// </summary>
+        public static string Error_BlobStorage_ValidTimeStamp {
+            get {
+                return ResourceManager.GetString("Error_BlobStorage_ValidTimeStamp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The server encountered an unexpected condition which prevented it from fulfilling the request..
         /// </summary>
         public static string Error_InternalServer_Message {

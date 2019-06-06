@@ -3,6 +3,7 @@ import { Routes, RouterModule, UrlSerializer, Router } from '@angular/router';
 
 import { MyDashboardComponent } from './pages/my-dashboard/my-dashboard.component';
 import { LowerCaseUrlSerializer } from './helpers/url-serializer';
+import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
     {
@@ -11,6 +12,7 @@ const routes: Routes = [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', loadChildren: './pages/my-dashboard/my-dashboard.module#MyDashboardModule', data: { title: 'Dashboard' } },
             { path: 'employee/list', loadChildren: './pages/employee/employee-list/employee-list.module#EmployeeListModule', data: { title: 'Employees' } },
+            { path: 'employee/form', loadChildren: './pages/employee/employee-form/employee-form.module#EmployeeFormModule', data: { title: 'New Employee' } },
             //{
             //    path: 'layout', data: { title: 'Layout' },
             //    children: [
@@ -24,7 +26,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { useHash: false })],
+    imports: [
+        RouterModule.forRoot(routes, { useHash: false })
+    ],
     exports: [RouterModule],
     providers: [
         {
@@ -37,6 +41,7 @@ export class AppRoutingModule {
     constructor(private router: Router) {
         this.router.errorHandler = (error: any) => {
             var message: string = error.message;
+            console.error(message);
             if (message.toLowerCase().indexOf('cannot match any routes') >= 0) {
                 window.location.href = 'app/error?errorCode=404';
             }

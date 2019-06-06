@@ -21,15 +21,15 @@ export class HrmBaseService {
     }
 
     public doGet(request: HttpClientRequest): Observable<any> {
-        var authenticationData = this.GetAuthenticationData();
+        var bearerTokenHeaders = this.appUtil.getBearerTokenHeaders();
         if (this.appUtil.isNullOrEmpty(request.isGridData)) {
             request.isGridData = false;
         }
-        if (authenticationData) {
+        if (bearerTokenHeaders) {
             let params = new HttpParams();
             params = params.append('state', JSON.stringify(request.params));
 
-            return this.http.get(this.appUtil.getEndPoint(request.url), { params: params, headers: authenticationData.headers })
+            return this.http.get(this.appUtil.getEndPoint(request.url), { params: params, headers: bearerTokenHeaders })
                 .map((response: any) => {
                     let formattedResponseData = parseResponse(response.listResult);
                     return request.isGridData ? (<GridDataResult>{ data: formattedResponseData, total: response.listCount }) : formattedResponseData;
@@ -51,23 +51,12 @@ export class HrmBaseService {
     }
 
     public doPost(url: string, data?: any): Observable<any> {
-        var authenticationData = this.GetAuthenticationData();
-        if (authenticationData) {
-            return this.http.post(this.appUtil.getEndPoint(url), data, authenticationData);
+        var bearerTokenHeaders = this.appUtil.getBearerTokenHeaders();
+        if (bearerTokenHeaders) {
+            return this.http.post(this.appUtil.getEndPoint(url), data, { headers: bearerTokenHeaders });
         }
 
         //location.href = 'account/login';
-    }
-
-    private GetAuthenticationData() {
-        var accessToken = this.appUtil.cookieService.get('HRMAccessToken');
-        if (accessToken) {
-            return {
-                headers: new HttpHeaders({ 'Authorization': 'Bearer ' + this.appUtil.cookieService.get('HRMAccessToken') })
-            };
-        }
-
-        return null;
     }
 }
 

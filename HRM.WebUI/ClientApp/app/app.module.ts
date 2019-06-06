@@ -1,22 +1,17 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { LayoutCoreModule } from './pages/layout/layout-core.module';
-
-import { LayoutModule } from './components/index';
+import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { CookieService } from 'ngx-cookie-service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-
+import { AppRoutingModule } from './app-routing.module';
+import { LayoutModule } from './components/index';
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
-
-import { HttpModule } from '@angular/http';
+import { LayoutCoreModule } from './pages/layout/layout-core.module';
 
 import { HrmBaseService } from './base.service';
 import { AppUtil } from './app.util';
-import { CookieService } from 'ngx-cookie-service';
-import { EmployeeFormComponent } from './pages/employee/employee-form/employee-form.component';
 
 
 const LEFT_MENU_ROUTES = {
@@ -45,18 +40,17 @@ const LEFT_MENU_ROUTES = {
 
 @NgModule({
     imports: [
+        LayoutModule.forRoot(LEFT_MENU_ROUTES),
         BrowserModule,
+        BrowserAnimationsModule,
         AppRoutingModule,
         LayoutCoreModule,
-        LayoutModule.forRoot(LEFT_MENU_ROUTES),
         LoadingPageModule,
         MaterialBarModule,
-        HttpModule,
-        BrowserAnimationsModule
+        HttpModule
     ],
     declarations: [
         AppComponent,
-        EmployeeFormComponent
     ],
     providers: [AppUtil, HrmBaseService, CookieService],
     bootstrap: [AppComponent]

@@ -147,4 +147,28 @@
   <data name="FailedToLogin" xml:space="preserve">
     <value>Falied to login</value>
   </data>
+  <data name="Error_AzureStorage_Error" xml:space="preserve">
+    <value>Azure storage error: {0}</value>
+  </data>
+  <data name="Error_BlobStorage_Cannot_Parse_Into_Address" xml:space="preserve">
+    <value>Not able to parse {0} into address key.</value>
+  </data>
+  <data name="Error_BlobStorage_InvalidCategory" xml:space="preserve">
+    <value>Invalid category: {0}</value>
+  </data>
+  <data name="Error_BlobStorage_InvalidKey" xml:space="preserve">
+    <value>Invalid blob key: {0} - {1}</value>
+  </data>
+  <data name="Error_BlobStorage_NotFound" xml:space="preserve">
+    <value>Not found: {0}</value>
+  </data>
+  <data name="Error_BlobStorage_NullOrEmpty" xml:space="preserve">
+    <value>null or empty</value>
+  </data>
+  <data name="Error_BlobStorage_ValidParts" xml:space="preserve">
+    <value>4 parts expected</value>
+  </data>
+  <data name="Error_BlobStorage_ValidTimeStamp" xml:space="preserve">
+    <value>timestamp format not 'yyyyMMddHH'</value>
+  </data>
 </root>

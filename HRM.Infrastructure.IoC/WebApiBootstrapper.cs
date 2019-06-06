@@ -1,4 +1,8 @@
 ﻿using HRM.Application.Infrastructure.Interfaces;
+using HRM.Application.Providers.Azure;
+using HRM.Application.Providers.Azure.Interfaces;
+using HRM.Application.Providers.BlobStorage;
+using HRM.Application.Providers.BlobStorage.Interfaces;
 using HRM.Domain.Entities;
 using HRM.Infrastructure.Repositories;
 using HRM.Infrastructure.Repositories.Employees;
@@ -33,6 +37,15 @@ namespace HRM.Infrastructure.IoC
             // Service
             //services.AddScoped<GetEmployeesListQueryHandler, GetEmployeesListQueryHandler>();
 
+            if (environment.IsDevelopment())
+            {
+                services.AddSingleton<IBlobStorage, FileSystemBlobStorage>();
+            }
+            else
+            {
+                services.AddSingleton<IAzureBlobContext, AzureBlobContext>();
+                services.AddSingleton<IBlobStorage, AzureBlobStorage>();
+            }
         }
     }
 }

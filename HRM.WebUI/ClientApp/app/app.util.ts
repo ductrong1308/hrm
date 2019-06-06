@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { CookieService } from 'ngx-cookie-service';
 import { Location } from '@angular/common';
 import { State } from '@progress/kendo-data-query';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class AppUtil {
@@ -11,6 +12,19 @@ export class AppUtil {
         public activedRoute: ActivatedRoute,
         public cookieService: CookieService,
         public location: Location) {
+    }
+
+    public getBearerTokenHeaders(httpHeaders?: HttpHeaders) {
+        if (!httpHeaders) {
+            httpHeaders = new HttpHeaders();
+        }
+
+        var accessToken = this.cookieService.get('HRMAccessToken');
+        if (accessToken) {
+            httpHeaders = httpHeaders.append('Authorization', 'Bearer ' + this.cookieService.get('HRMAccessToken'));
+        }
+
+        return httpHeaders;
     }
 
     public encodedQueryString(state: QueryState) {

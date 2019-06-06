@@ -9,7 +9,13 @@
   border-color: #eae3e3;
 }
 
+/*******************KENDO RESET CSS***********************/
+/* FORM CONTROL */
+.k-textbox.form-control {
+  height: auto;
+}
 
+/* DATA GRID STYLES */
 .k-grid-content {
   overflow-x: scroll;
 }
@@ -22,11 +28,98 @@
   overflow-x: auto;
 }
 
-
-/*.k-grid-header {
-  padding: 0;
+/* TEXTAREA STYLES */
+textarea.k-textbox {
+  resize: none;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
-.k-grid-header-wrap {
-  border-right: none;
-}*/
+/* DATEPICKER STYLES */
+.k-dateinput-wrap .k-input {
+  height: 27.5px;
+}
+
+kendo-datepicker.k-datepicker {
+  width: 50%;
+}
+
+/* DROPDOWN STYLES */
+.k-dropdown .k-dropdown-wrap {
+  background-color: white;
+}
+
+kendo-dropdownlist.k-dropdown {
+  width: 50%;
+}
+
+.k-dropdown-wrap > span.k-input {
+  height: 27.5px;
+}
+
+/* MULTISELECT STYLES */
+.k-multiselect {
+  height: 29.5px
+}
+
+span.k-clear-value {
+  padding-top: 6px;
+}
+
+.k-multiselect-wrap .k-searchbar .k-input {
+  font-size: 14px;
+}
+
+.k-list .k-item:focus,
+.k-list .k-item.k-state-focused,
+.k-list-optionlabel:focus,
+.k-list-optionlabel.k-state-focused {
+box-shadow: none;
+}
+
+.k-list .k-item:focus:hover, .k-list .k-item:focus.k-state-hover,
+.k-list .k-item.k-state-focused:hover,
+.k-list .k-item.k-state-focused.k-state-hover,
+.k-list-optionlabel:focus:hover,
+.k-list-optionlabel:focus.k-state-hover,
+.k-list-optionlabel.k-state-focused:hover,
+.k-list-optionlabel.k-state-focused.k-state-hover {
+  box-shadow: none;
+}
+
+.k-list .k-item:focus.k-state-selected,
+.k-list .k-item.k-state-focused.k-state-selected,
+.k-list-optionlabel:focus.k-state-selected,
+.k-list-optionlabel.k-state-focused.k-state-selected {
+  box-shadow: none;
+}
+
+.k-list-container .k-list-optionlabel {
+  border-bottom-color: none;
+}
+
+.k-list-container .k-button:focus,
+.k-list-container .k-button.k-state-focused {
+  box-shadow: none;
+}
+
+.k-list-container .k-button:focus:hover, .k-list-container .k-button:focus.k-state-hover,
+.k-list-container .k-button.k-state-focused:hover,
+.k-list-container .k-button.k-state-focused.k-state-hover {
+  box-shadow: none;
+}
+
+.k-list-container .k-button:focus:active, .k-list-container .k-button:focus.k-state-active,
+.k-list-container .k-button.k-state-focused:active,
+.k-list-container .k-button.k-state-focused.k-state-active {
+  box-shadow: none;
+}
+
+/*******************KENDO RESET CSS***********************/
+/*******************HRM STYLES***********************/
+div.hrm-form-column {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/*******************HRM STYLES***********************/

@@ -4,9 +4,11 @@ using System.Text;
 using AutoMapper;
 using HRM.Application.Infrastructure;
 using HRM.Application.Utilities.MediatR;
+using HRM.Common;
 using HRM.Infrastructure.IoC;
 using HRM.Persistence.Context;
 using HRM.Persistence.SeedingData;
+using HRM.WebAPI.Filters;
 using HRMPersistence.Identity.Context;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -18,6 +20,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 
 namespace HRM.WebAPI
 {
@@ -37,6 +40,8 @@ namespace HRM.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<AppConfig>(_configuration.GetSection("App"));
+
             // Automapper
             services.AddAutoMapper();
 
@@ -79,8 +84,39 @@ namespace HRM.WebAPI
                 };
             });
 
+            // CORS
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader()
+                            .AllowCredentials();
+                    });
+
+                options.AddPolicy("HrmUploadFiles",
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:44302")
+                            .AllowAnyMethod()
+                            .AllowAnyHeader()
+                            .AllowCredentials();
+                    });
+            });
+
             // MVC
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options => {
+                options.Filters.Add(new ApiExceptionFilter());
+            }).AddJsonOptions(options =>
+            {
+                // To ignore looping in related entity dependency
+                // Related data and serialization: <ref to="https://docs.microsoft.com/en-us/ef/core/querying/related-data" />
+                //options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                //options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
+                //options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // Infrastructure IoC
             WebApiBootstrapper.RegisterServices<HRMContext>(services, _environment, _configuration);
@@ -102,19 +138,18 @@ namespace HRM.WebAPI
             }
 
             // CORS
-            app.UseCors(builder =>
-            {
-                builder.AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowCredentials();
-            });
+            //app.UseCors();
 
             app.UseHttpsRedirection();
 
             app.UseAuthentication();
 
-            app.UseMvc();
+            //app.UseMvc();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(name: "api", template: "api/{controller}/{action?}/{id?}");
+            });
         }
     }
 }

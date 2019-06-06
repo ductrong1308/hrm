@@ -1,3 +1,117 @@
-<p>
-  employee-form works!
-</p>
+
+  <div class="row col-sm-6 hrm-form-column">
+    <!-- form items markup -->
+    <div class="form-group row">
+      <label class="col-sm-4 col-form-label">First Name</label>
+      <div class="col-sm-8">
+        <input [(ngModel)]="model.firstName" type="text" class="k-textbox form-control" name="firstName"/>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-4 col-form-label">Last Name</label>
+      <div class="col-sm-8">
+        <input type="text"
+               name="lastName"
+               class="k-textbox form-control"
+               [(ngModel)]="model.lastName" />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-4 col-form-label">Date of Birth</label>
+      <div class="col-sm-8">
+        <kendo-datepicker name="dateOfBirth"
+                          [format]="'yyy-MMM-dd'"
+                          [(ngModel)]="model.dateOfBirth">
+        </kendo-datepicker>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-4 col-form-label">Phone Number</label>
+      <div class="col-sm-8">
+        <input type="text"
+               name="phoneNumber"
+               class="k-textbox form-control"
+               [(ngModel)]="model.phoneNumber" />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-4 col-form-label">Address</label>
+      <div class="col-sm-8">
+        <textarea class="k-textbox form-control"
+                  name="address"
+                  rows="3"
+                  maxlength="200"
+                  [(ngModel)]="model.address">
+      </textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="row col-sm-6 hrm-form-column">
+    <div class="form-group row">
+      <label class="col-sm-4 col-form-label">Email</label>
+      <div class="col-sm-8">
+        <input type="text"
+               name="email"
+               class="k-textbox form-control"
+               [(ngModel)]="model.email" />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-4 col-form-label">Job Title</label>
+      <div class="col-sm-8">
+        <kendo-dropdownlist name="jobTitle"
+                            [data]="jobTitleListItems"
+                            [textField]="'text'"
+                            [valueField]="'value'"
+                            [defaultItem]="defaultDropdownItem"
+                            [(ngModel)]="model.jobTitle">
+        </kendo-dropdownlist>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-4 col-form-label">Role List</label>
+      <div class="col-sm-8">
+        <kendo-multiselect name="roleList"
+                           [data]="roleListItems"
+                           [textField]="'text'"
+                           [valueField]="'value'"
+                           [(ngModel)]="model.roleList">
+        </kendo-multiselect>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-sm-4 col-form-label">Image</label>
+      <div class="col-sm-8">
+        <!--[withCredentials]="false"-->
+        <!--this is important since uploader upload crenditals. So there is a problem with
+        access-control-allow-origin: *. we have to use cors policies explicitly instead of allow all.
+        when 'withCredentials' set to false, we can use access-control-allow-origin: *-->
+        <kendo-upload name="myUpload"
+                      [saveUrl]="uploadSaveUrl"
+                      [removeUrl]="uploadRemoveUrl"
+                      [disabled]="isUploaded"
+                      [multiple]="false"
+                      [restrictions]="hrmRestrictedFileExtensions"
+                      (upload)="uploadEventHandler($event)"
+                      (remove)="removeEventHandler($event)"
+                      (select)="selectEventHandler($event)"
+                      (success)="successEventHandler($event)"
+                      (error)="errorEventHandler($event)"
+                      [withCredentials]="false">
+        </kendo-upload>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row col-sm-6 hrm-form-column">
+    <button type="button" class="k-button k-primary" (click)="onCreateEmployee()">Submit</button>
+  </div>

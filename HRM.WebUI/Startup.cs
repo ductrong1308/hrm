@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using HRM.Application.Infrastructure;
 using HRM.Application.Utilities.MediatR;
+using HRM.Common;
 using HRM.Persistence.Context;
 using HRM.Persistence.SeedingData;
 using HRMPersistence.Identity.Context;
@@ -42,6 +43,8 @@ namespace HRM.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<AppConfig>(_configuration.GetSection("App"));
+
             // Identity
             services.AddIdentity<AppUser, IdentityRole>(cfg =>
             {
@@ -69,6 +72,9 @@ namespace HRM.WebUI
             // HRM Dependency Injection
             services.AddTransient<IdentitySeeder>();
 
+            // CORS
+            services.AddCors();
+
             // MVC
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -81,22 +87,31 @@ namespace HRM.WebUI
                 app.UseDeveloperExceptionPage();
 
                 app.UseStaticFiles();
-                app.UseAuthentication();
-
-                app.UseMvc(route =>
-                {
-                    route.MapRoute("Default", "/{controller}/{action}/{id?}", new { Controller = "App", Action = "Index" });
-                });
-
-
-                app.MapWhen(context => context.Request.Path.Value.StartsWith("/"), builder =>
-                {
-                    builder.UseMvc(routes =>
-                    {
-                        routes.MapSpaFallbackRoute("spa-fallback", new { controller = "App", action = "Index" });
-                    });
-                });
             }
+
+            app.UseAuthentication();
+
+            // CORS
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials();
+            });
+
+            app.UseMvc(route =>
+            {
+                route.MapRoute("Default", "/{controller}/{action}/{id?}", new { Controller = "App", Action = "Index" });
+            });
+
+            app.MapWhen(context => context.Request.Path.Value.StartsWith("/"), builder =>
+            {
+                builder.UseMvc(routes =>
+                {
+                    routes.MapSpaFallbackRoute("spa-fallback", new { controller = "App", action = "Index" });
+                });
+            });
         }
     }
 }
