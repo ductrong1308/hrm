@@ -5,6 +5,7 @@ import { AppUtil } from '../../../app.util';
 import { EmployeeListService } from '../employee.service';
 import { Observable } from 'rxjs';
 import { SortDescriptor } from '@progress/kendo-data-query';
+import { CommunicationService } from 'ClientApp/app/app.service';
 
 @Component({
     selector: 'app-employee',
@@ -15,8 +16,8 @@ export class EmployeeListComponent extends BaseListComponent implements OnInit {
 
     //private test: Observable<GridDataResult>;
 
-    constructor(appUtil: AppUtil, service: EmployeeListService) {
-        super(appUtil, service);
+    constructor(appUtil: AppUtil, service: EmployeeListService, private commun: CommunicationService) {
+        super(appUtil, service, commun);
     }
 
     ngOnInit() {

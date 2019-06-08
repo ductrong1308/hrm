@@ -45,11 +45,9 @@ export class EmployeeFormComponent extends BaseFormComponent implements OnInit {
 
 
     onCreateEmployee() {
-        debugger;
     }
 
     successEventHandler(e: SuccessEvent) {
-        debugger;
         var fileBlobPointer = e.response.body;
         if (!this.appUtil.isNullOrEmpty(fileBlobPointer)) {
             this.model.imageUrl = fileBlobPointer;
@@ -57,7 +55,6 @@ export class EmployeeFormComponent extends BaseFormComponent implements OnInit {
     }
 
     errorEventHandler(e: ErrorEvent) {
-        debugger;
         console.log('An error occurred');
     }
 

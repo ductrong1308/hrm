@@ -11,7 +11,7 @@ import { GridDataResult } from '@progress/kendo-angular-grid';
 
 
 @Injectable()
-export class HrmBaseService {
+export class HrmHttpService {
     private unknowErrorMessage: string = '';
 
     constructor(private http: HttpClient, public appUtil: AppUtil) {

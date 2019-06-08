@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HrmListService, HrmFormService } from '../../app.service';
-import { HrmBaseService } from '../../base.service';
+import { HrmHttpService } from '../../http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeListService extends HrmListService {
 
-    constructor(http: HrmBaseService) {
+    constructor(http: HrmHttpService) {
         super(http, 'employee/list');
     }
 }
@@ -16,7 +16,7 @@ export class EmployeeListService extends HrmListService {
     providedIn: 'root'
 })
 export class EmployeeFormService extends HrmFormService {
-    constructor(http: HrmBaseService) {
+    constructor(http: HrmHttpService) {
         super(http);
     }
 }

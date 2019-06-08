@@ -1,13 +1,20 @@
-﻿import { OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+﻿import { OnInit, Output, EventEmitter } from '@angular/core';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { GridDataResult } from '@progress/kendo-angular-grid';
 import { AppUtil, QueryState } from './app.util';
-import { HrmListService } from './app.service';
+import { HrmListService, CommunicationService } from './app.service';
 import { Params, ActivatedRoute } from '@angular/router';
 import { UploadEvent, RemoveEvent, SelectEvent } from '@progress/kendo-angular-upload';
 
-export class BaseComponent{
+export class BaseComponent {
+
+    @Output() sendDataToParent = new EventEmitter<boolean>();
+
     constructor(protected appUtil: AppUtil) { }
+
+    public resetStatus(newValue: boolean) {
+        this.sendDataToParent.emit(newValue);
+    }
 }
 
 export class BaseFormComponent extends BaseComponent implements OnInit {
@@ -48,7 +55,7 @@ export class BaseListComponent extends BaseComponent implements OnInit {
 
     public view: Observable<GridDataResult>;
 
-    constructor(public appUtil: AppUtil, public service: HrmListService) {
+    constructor(public appUtil: AppUtil, public service: HrmListService, private communicationService: CommunicationService) {
         super(appUtil);
     }
 
@@ -76,6 +83,11 @@ export class BaseListComponent extends BaseComponent implements OnInit {
         this.service.query(this.service.state);
 
         // this view will receive data as BehaviorSubject emit data.
-        this.view = this.service;
+        this.view = this.service.gridResult;
+
+        this.service.isModelLoading.subscribe((value: boolean) => {
+            debugger;
+            this.communicationService.emitChange(value);
+        });
     }
 }

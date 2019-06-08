@@ -10,8 +10,9 @@ import { LayoutModule } from './components/index';
 import { LoadingPageModule, MaterialBarModule } from 'angular-loading-page';
 import { LayoutCoreModule } from './pages/layout/layout-core.module';
 
-import { HrmBaseService } from './base.service';
+import { HrmHttpService } from './http.service';
 import { AppUtil } from './app.util';
+import { HrmBaseService, CommunicationService } from './app.service';
 
 
 const LEFT_MENU_ROUTES = {
@@ -52,7 +53,7 @@ const LEFT_MENU_ROUTES = {
     declarations: [
         AppComponent,
     ],
-    providers: [AppUtil, HrmBaseService, CookieService],
+    providers: [AppUtil, HrmHttpService, CookieService, CommunicationService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

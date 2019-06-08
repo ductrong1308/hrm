@@ -37,7 +37,3 @@
 :host.skin-black-light /deep/ .sidebar-right-toggle > a {
   border-left: 1px solid #d2d6de;
 }
-
-.hrm-wrapper {
-  max-height: 805px;
-}

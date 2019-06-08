@@ -1,40 +1,46 @@
 
+<div>
+  <div class="wrapper-loader" *ngIf="isLoading">
+    <div class="loader k-i-loading k-icon">
+    </div>
+  </div>
+</div>
 <hrm-layout-wrapper>
+  <!--// Header-->
+  <hrm-layout-header logoLink="/">
+    <!--Logo when left menu is expanded-->
+    <hrm-layout-header-logo><b>HRM</b></hrm-layout-header-logo>
 
-    <!--// Header-->
-    <hrm-layout-header logoLink="/">
-        <!--Logo when left menu is expanded-->
-        <hrm-layout-header-logo><b>HRM</b></hrm-layout-header-logo>
+    <!--Logo when left menu is collapsed-->
+    <hrm-layout-header-logo-mini><b>HRM</b></hrm-layout-header-logo-mini>
 
-        <!--Logo when left menu is collapsed-->
-        <hrm-layout-header-logo-mini><b>HRM</b></hrm-layout-header-logo-mini>
+    <!-- Items in header-->
+    <app-header-inner></app-header-inner>
+  </hrm-layout-header>
 
-        <!-- Items in header-->
-        <app-header-inner></app-header-inner>
-    </hrm-layout-header>
+  <!--Left Menu-->
+  <hrm-layout-sidebar-left>
+    <app-sidebar-left-inner></app-sidebar-left-inner>
+  </hrm-layout-sidebar-left>
+  <!--Right Menu-->
+  <hrm-layout-sidebar-right>
+    <app-sidebar-right-inner></app-sidebar-right-inner>
+  </hrm-layout-sidebar-right>
 
-    <!--Left Menu-->
-    <hrm-layout-sidebar-left>
-        <app-sidebar-left-inner></app-sidebar-left-inner>
-    </hrm-layout-sidebar-left>
-    <!--Right Menu-->
-    <hrm-layout-sidebar-right>
-        <app-sidebar-right-inner></app-sidebar-right-inner>
-    </hrm-layout-sidebar-right>
+  <!--Main Content-->
+  <hrm-layout-content>
+    <router-outlet></router-outlet>
+  </hrm-layout-content>
 
-    <!--Main Content-->
-    <hrm-layout-content>
-        <router-outlet></router-outlet>
-    </hrm-layout-content>
-
-    <!--Footer-->
-    <hrm-layout-footer>
-        <hrm-layout-footer-left>
-            <strong>&copy; 2019</strong>
-        </hrm-layout-footer-left>
-        <hrm-layout-footer-right>
-            <b>Version</b> 1.0.0
-        </hrm-layout-footer-right>
-    </hrm-layout-footer>
+  <!--Footer-->
+  <hrm-layout-footer>
+    <hrm-layout-footer-left>
+      <strong>&copy; 2019</strong>
+    </hrm-layout-footer-left>
+    <hrm-layout-footer-right>
+      <b>Version</b> 1.0.0
+    </hrm-layout-footer-right>
+  </hrm-layout-footer>
 
 </hrm-layout-wrapper>
+
