@@ -33,6 +33,11 @@ namespace HRM.WebAPI.Controllers.Employees
             return new JsonResult(response);
         }
 
+        public async Task<ActionResult<bool>> Create(EmployeeViewModel newEmployee)
+        {
+            return new JsonResult(newEmployee);
+        }
+
 
         public async Task<ActionResult> UploadImage(IFormFile files)
         {

@@ -418,42 +418,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _components_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/index */ "./app/components/index.ts");
-/* harmony import */ var _app_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.util */ "./app/app.util.ts");
-/* harmony import */ var _app_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.service */ "./app/app.service.ts");
-
+/* harmony import */ var _app_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.service */ "./app/app.service.ts");
 
 
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent(appUtil, layoutService, communicationService) {
-        var _this = this;
-        this.appUtil = appUtil;
+    function AppComponent(layoutService, communicationService, cdRef) {
         this.layoutService = layoutService;
         this.communicationService = communicationService;
+        this.cdRef = cdRef;
         this.isLoading = true;
-        this.someEvent = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
-        communicationService.changeEmitted$.subscribe(function (data) {
-            debugger;
-            _this.isLoading = data;
-        });
     }
     AppComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.layoutService.isCustomLayout.subscribe(function (value) {
             _this.customLayout = value;
         });
+        this.communicationService.isDataLoadingEmitChangeSource.subscribe(function (data) {
+            _this.isLoading = data;
+        });
     };
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
-    ], AppComponent.prototype, "someEvent", void 0);
+    AppComponent.prototype.ngAfterViewChecked = function () {
+        this.cdRef.detectChanges();
+    };
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'hrm-app',
             template: __webpack_require__(/*! ./app.component.html */ "./app/app.component.html")
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_app_util__WEBPACK_IMPORTED_MODULE_3__["AppUtil"], _components_index__WEBPACK_IMPORTED_MODULE_2__["LayoutService"], _app_service__WEBPACK_IMPORTED_MODULE_4__["CommunicationService"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_components_index__WEBPACK_IMPORTED_MODULE_2__["LayoutService"], _app_service__WEBPACK_IMPORTED_MODULE_3__["CommunicationService"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectorRef"]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -541,7 +535,7 @@ var AppModule = /** @class */ (function () {
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
             ],
-            providers: [_app_util__WEBPACK_IMPORTED_MODULE_12__["AppUtil"], _http_service__WEBPACK_IMPORTED_MODULE_11__["HrmHttpService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], _app_service__WEBPACK_IMPORTED_MODULE_13__["CommunicationService"]],
+            providers: [_app_util__WEBPACK_IMPORTED_MODULE_12__["AppUtil"], _http_service__WEBPACK_IMPORTED_MODULE_11__["HrmHttpService"], ngx_cookie_service__WEBPACK_IMPORTED_MODULE_4__["CookieService"], _app_service__WEBPACK_IMPORTED_MODULE_13__["CommunicationService"], _app_service__WEBPACK_IMPORTED_MODULE_13__["HrmBaseService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
@@ -567,17 +561,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HrmFormService", function() { return HrmFormService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "../node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "../node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "../node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _http_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./http.service */ "./app/http.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "../node_modules/rxjs/_esm5/index.js");
+
 
 
 
 var CommunicationService = /** @class */ (function () {
     function CommunicationService() {
-        this.emitChangeSource = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        this.changeEmitted$ = this.emitChangeSource.asObservable();
+        this.isDataLoadingEmitChangeSource = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](true);
     }
     CommunicationService.prototype.emitChange = function (isLoading) {
-        this.emitChangeSource.next(isLoading);
+        this.isDataLoadingEmitChangeSource.next(isLoading);
     };
     CommunicationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
@@ -587,31 +582,34 @@ var CommunicationService = /** @class */ (function () {
 }());
 
 var HrmBaseService = /** @class */ (function () {
-    function HrmBaseService() {
-        this.isModelLoading = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](true);
+    function HrmBaseService(communicationService, http) {
+        this.communicationService = communicationService;
+        this.http = http;
     }
+    HrmBaseService.prototype.getData = function (url, params) {
+        return this.http.doGet({ url: url, params: params });
+    };
+    HrmBaseService.prototype.postData = function (url, data) {
+        return this.http.doPost(url, data);
+    };
+    HrmBaseService.prototype.onLoadingData = function (isLoading) {
+        this.communicationService.emitChange(isLoading);
+    };
     HrmBaseService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [CommunicationService, _http_service__WEBPACK_IMPORTED_MODULE_2__["HrmHttpService"]])
     ], HrmBaseService);
     return HrmBaseService;
 }());
 
 var HrmListService = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](HrmListService, _super);
-    function HrmListService(httpService, apiDataUrl, accessedUrl) {
-        var _this = _super.call(this) || this;
-        _this.httpService = httpService;
+    function HrmListService(communicationService, http, apiDataUrl, accessedUrl) {
+        var _this = _super.call(this, communicationService, http) || this;
+        _this.http = http;
         _this.apiDataUrl = apiDataUrl;
         _this.accessedUrl = accessedUrl;
-        _this.gridResult = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](null);
-        _this.defaultCompositeFilterDescriptor = {
-            filters: [{
-                    field: '',
-                    operator: '',
-                    value: ''
-                }],
-            logic: 'and'
-        };
+        _this.gridResult = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](null);
         _this.state = {
             skip: 0, take: 20
         };
@@ -620,26 +618,23 @@ var HrmListService = /** @class */ (function (_super) {
         };
         return _this;
     }
-    HrmListService.prototype.getData = function (url, params) {
-        return this.httpService.doGet({ url: url, isGridData: false, params: params });
-    };
     HrmListService.prototype.query = function (state) {
         var _this = this;
-        this.isModelLoading.next(true);
         this.state = state;
+        this.onLoadingData(true);
         var queryString = "?state=" + JSON.stringify(state);
-        if (!this.httpService.appUtil.isNullOrEmpty(queryString)) {
-            var url = this.httpService.appUtil.isNullOrEmpty(this.accessedUrl) ? this.apiDataUrl : this.accessedUrl;
-            this.httpService.appUtil.location.replaceState(url, this.httpService.appUtil.encodedQueryString(state));
+        if (!this.http.appUtil.isNullOrEmpty(queryString)) {
+            var url = this.http.appUtil.isNullOrEmpty(this.accessedUrl) ? this.apiDataUrl : this.accessedUrl;
+            this.http.appUtil.location.replaceState(url, this.http.appUtil.encodedQueryString(state));
         }
         this.fetch(this.apiDataUrl, state)
             .subscribe(function (x) {
-            _this.isModelLoading.next(false);
+            _this.onLoadingData(false);
             _this.gridResult.next(x);
         });
     };
     HrmListService.prototype.fetch = function (url, state) {
-        return this.httpService.doGet({ url: url, isGridData: true, params: state });
+        return this.http.doGet({ url: url, isGridData: true, params: state });
     };
     HrmListService.prototype.dataStateChange = function (state) {
         this.query(state);
@@ -649,17 +644,9 @@ var HrmListService = /** @class */ (function (_super) {
 
 var HrmFormService = /** @class */ (function (_super) {
     tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](HrmFormService, _super);
-    function HrmFormService(http) {
-        var _this = _super.call(this) || this;
-        _this.http = http;
-        return _this;
+    function HrmFormService(communicationService, http) {
+        return _super.call(this, communicationService, http) || this;
     }
-    HrmFormService.prototype.getData = function (url, params) {
-        return this.http.doGet({ url: url, params: params });
-    };
-    HrmFormService.prototype.postData = function (url, data) {
-        return this.http.doPost(url, data);
-    };
     return HrmFormService;
 }(HrmBaseService));
 

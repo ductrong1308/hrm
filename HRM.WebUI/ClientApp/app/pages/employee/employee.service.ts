@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { HrmListService, HrmFormService } from '../../app.service';
+import { Injectable, OnInit } from '@angular/core';
+import { HrmListService, HrmFormService, CommunicationService } from '../../app.service';
 import { HrmHttpService } from '../../http.service';
 
 @Injectable({
@@ -7,8 +7,8 @@ import { HrmHttpService } from '../../http.service';
 })
 export class EmployeeListService extends HrmListService {
 
-    constructor(http: HrmHttpService) {
-        super(http, 'employee/list');
+    constructor(communicationService: CommunicationService, http: HrmHttpService) {
+        super(communicationService, http, 'employee/list');
     }
 }
 
@@ -16,7 +16,7 @@ export class EmployeeListService extends HrmListService {
     providedIn: 'root'
 })
 export class EmployeeFormService extends HrmFormService {
-    constructor(http: HrmHttpService) {
-        super(http);
+    constructor(communicationService: CommunicationService, http: HrmHttpService) {
+        super(communicationService, http);
     }
 }

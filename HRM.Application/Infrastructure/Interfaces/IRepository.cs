@@ -37,5 +37,6 @@ namespace HRM.Application.Infrastructure.Interfaces
         // Paging - Count records
         Task<int> CountAsync(Expression<Func<TEntity, bool>> filter);
 
+        Task CreateAsync(TEntity entity);
     }
 }

@@ -2,31 +2,15 @@
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { GridDataResult } from '@progress/kendo-angular-grid';
 import { AppUtil, QueryState } from './app.util';
-import { HrmListService, CommunicationService } from './app.service';
+import { HrmListService, CommunicationService, HrmFormService } from './app.service';
 import { Params, ActivatedRoute } from '@angular/router';
 import { UploadEvent, RemoveEvent, SelectEvent } from '@progress/kendo-angular-upload';
 
-export class BaseComponent {
-
-    @Output() sendDataToParent = new EventEmitter<boolean>();
-
-    constructor(protected appUtil: AppUtil) { }
-
-    public resetStatus(newValue: boolean) {
-        this.sendDataToParent.emit(newValue);
-    }
-}
-
-export class BaseFormComponent extends BaseComponent implements OnInit {
-    constructor(protected appUtil: AppUtil, protected route: ActivatedRoute) {
-        super(appUtil);
-    }
-
+export class BaseComponent implements OnInit {
     public mode: string = '';
-
     public model: any = {};
 
-    public defaultDropdownItem: { text: string, value: number } = { text: "Select item...", value: null };
+    constructor(protected appUtil: AppUtil) { }
 
     ngOnInit() {
         this.routingHandler();
@@ -37,6 +21,18 @@ export class BaseFormComponent extends BaseComponent implements OnInit {
         //this.route.params.subscribe((param: Params) => {
         //    let formMode = param['mode'].toLowerCase();
         //});
+    }
+}
+
+export class BaseFormComponent extends BaseComponent implements OnInit {
+    public defaultDropdownItem: { text: string, value: number } = { text: "Select item...", value: null };
+
+    constructor(protected appUtil: AppUtil, public service: HrmFormService) {
+        super(appUtil);
+    }
+
+    ngOnInit() {
+        this.service.onLoadingData(false);
     }
 
     uploadEventHandler(e: UploadEvent) {
@@ -55,11 +51,12 @@ export class BaseListComponent extends BaseComponent implements OnInit {
 
     public view: Observable<GridDataResult>;
 
-    constructor(public appUtil: AppUtil, public service: HrmListService, private communicationService: CommunicationService) {
+    constructor(public appUtil: AppUtil, public service: HrmListService) {
         super(appUtil);
     }
 
     ngOnInit() {
+        this.service.onLoadingData(false);
 
         this.appUtil.activedRoute.queryParams.subscribe((params: Params) => {
             var state = params['state'];
@@ -84,10 +81,5 @@ export class BaseListComponent extends BaseComponent implements OnInit {
 
         // this view will receive data as BehaviorSubject emit data.
         this.view = this.service.gridResult;
-
-        this.service.isModelLoading.subscribe((value: boolean) => {
-            debugger;
-            this.communicationService.emitChange(value);
-        });
     }
 }

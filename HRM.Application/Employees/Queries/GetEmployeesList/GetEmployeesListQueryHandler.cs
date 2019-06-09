@@ -22,7 +22,7 @@ namespace HRM.Application.Employees.Queries.GetEmployeesList
 
         public async Task<BaseListResponse<EmployeeViewModel>> Handle(GetEmployeesListQuery request, CancellationToken cancellationToken)
         {
-            return await base.Handle(request, cancellationToken);
+            return await ListAsync(request, cancellationToken);
         }
 
     }

@@ -49,7 +49,7 @@
     <TypeScriptCompile Include="ClientApp\app\app.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\helpers\url-serializer.ts" />
     <TypeScriptCompile Include="ClientApp\app\app.util.ts" />
-    <TypeScriptCompile Include="ClientApp\app\base.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\http.service.ts" />
   </ItemGroup>
 
 </Project>

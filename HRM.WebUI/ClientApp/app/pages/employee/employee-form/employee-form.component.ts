@@ -33,7 +33,7 @@ export class EmployeeFormComponent extends BaseFormComponent implements OnInit {
     public userImages: Array<FileInfo>;
 
     constructor(appUtil: AppUtil, route: ActivatedRoute, service: EmployeeFormService) {
-        super(appUtil, route);
+        super(appUtil, service);
     }
 
     ngOnInit() {

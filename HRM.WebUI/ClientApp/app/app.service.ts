@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+﻿import { Injectable, OnInit } from '@angular/core';
 import { HrmHttpService } from './http.service'
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { map, window } from 'rxjs/operators';
@@ -9,33 +9,35 @@ import { QueryState } from './app.util';
 
 @Injectable()
 export class CommunicationService {
-    constructor() { }
+    public isDataLoadingEmitChangeSource: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
-    private emitChangeSource = new Subject<boolean>();
-
-    changeEmitted$ = this.emitChangeSource.asObservable();
+    constructor() {}
 
     emitChange(isLoading: boolean) {
-        this.emitChangeSource.next(isLoading);
+        this.isDataLoadingEmitChangeSource.next(isLoading);
     }
 }
 
 @Injectable()
 export class HrmBaseService {
-    public isModelLoading: BehaviorSubject<boolean> = new BehaviorSubject(true);
+
+    constructor(private communicationService: CommunicationService, public http: HrmHttpService) { }
+
+    public getData(url: string, params?: any): Observable<any> {
+        return this.http.doGet({ url, params });
+    }
+
+    public postData(url: string, data?: any): Observable<any> {
+        return this.http.doPost(url, data);
+    }
+
+    public onLoadingData(isLoading: boolean) {
+        this.communicationService.emitChange(isLoading);
+    }
 }
 
 export abstract class HrmListService extends HrmBaseService {
     public gridResult: BehaviorSubject<GridDataResult> = new BehaviorSubject(null);
-
-    private defaultCompositeFilterDescriptor: CompositeFilterDescriptor = {
-        filters: [{
-            field: '',
-            operator: '',
-            value: ''
-        }],
-        logic: 'and'
-    };
 
     public state: QueryState = {
         skip: 0, take: 20
@@ -45,33 +47,29 @@ export abstract class HrmListService extends HrmBaseService {
         skip: 0, take: 20
     };
 
-    constructor(public httpService: HrmHttpService, public apiDataUrl: string, public accessedUrl?: string) {
-        super();
-    }
-
-    public getData(url: string, params?: any): Observable<any> {
-        return this.httpService.doGet({ url: url, isGridData: false, params: params });
+    constructor(communicationService: CommunicationService, public http: HrmHttpService, public apiDataUrl: string, public accessedUrl?: string) {
+        super(communicationService, http);
     }
 
     public query(state: any): void {
-        this.isModelLoading.next(true);
         this.state = state;
+        this.onLoadingData(true);
         var queryString = `?state=${JSON.stringify(state)}`;
 
-        if (!this.httpService.appUtil.isNullOrEmpty(queryString)) {
-            var url = this.httpService.appUtil.isNullOrEmpty(this.accessedUrl) ? this.apiDataUrl : this.accessedUrl;
-            this.httpService.appUtil.location.replaceState(url, this.httpService.appUtil.encodedQueryString(state));
+        if (!this.http.appUtil.isNullOrEmpty(queryString)) {
+            var url = this.http.appUtil.isNullOrEmpty(this.accessedUrl) ? this.apiDataUrl : this.accessedUrl;
+            this.http.appUtil.location.replaceState(url, this.http.appUtil.encodedQueryString(state));
         }
 
         this.fetch(this.apiDataUrl, state)
             .subscribe(x => {
-                this.isModelLoading.next(false);
+                this.onLoadingData(false);
                 this.gridResult.next(x);
             });
     }
 
     private fetch(url: string, state: any): Observable<GridDataResult> {
-        return this.httpService.doGet({ url: url, isGridData: true, params: state});
+        return this.http.doGet({ url: url, isGridData: true, params: state});
     }
 
     public dataStateChange(state: DataStateChangeEvent): void {
@@ -80,15 +78,7 @@ export abstract class HrmListService extends HrmBaseService {
 }
 
 export abstract class HrmFormService extends HrmBaseService {
-    constructor(private http: HrmHttpService) {
-        super();
-    }
-
-    public getData(url: string, params?: any): Observable<any> {
-        return this.http.doGet({ url, params });
-    }
-
-    public postData(url: string, data?: any): Observable<any> {
-        return this.http.doPost(url, data);
+    constructor(communicationService: CommunicationService, http: HrmHttpService) {
+        super(communicationService, http);
     }
 }

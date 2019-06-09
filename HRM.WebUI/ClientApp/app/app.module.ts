@@ -53,7 +53,7 @@ const LEFT_MENU_ROUTES = {
     declarations: [
         AppComponent,
     ],
-    providers: [AppUtil, HrmHttpService, CookieService, CommunicationService],
+    providers: [AppUtil, HrmHttpService, CookieService, CommunicationService, HrmBaseService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

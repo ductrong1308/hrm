@@ -16,8 +16,8 @@ export class EmployeeListComponent extends BaseListComponent implements OnInit {
 
     //private test: Observable<GridDataResult>;
 
-    constructor(appUtil: AppUtil, service: EmployeeListService, private commun: CommunicationService) {
-        super(appUtil, service, commun);
+    constructor(appUtil: AppUtil, service: EmployeeListService) {
+        super(appUtil, service);
     }
 
     ngOnInit() {

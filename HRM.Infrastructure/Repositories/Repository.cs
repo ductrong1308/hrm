@@ -131,5 +131,10 @@ namespace HRM.Infrastructure.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public async virtual Task CreateAsync(TEntity entity)
+        {
+            await _currentContext.Set<TEntity>().AddAsync(entity);
+        }
     }
 }
