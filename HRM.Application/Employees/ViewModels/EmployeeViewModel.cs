@@ -1,11 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using HRM.Application.Infrastructure;
+using AutoMapper;
+using FluentValidation;
+using HRM.Application.Employees.Commands.CreateEmployee;
+using HRM.Application.Infrastructure.ViewModel;
+using HRM.Application.Utilities.AutoMapper.Interfaces;
+using HRM.Domain.Base;
+using HRM.Domain.Entities;
 
 namespace HRM.Application.Employees.ViewModels
 {
-    public class EmployeeViewModel : BaseViewModel
+    public class EmployeeViewModel : BaseViewModel, ICreateMapping
     {
         public string FirstName { get; set; }
 
@@ -29,7 +33,13 @@ namespace HRM.Application.Employees.ViewModels
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            new CreateEmployeeValidator().ValidateAndThrow(this);
+        }
+
+        public void CreateMapping(Profile profile)
+        {
+            profile.CreateMap<Employee, EmployeeViewModel>().IncludeBase<BaseEntity, BaseViewModel>();
+            profile.CreateMap<EmployeeViewModel, Employee>().IncludeBase<BaseViewModel, BaseEntity>();
         }
     }
 }

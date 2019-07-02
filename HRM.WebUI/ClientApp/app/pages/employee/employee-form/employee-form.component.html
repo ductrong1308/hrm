@@ -1,10 +1,15 @@
-
+<form #mainForm="ngForm" novalidate (ngSubmit)="onCreateEmployee(mainForm)">
   <div class="row col-sm-6 hrm-form-column">
     <!-- form items markup -->
     <div class="form-group row">
       <label class="col-sm-4 col-form-label">First Name</label>
       <div class="col-sm-8">
-        <input [(ngModel)]="model.firstName" type="text" class="k-textbox form-control" name="firstName"/>
+        <input #firstNameElement type="text" class="k-textbox form-control" name="firstName"
+               [(ngModel)]="model.firstName" 
+               [ngClass]="{'ng-invalid': formErrors.firstName}" />
+        <div *ngIf="formErrors.firstName" class="k-invalid-msg">
+          {{ formErrors.firstName }}
+        </div>
       </div>
     </div>
 
@@ -15,6 +20,9 @@
                name="lastName"
                class="k-textbox form-control"
                [(ngModel)]="model.lastName" />
+        <div *ngIf="formErrors.lastName" class="k-invalid-msg">
+          {{ formErrors.lastName }}
+        </div>
       </div>
     </div>
 
@@ -65,13 +73,16 @@
     <div class="form-group row">
       <label class="col-sm-4 col-form-label">Job Title</label>
       <div class="col-sm-8">
-        <kendo-dropdownlist name="jobTitle"
+        <kendo-dropdownlist name="jobTitle" #jobTitleDropdownList
                             [data]="jobTitleListItems"
                             [textField]="'text'"
                             [valueField]="'value'"
                             [defaultItem]="defaultDropdownItem"
                             [(ngModel)]="model.jobTitle">
         </kendo-dropdownlist>
+        <div *ngIf="formErrors.jobTitle" class="k-invalid-msg">
+          {{ formErrors.jobTitle }}
+        </div>
       </div>
     </div>
 
@@ -84,6 +95,9 @@
                            [valueField]="'value'"
                            [(ngModel)]="model.roleList">
         </kendo-multiselect>
+        <div *ngIf="formErrors.roleList" class="k-invalid-msg">
+          {{ formErrors.roleList }}
+        </div>
       </div>
     </div>
 
@@ -97,7 +111,7 @@
         <kendo-upload name="myUpload"
                       [saveUrl]="uploadSaveUrl"
                       [removeUrl]="uploadRemoveUrl"
-                      [disabled]="isUploaded"
+
                       [multiple]="false"
                       [restrictions]="hrmRestrictedFileExtensions"
                       (upload)="uploadEventHandler($event)"
@@ -113,6 +127,8 @@
   </div>
 
   <div class="row col-sm-12 hrm-form-column">
-    <button type="button" class="k-button k-primary hrm-button" (click)="onCreateEmployee()">Submit</button>
+    <button type="submit" [disabled]="isFormInvalid" class="k-button k-primary hrm-button">Submit</button>
     <button type="button" (click)="onCancel()" class="k-button hrm-button">Cancel</button>
   </div>
+</form>
+

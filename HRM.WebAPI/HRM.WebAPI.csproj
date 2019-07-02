@@ -3,14 +3,20 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <ApplicationInsightsResourceId>/subscriptions/403a7de4-c336-488c-9dcd-4013945060b4/resourcegroups/TestResourceGroup/providers/microsoft.insights/components/myhrmappapi</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/403a7de4-c336-488c-9dcd-4013945060b4/resourcegroups/TestResourceGroup/providers/microsoft.insights/components/myhrmappapi</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.3" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.3" />
+    <PackageReference Include="Hangfire.SqlServer" Version="1.7.3" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="6.0.1" />
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.1" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.7.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Logging.AzureAppServices" Version="2.2.5" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
   </ItemGroup>
 
@@ -20,6 +26,20 @@
     <ProjectReference Include="..\HRM.Infrastructure\HRM.Infrastructure.csproj" />
     <ProjectReference Include="..\HRM.Persistence\HRM.Persistence.csproj" />
     <ProjectReference Include="..\HRMPersistence.Identity\HRMPersistence.Identity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="favicon.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

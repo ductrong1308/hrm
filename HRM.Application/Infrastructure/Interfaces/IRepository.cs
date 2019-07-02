@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using HRM.Application.Infrastructure.ViewModel;
 using HRM.Domain.Base;
 
 namespace HRM.Application.Infrastructure.Interfaces
@@ -17,7 +18,7 @@ namespace HRM.Application.Infrastructure.Interfaces
         Task<TEntity> GetByIdAsync(int id, Func<IQueryable<TEntity>, IQueryable<TEntity>> includes);
 
         // Get All Entities
-        Task<BaseListResponse<TEntity>> ListAsync(string queryState);
+        Task<ListResponseViewModel<TEntity>> ListAsync(string queryState);
 
         Task<IEnumerable<TEntity>> ListAsync(
             int skip,

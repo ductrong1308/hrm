@@ -20,6 +20,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Hangfire;
+using Hangfire.SqlServer;
 using Newtonsoft.Json;
 
 namespace HRM.WebAPI
@@ -40,7 +42,33 @@ namespace HRM.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // The following line enables Application Insights telemetry collection.
+            services.AddApplicationInsightsTelemetry();
+
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.AutomaticAuthentication = false;
+            });
+
             services.Configure<AppConfig>(_configuration.GetSection("App"));
+
+            // Add Hangfire services.
+            services.AddHangfire(configuration => configuration
+                .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+                .UseSimpleAssemblyNameTypeSerializer()
+                .UseRecommendedSerializerSettings()
+                .UseSqlServerStorage(_configuration.GetConnectionString("HangfireConnection"), new SqlServerStorageOptions
+                {
+                    CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+                    SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+                    QueuePollInterval = TimeSpan.Zero,
+                    UseRecommendedIsolationLevel = true,
+                    UsePageLocksOnDequeue = true,
+                    DisableGlobalLocks = true
+                }));
+
+            // Add the processing server as IHostedService
+            services.AddHangfireServer();
 
             // Automapper
             services.AddAutoMapper();
@@ -123,7 +151,7 @@ namespace HRM.WebAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IBackgroundJobClient backgroundJobs)
         {
             if (env.IsDevelopment())
             {
@@ -136,6 +164,16 @@ namespace HRM.WebAPI
                 app.UseHsts();
                 app.UseExceptionHandler("/Error");
             }
+
+            app.UseStaticFiles();
+
+            // Hangfire
+            app.UseHangfireDashboard("/hangfire", new DashboardOptions
+            {
+                Authorization = new[] { new HangfireAuthorizationFilter() }
+            });
+
+            app.UseHangfireServer();
 
             // CORS
             //app.UseCors();
@@ -150,6 +188,7 @@ namespace HRM.WebAPI
             {
                 routes.MapRoute(name: "api", template: "api/{controller}/{action?}/{id?}");
             });
+
         }
     }
 }

@@ -9,6 +9,7 @@ import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { FormsModule } from '@angular/forms';
 import { UploadModule } from '@progress/kendo-angular-upload';
+import { CommonModule } from '@angular/common';
 
 const EMPLOYEE_FORM_ROUTE = [
     {
@@ -21,6 +22,7 @@ const EMPLOYEE_FORM_ROUTE = [
     declarations: [EmployeeFormComponent],
     imports: [
         RouterModule.forChild(EMPLOYEE_FORM_ROUTE),
+        CommonModule,
         InputsModule,
         DateInputsModule,
         DropDownsModule,

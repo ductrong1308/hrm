@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AutoMapper;
 using HRM.Application.Infrastructure.Interfaces;
+using HRM.Application.Infrastructure.ViewModel;
 using HRM.Common.Exceptions;
 using HRM.Domain.Base;
-using MediatR;
 
 namespace HRM.Application.Infrastructure
 {
@@ -25,11 +25,11 @@ namespace HRM.Application.Infrastructure
             _repository = unitOfWork.Repository<TEntity>();
         }
 
-        public async Task<BaseListResponse<TViewModel>> ListAsync(BaseListQuery<TViewModel> request, CancellationToken cancellationToken)
+        public async Task<ListResponseViewModel<TViewModel>> ListAsync(BaseListQuery<TViewModel> request, CancellationToken cancellationToken)
         {
             var listResponse = await this._repository.ListAsync(request.State);
 
-            return new BaseListResponse<TViewModel>()
+            return new ListResponseViewModel<TViewModel>()
             {
                 ListCount = listResponse.ListCount,
                 ListResult = this._mapper.Map<List<TViewModel>>(listResponse.ListResult)
@@ -38,6 +38,10 @@ namespace HRM.Application.Infrastructure
 
         public async Task<TViewModel> CreateAsync(BaseCommand<TViewModel> request, CancellationToken cancellationToken)
         {
+            request.ViewModel.CreatedDate = DateTime.UtcNow;
+            request.ViewModel.CreatedUser = "admin";
+            request.ViewModel.Validate();
+
             var entity = _mapper.Map<TEntity>(request.ViewModel);
             if(entity == null)
             {

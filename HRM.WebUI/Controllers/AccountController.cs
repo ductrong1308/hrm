@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 
 namespace HRM.WebUI.Controllers
@@ -22,12 +23,18 @@ namespace HRM.WebUI.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
         private readonly IConfiguration _configuration;
+        private readonly ILogger<AccountController> _logger;
 
-        public AccountController(SignInManager<AppUser> signInManager, UserManager<AppUser> userManager, IConfiguration config)
+        public AccountController(
+            SignInManager<AppUser> signInManager, 
+            UserManager<AppUser> userManager, 
+            IConfiguration config,
+            ILogger<AccountController> logger)
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _configuration = config;
+            _logger = logger;
         }
 
         public IActionResult Login()
@@ -69,7 +76,13 @@ namespace HRM.WebUI.Controllers
                 }
             }
 
+            var errors = ModelState.Select(x => x.Value.Errors)
+                           .Where(y => y.Count > 0)
+                           .ToList();
+
             ModelState.AddModelError("FailedToLogin", HRMResources.FailedToLogin);
+
+            _logger.LogError("Login failed from logger", errors);
 
             return View();
         }
@@ -110,7 +123,7 @@ namespace HRM.WebUI.Controllers
                     token = new JwtSecurityTokenHandler().WriteToken(token),
                     expiration = token.ValidTo
                 };
-
+                _logger.LogError("user is authenticated", null);
                 return Ok(result);
 
             }

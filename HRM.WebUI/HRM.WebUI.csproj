@@ -7,17 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\css\**" />
-    <Compile Remove="wwwroot\js\**" />
-    <Content Remove="wwwroot\css\**" />
-    <Content Remove="wwwroot\js\**" />
-    <EmbeddedResource Remove="wwwroot\css\**" />
-    <EmbeddedResource Remove="wwwroot\js\**" />
-    <None Remove="wwwroot\css\**" />
-    <None Remove="wwwroot\js\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="ClientApp\app\components\base.component.ts" />
     <None Remove="ClientApp\app\helpers\url-serializer.ts" />
   </ItemGroup>
@@ -31,10 +20,6 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
     <PackageReference Include="OdeToCode.UseNodeModules" Version="1.0.6" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\index.html" />
   </ItemGroup>
 
   <ItemGroup>

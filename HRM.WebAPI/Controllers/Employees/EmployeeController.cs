@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Internal;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using HRM.Application.Infrastructure.ViewModel;
+using HRM.Application.Employees.Commands.CreateEmployee;
 
 namespace HRM.WebAPI.Controllers.Employees
 {
@@ -27,15 +29,16 @@ namespace HRM.WebAPI.Controllers.Employees
             _blobStoreProvider = blobStoreProvider;
         }
 
-        public async Task<ActionResult<BaseListResponse<EmployeeViewModel>>> List(string state)
+        public async Task<ActionResult<ListResponseViewModel<EmployeeViewModel>>> List(string state)
         {
             var response = await Mediator.Send(new GetEmployeesListQuery() { State = state });
             return new JsonResult(response);
         }
 
-        public async Task<ActionResult<bool>> Create(EmployeeViewModel newEmployee)
+        public async Task<ActionResult<EmployeeViewModel>> Create(EmployeeViewModel model)
         {
-            return new JsonResult(newEmployee);
+            var response = await Mediator.Send(new CreateEmployeeCommand() { ViewModel = model});
+            return new JsonResult(model);
         }
 
 

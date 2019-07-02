@@ -28,11 +28,11 @@ namespace HRM.WebUI
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+            WebHost.CreateDefaultBuilder(args) // this automatically call UseKestral
                 //.UseKestrel()
-                //.UseContentRoot(Directory.GetCurrentDirectory())
-                //.UseIISIntegration()
-                //.UseApplicationInsights()
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
+                .UseApplicationInsights()
                 .ConfigureAppConfiguration(CustomAppConfiguration)
                 .UseStartup<Startup>()
                 .ConfigureLogging((hostingContext, logging) => {
@@ -70,10 +70,12 @@ namespace HRM.WebUI
             // Current environment
             var environment = context.HostingEnvironment;
 
+            var contentRoot = context.Configuration.GetValue<string>(WebHostDefaults.ContentRootKey);
+
             // Removing default configuration options
             builder.Sources.Clear();
 
-            builder.SetBasePath(environment.ContentRootPath)
+            builder.SetBasePath(contentRoot)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile("customconnectionstring.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"customconnectionstring.{environment.EnvironmentName}.json", optional: true)

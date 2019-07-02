@@ -35,6 +35,12 @@ export class AppUtil {
         return AppData.apiHost + requestedUrl;
     }
 
+    public camelizeStr(str) {
+        return str ? str.replace(/(?:^\w|[A-Z]|\b\w)/g,
+            (letter, index) => index === 0 ? letter.toLowerCase() : letter.toUpperCase())
+            .replace(/\s+/g, '') : '';
+    }
+
     public isNullOrEmpty(data: any) {
         if (typeof (data) === 'string') {
             var formattedData = data.trim();

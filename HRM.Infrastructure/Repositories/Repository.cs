@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using HRM.Application.Infrastructure;
 using HRM.Application.Infrastructure.Interfaces;
+using HRM.Application.Infrastructure.ViewModel;
 using HRM.Domain.Base;
 using HRM.Infrastructure.Models;
 using HRM.Infrastructure.Utilities.QueryExtensions;
@@ -55,7 +56,7 @@ namespace HRM.Infrastructure.Repositories
             return await query.CountAsync();
         }
 
-        public virtual async Task<BaseListResponse<TEntity>> ListAsync(string queryState)
+        public virtual async Task<ListResponseViewModel<TEntity>> ListAsync(string queryState)
         {
             QueryStateModel queryStateModel = new QueryStateModel();
             Expression<Func<TEntity, bool>> filter = null;
@@ -77,7 +78,7 @@ namespace HRM.Infrastructure.Repositories
                 var listResult = await this.ListAsync(queryStateModel.Skip, queryStateModel.Take, filter, orderBy, IncludePropertiesForList);
 
 
-                return new BaseListResponse<TEntity> {
+                return new ListResponseViewModel<TEntity> {
                     ListCount = listCount,
                     ListResult = listResult.ToList()
                 };
