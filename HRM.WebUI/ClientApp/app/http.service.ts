@@ -8,6 +8,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import * as moment from 'moment/moment';
 import { GridDataResult } from '@progress/kendo-angular-grid';
+import { debug } from 'util';
 
 
 @Injectable()
@@ -27,7 +28,18 @@ export class HrmHttpService {
         }
         if (bearerTokenHeaders) {
             let params = new HttpParams();
-            params = params.append('state', JSON.stringify(request.params));
+            var state = JSON.stringify(request.params);
+
+            // For testing. Todo: remove code here
+            if (this.appUtil.isNullOrEmpty(state)) {
+                state = 'trongTest';
+            }
+            // Todo: remove
+
+            params = params.append('state', state);
+            debugger;
+
+
 
             return this.http.get(this.appUtil.getEndPoint(request.url), { params: params, headers: bearerTokenHeaders })
                 .map((response: any) => {

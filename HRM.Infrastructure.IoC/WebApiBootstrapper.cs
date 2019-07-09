@@ -1,4 +1,5 @@
 ﻿using HRM.Application.Infrastructure.Interfaces;
+using HRM.Application.Infrastructure.MongoBaseRequestHandler;
 using HRM.Application.Providers.Azure;
 using HRM.Application.Providers.Azure.Interfaces;
 using HRM.Application.Providers.BlobStorage;
@@ -46,6 +47,11 @@ namespace HRM.Infrastructure.IoC
                 services.AddSingleton<IAzureBlobContext, AzureBlobContext>();
                 services.AddSingleton<IBlobStorage, AzureBlobStorage>();
             }
+
+            // MongoDB
+            //services.AddSingleton<MongoBaseRequestHandler>();
+            services.AddScoped<IMongoBaseRequestHandler, MongoBaseRequestHandler>();
+
         }
     }
 }

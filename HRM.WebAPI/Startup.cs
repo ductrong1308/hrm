@@ -23,6 +23,8 @@ using Microsoft.IdentityModel.Tokens;
 using Hangfire;
 using Hangfire.SqlServer;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 
 namespace HRM.WebAPI
 {
@@ -87,6 +89,18 @@ namespace HRM.WebAPI
             // Identity EntityFramework Core
             services.AddDbContext<HRMIdentityContext>(options => options.UseSqlServer(_appConnectionString));
 
+            // MONGO DB - each repository / service will have to call to connect db when using if using this config
+            //services.Configure<HRMMongoDatabaseSettings>(_configuration.GetSection(nameof(HRMMongoDatabaseSettings)));
+            // TODO: check here
+            //services.AddSingleton<IHRMMongoDatabaseDatabaseSettings>(sp =>
+            //    sp.GetRequiredService<IOptions<HRMMongoDatabaseSettings>>().Value);
+
+            // Globally
+            var mongoClient = new MongoClient(_configuration.GetSection("HRMMongoDatabaseSettings:ConnectionString").Value);
+            var database = mongoClient.GetDatabase(_configuration.GetSection("HRMMongoDatabaseSettings:DatabaseName").Value);
+            services.AddScoped<IMongoDatabase>(_ => database);
+
+
             // HRM Dependency Injection
             services.AddTransient<HRMSeeder>();
 
@@ -144,6 +158,7 @@ namespace HRM.WebAPI
                 //options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                 //options.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
                 //options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                //options.UseMemberCasing();
             }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             // Infrastructure IoC

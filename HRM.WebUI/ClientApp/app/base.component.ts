@@ -43,6 +43,11 @@ export class BaseFormComponent extends BaseComponent implements OnInit {
     ngOnInit() {
         this.service.onLoadingData(false);
         this.isFormInvalid = true;
+
+        this.service.getData('Employee/ListBooks').subscribe(x => {
+            debugger;
+            var data = x;
+        });
     }
 
     uploadEventHandler(e: UploadEvent) {
@@ -158,6 +163,7 @@ export class BaseListComponent extends BaseComponent implements OnInit {
             }
         });
 
+        // Entry point for querying data
         this.service.query(this.service.state);
 
         // this view will receive data as BehaviorSubject emit data.

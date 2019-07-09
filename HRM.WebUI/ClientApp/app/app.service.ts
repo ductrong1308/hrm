@@ -47,7 +47,11 @@ export abstract class HrmListService extends HrmBaseService {
         skip: 0, take: 20
     };
 
-    constructor(communicationService: CommunicationService, public http: HrmHttpService, public apiDataUrl: string, public accessedUrl?: string) {
+    constructor(communicationService: CommunicationService,
+        public http: HrmHttpService,
+        public apiDataUrl: string,
+        public accessedUrl?: string) {
+
         super(communicationService, http);
     }
 
@@ -58,6 +62,7 @@ export abstract class HrmListService extends HrmBaseService {
 
         if (!this.http.appUtil.isNullOrEmpty(queryString)) {
             var url = this.http.appUtil.isNullOrEmpty(this.accessedUrl) ? this.apiDataUrl : this.accessedUrl;
+            // encode querystring
             this.http.appUtil.location.replaceState(url, this.http.appUtil.encodedQueryString(state));
         }
 

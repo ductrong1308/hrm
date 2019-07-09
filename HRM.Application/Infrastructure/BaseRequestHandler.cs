@@ -18,7 +18,7 @@ namespace HRM.Application.Infrastructure
         protected readonly IUnitOfWork _unitOfWork;
         protected readonly IRepository<TEntity> _repository;
 
-        public BaseRequestHandler(IMapper mapper, IUnitOfWork unitOfWork)
+        public BaseRequestHandler(IMapper mapper, IUnitOfWork unitOfWork)   
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;

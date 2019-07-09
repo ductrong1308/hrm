@@ -16,6 +16,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using HRM.Application.Infrastructure.ViewModel;
 using HRM.Application.Employees.Commands.CreateEmployee;
+using HRM.Application.Books.ViewModels;
+using System.Collections.Generic;
+using HRM.Application.Books.Queries;
 
 namespace HRM.WebAPI.Controllers.Employees
 {
@@ -41,6 +44,12 @@ namespace HRM.WebAPI.Controllers.Employees
             return new JsonResult(model);
         }
 
+        // Test with mongodb
+        public async Task<ActionResult<List<BookViewModel>>> ListBooks(string state)
+        {
+            var response = await Mediator.Send(new GetBookListQuery());
+            return new JsonResult(response);
+        }
 
         public async Task<ActionResult> UploadImage(IFormFile files)
         {

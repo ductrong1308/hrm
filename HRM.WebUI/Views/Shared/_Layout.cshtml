@@ -14,37 +14,36 @@
   <title>My HRM</title>
   <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
   <base href="/" />
-  <environment names="Development">
+  <environment names="Development, Staging">
 
   </environment>
 
-  <environment names="QC, Production">
-
+  <environment names="Production">
+    <link rel="stylesheet" href="@Url.Content("~/site.min.css")" asp-append-version="true" />
   </environment>
-  <script type="text/javascript" src="~/styles.js"></script>
-  <script type="text/javascript" src="/styles.js"></script>
-  <script type="text/javascript" src="~/runtime.js"></script>
-  <script type="text/javascript" src="@Url.Content("~/polyfills.js")"></script>
-  <script type="text/javascript" src="@Url.Content("~/styles.js")"></script>
-  <script type="text/javascript" src="@Url.Content("~/vendor.js")"></script>
+
 </head>
 <body>
   <script>
     window.HRMAppData = {};
     var dataJSON = '@(Html.Raw(JsonConvert.SerializeObject(Model, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() })))';
     window.HRMAppData = JSON.parse(dataJSON);
+    console.log(dataJSON);
+    console.log('test');
   </script>
 
-    @RenderBody()
+  @RenderBody()
 
-    <environment names="Development">
-        @*<script type="text/javascript" src="@Url.Content("~/runtime.js")"></script>
-        <script type="text/javascript" src="@Url.Content("~/polyfills.js")"></script>
-        <script type="text/javascript" src="@Url.Content("~/styles.js")"></script>
-        <script type="text/javascript" src="@Url.Content("~/vendor.js")"></script>*@
-    </environment>
-    <environment names="QC, Production"></environment>
+  <environment names="Development, Staging">
+    <script type="text/javascript" src="@Url.Content("~/runtime.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/polyfills.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/styles.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/vendor.js")"></script>
+  </environment>
+  <environment names="Production">
+    <script type="text/javascript" src="@Url.Content("~/site.min.js")"></script>
+  </environment>
 
-    @RenderSection("Scripts", required: false)
+  @RenderSection("Scripts", required: false)
 </body>
 </html>

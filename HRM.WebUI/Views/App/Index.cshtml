@@ -4,7 +4,14 @@
 }
 
 @section Scripts {
-  <script type="text/javascript" src="@Url.Content("~/main.js")"></script>
+  <environment names="Development, Staging">
+    <script type="text/javascript" src="@Url.Content("~/main.js")"></script>
+  </environment>
+
+  <environment names="Production">
+    <script type="text/javascript" src="@Url.Content("~/main.min.js")"></script>
+  </environment>
+
 }
 
 <hrm-app></hrm-app>
