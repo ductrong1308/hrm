@@ -44,9 +44,9 @@ export class BaseFormComponent extends BaseComponent implements OnInit {
         this.service.onLoadingData(false);
         this.isFormInvalid = true;
 
-        this.service.getData('Employee/ListBooks').subscribe(x => {
-            debugger;
-            var data = x;
+        // TODO: remove
+        this.service.getData('Employee/ListBooks').subscribe(response => {
+            console.log(response);
         });
     }
 

@@ -37,13 +37,10 @@ export class HrmHttpService {
             // Todo: remove
 
             params = params.append('state', state);
-            debugger;
-
-
 
             return this.http.get(this.appUtil.getEndPoint(request.url), { params: params, headers: bearerTokenHeaders })
                 .map((response: any) => {
-                    let formattedResponseData = parseResponse(response.listResult);
+                    let formattedResponseData = request.isGridData ? parseResponse(response.listResult) : parseResponse(response);
                     return request.isGridData ? (<GridDataResult>{ data: formattedResponseData, total: response.listCount }) : formattedResponseData;
                 })
                 .catch((error: HttpErrorResponse) => {

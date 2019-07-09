@@ -28,8 +28,6 @@
     window.HRMAppData = {};
     var dataJSON = '@(Html.Raw(JsonConvert.SerializeObject(Model, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() })))';
     window.HRMAppData = JSON.parse(dataJSON);
-    console.log(dataJSON);
-    console.log('test');
   </script>
 
   @RenderBody()
