@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+﻿import { Injectable, OnInit } from '@angular/core';
 import { AppData, AppUtil, HttpClientRequest } from './app.util';
 import { Observable } from 'rxjs';
 import { HttpHeaders, HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
@@ -16,9 +16,6 @@ export class HrmHttpService {
     private unknowErrorMessage: string = '';
 
     constructor(private http: HttpClient, public appUtil: AppUtil) {
-        this.http.get('/account/createToken', {}).subscribe((data: any) => {
-            this.appUtil.cookieService.set('HRMAccessToken', data.token);
-        });;
     }
 
     public doGet(request: HttpClientRequest): Observable<any> {

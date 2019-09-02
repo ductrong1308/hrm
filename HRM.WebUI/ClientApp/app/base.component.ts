@@ -41,13 +41,14 @@ export class BaseFormComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit() {
+        debugger;
         this.service.onLoadingData(false);
         this.isFormInvalid = true;
 
         // TODO: remove
-        this.service.getData('Employee/ListBooks').subscribe(response => {
-            console.log(response);
-        });
+        //this.service.getData('Employee/ListBooks').subscribe(response => {
+        //    console.log(response);
+        //});
     }
 
     uploadEventHandler(e: UploadEvent) {

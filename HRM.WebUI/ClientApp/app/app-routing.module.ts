@@ -9,7 +9,7 @@ const routes: Routes = [
     {
         path: '', data: { title: 'Home' },
         children: [
-            { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+            { path: '', redirectTo: 'employee/list', pathMatch: 'full' },
             { path: 'dashboard', loadChildren: './pages/my-dashboard/my-dashboard.module#MyDashboardModule', data: { title: 'Dashboard' } },
             { path: 'employee/list', loadChildren: './pages/employee/employee-list/employee-list.module#EmployeeListModule', data: { title: 'Employees' } },
             { path: 'employee/form', loadChildren: './pages/employee/employee-form/employee-form.module#EmployeeFormModule', data: { title: 'New Employee' } },

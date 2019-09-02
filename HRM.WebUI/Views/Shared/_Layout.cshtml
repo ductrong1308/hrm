@@ -15,7 +15,7 @@
   <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
   <base href="/" />
   <environment names="Development, Staging">
-
+      <script type="text/javascript" src="@Url.Content("~/styles.js")"></script>
   </environment>
 
   <environment names="Production">
@@ -35,7 +35,7 @@
   <environment names="Development, Staging">
     <script type="text/javascript" src="@Url.Content("~/runtime.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/polyfills.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/styles.js")"></script>
+    @*<script type="text/javascript" src="@Url.Content("~/styles.js")"></script>*@
     <script type="text/javascript" src="@Url.Content("~/vendor.js")"></script>
   </environment>
   <environment names="Production">

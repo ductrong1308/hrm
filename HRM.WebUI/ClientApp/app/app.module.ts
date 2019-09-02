@@ -35,7 +35,7 @@ const LEFT_MENU_ROUTES = {
             ]
         },
         { label: 'COMPANY', separator: true },
-        { label: 'Employees', route: 'employee/list', iconClasses: 'fa fa-exclamation-triangle' }
+        { label: 'Employees', route: 'employee/list', iconClasses: 'fa fa-exclamation-triangle', isActive: true }
     ]
 }; // font awesome
 

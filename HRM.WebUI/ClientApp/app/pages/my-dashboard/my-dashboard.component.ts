@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MyDashboardListService } from './my-dashboard.service';
 import { BaseFormComponent } from 'ClientApp/app/base.component';
 import { AppUtil } from 'ClientApp/app/app.util';
-import { EmployeeFormService } from '../employee/employee.service';
+import { EmployeeFormService, EmployeeListService } from '../employee/employee.service';
 
 @Component({
     selector: 'app-my-dashboard',
@@ -11,7 +11,7 @@ import { EmployeeFormService } from '../employee/employee.service';
 })
 export class MyDashboardComponent extends BaseFormComponent implements OnInit {
 
-    constructor(appUtil: AppUtil, service: EmployeeFormService) {
+    constructor(appUtil: AppUtil, service: MyDashboardListService) {
         super(appUtil, service);
     }
 

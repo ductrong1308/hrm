@@ -21,7 +21,8 @@ export class CommunicationService {
 @Injectable()
 export class HrmBaseService {
 
-    constructor(private communicationService: CommunicationService, public http: HrmHttpService) { }
+    constructor(private communicationService: CommunicationService, public http: HrmHttpService) {
+    }
 
     public getData(url: string, params?: any): Observable<any> {
         return this.http.doGet({ url, params });
