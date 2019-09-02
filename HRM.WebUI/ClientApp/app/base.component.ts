@@ -44,11 +44,6 @@ export class BaseFormComponent extends BaseComponent implements OnInit {
         debugger;
         this.service.onLoadingData(false);
         this.isFormInvalid = true;
-
-        // TODO: remove
-        //this.service.getData('Employee/ListBooks').subscribe(response => {
-        //    console.log(response);
-        //});
     }
 
     uploadEventHandler(e: UploadEvent) {
@@ -169,5 +164,11 @@ export class BaseListComponent extends BaseComponent implements OnInit {
 
         // this view will receive data as BehaviorSubject emit data.
         this.view = this.service.gridResult;
+
+
+        // TODO: remove
+        this.service.getData('Employee/ListBooks').subscribe(response => {
+            console.log(response);
+        });
     }
 }
